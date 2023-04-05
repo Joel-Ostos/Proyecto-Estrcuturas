@@ -18,5 +18,22 @@ public abstract class Usuario {
         // Implementa la lógica para devolver un libro a la biblioteca
         biblioteca.registrarDevolucion(prestamo);
     }
-}
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+    
+    
+}

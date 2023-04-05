@@ -12,7 +12,29 @@ public class Reservacion {
         this.fechaReservacion = fechaReservacion;
     }
 
-    // Getters y setters
-    // ...
-}
+    public Cliente getCliente() {
+        return cliente;
+    }
 
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Libro getLibro() {
+        return libro;
+    }
+
+    public void setLibro(Libro libro) {
+        this.libro = libro;
+    }
+
+    public Date getFechaReservacion() {
+        return fechaReservacion;
+    }
+
+    public void setFechaReservacion(Date fechaReservacion) {
+        this.fechaReservacion = fechaReservacion;
+    }
+    
+    
+}
