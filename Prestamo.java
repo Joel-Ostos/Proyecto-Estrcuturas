@@ -1,8 +1,20 @@
+import java.util.Date;
+
 public class Prestamo {
-    private Libro libro;
     private Cliente cliente;
+    private Libro libro;
     private Date fechaPrestamo;
     private Date fechaDevolucion;
-    // Constructor, getters, setters y otros métodos
+
+    // Constructor
+    public Prestamo(Cliente cliente, Libro libro, Date fechaPrestamo, Date fechaDevolucion) {
+        this.cliente = cliente;
+        this.libro = libro;
+        this.fechaPrestamo = fechaPrestamo;
+        this.fechaDevolucion = fechaDevolucion;
+    }
+
+    // Getters y setters
+    // ...
 }
 
