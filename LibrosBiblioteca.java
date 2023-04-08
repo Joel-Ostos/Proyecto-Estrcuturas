@@ -13,6 +13,16 @@ public class LibrosBiblioteca {
         libro.setEditorial(Editorial);
         libros.add(libro);
     }
+    public void create(String NombreLibro){
+        for(Libro i : libros){
+            if(i.getNombreLibro().equals(NombreLibro)){
+                System.out.println("Libro en la Biblioteca");
+                System.out.println("guardando libro...");
+            }else{
+                System.out.println("Libro no disponible");
+            }
+        }
+    }
 
     public Libro mostrarPorNombre(String NombreLibro) {
         for (Libro libro : libros) {
@@ -30,14 +40,3 @@ public class LibrosBiblioteca {
         }
         return todosLibros;
     }
-
-    public String eliminarLibro(String NombreLibro) {
-        for (Libro l : libros) {
-            if (l.getNombreLibro().equals(NombreLibro)) {
-                libros.remove(l);
-                return NombreLibro;
-            }
-        }
-        return null;
-    }
-}
