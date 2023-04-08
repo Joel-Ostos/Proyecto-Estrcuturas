@@ -1,60 +1,44 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package clases;
+
 public class Libro {
-    private String titulo;
-    private String autor;
-    private String editorial;
-    private String categoria;
-    private int cantidadDisponible;
+    private String NombreLibro;
+    private String Autor;
+    private int CantidadLibros;
+    private String Editorial;
 
-    // Constructor
-    public Libro(String titulo, String autor, String editorial, String categoria, int cantidadDisponible) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.editorial = editorial;
-        this.categoria = categoria;
-        this.cantidadDisponible = cantidadDisponible;
+    // Metodo para obtener y fijar el nombre del libro (getters y setters).
+    public String getNombreLibro() {return NombreLibro;}
+    public void setNombreLibro(String NombreLibro) {
+        this.NombreLibro = NombreLibro;
     }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
+    
+    // Metodo para obtener y fijar autor (getters y setters).
     public String getAutor() {
-        return autor;
+        return Autor;
+    }
+    public void setAutor(String Autor) {
+        this.Autor = Autor;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    // Metodo para obtener y fijar la cantidad de libros (getters y setters).
+    public int getCantidadLibros(){
+      return CantidadLibros;
+    }
+    public void setCantidadLibros(int CantidadLibros){
+      this.CantidadLibros = CantidadLibros;
     }
 
     public String getEditorial() {
-        return editorial;
+        return Editorial;
     }
 
-    public void setEditorial(String editorial) {
-        this.editorial = editorial;
+    public void setEditorial(String Editorial) {
+        this.Editorial = Editorial;
     }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public int getCantidadDisponible() {
-        return cantidadDisponible;
-    }
-
-    public void setCantidadDisponible(int cantidadDisponible) {
-        this.cantidadDisponible = cantidadDisponible;
-    }
-    
     
 }
-
 
