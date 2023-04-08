@@ -1,20 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package clases;
-
 import java.util.LinkedList;
 
 public class Cliente {
     private String nombre;
     private String clave;
-    private LinkedList<Libro> librosPrestados;
-
+    private static LinkedList<Cliente> credencialesClientes = new LinkedList<>();
     public Cliente(String nombre, String clave) {
-        this.nombre = nombre;
-        this.clave = clave;
-        this.librosPrestados = new LinkedList<>();
+        if (credencialesClientes.stream().anyMatch(cliente -> cliente.getNombre().equals(nombre) )) {
+            System.out.println("El cliente ya está en la base de datos");
+        } else {
+            this.nombre = nombre;
+            this.clave = clave;
+            credencialesClientes.add(this);
+        }
     }
 
     public String getNombre() {
@@ -32,21 +30,6 @@ public class Cliente {
     public void setClave(String clave) {
         this.clave = clave;
     }
-
-    public LinkedList<Libro> getLibrosPrestados() {
-        return librosPrestados;
-    }
-
-    public void prestarLibro(Libro libro) {
-        librosPrestados.add(libro);
-    }
-
-    public void devolverLibro(Libro libro) {
-        librosPrestados.remove(libro);
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" + "nombre=" + nombre + ", clave=" + clave + ", librosPrestados=" + librosPrestados + '}';
-    }  
+    
 }
+
