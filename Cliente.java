@@ -1,26 +1,16 @@
-package clases;
 import java.util.LinkedList;
 
 public class Cliente {
     private String nombre;
     private String clave;
-    private LinkedList<Libro> listaLibros = new LinkedList<>();
-    private LinkedList<Cliente> credencialesClientes = new LinkedList<>();
-    public Cliente(String nombre, String clave,LinkedList<Libro> listaLibros) {
+    private LinkedList<String> listaLibros = new LinkedList<>();
+    public Cliente(String nombre, String clave,LinkedList<String> listaLibros) {
         this.nombre = nombre;
         this.clave = clave;
         this.listaLibros = listaLibros;
     }
-    public Cliente(String nombre, String clave) {
-        if (credencialesClientes.stream().anyMatch(cliente -> cliente.getNombre().equals(nombre))) {
-            System.out.println("El cliente ya está en la base de datos");
-        }else {
-            this.nombre = nombre;
-            this.clave = clave;
-            credencialesClientes.add(this);
-        }
+    public Cliente(){
     }
-
     public String getNombre() {
         return nombre;
     }
@@ -36,6 +26,16 @@ public class Cliente {
     public void setClave(String clave) {
         this.clave = clave;
     }
+    public void mostrarLibros(){
+        for(String i : this.listaLibros){
+            System.out.println(i);
+        }
+    }
+    
+    public LinkedList<String> getListaLibros() {
+        return listaLibros;
+    }
+    
     
 }
 

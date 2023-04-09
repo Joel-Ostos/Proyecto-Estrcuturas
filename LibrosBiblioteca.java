@@ -1,4 +1,3 @@
-package clases;
 
 import java.util.LinkedList;
 
@@ -40,3 +39,14 @@ public class LibrosBiblioteca {
         }
         return todosLibros;
     }
+
+    public String eliminarLibro(String NombreLibro) {
+        for (Libro l : libros) {
+            if (l.getNombreLibro().equals(NombreLibro)) {
+                libros.remove(l);
+                return NombreLibro;
+            }
+        }
+        return null;
+    }
+}
