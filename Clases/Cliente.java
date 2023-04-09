@@ -1,19 +1,17 @@
-package Clases;
 import java.util.LinkedList;
 
 public class Cliente {
   private String nombre;
   private String clave;
-  LinkedList<Cliente> credencialesClientes = new LinkedList<>();
+  private LinkedList<String> listaLibros = new LinkedList<>();
 
-  public Cliente(String nombre, String clave){
-    if (credencialesClientes.stream().anyMatch(cliente -> cliente.getNombre().equals(nombre) || cliente.getClave().equals(clave))) {
-      System.out.println("usuario o correo ya están en la base de datos");
-    } else {
-      this.nombre = nombre;
-      this.clave = clave;
-      credencialesClientes.add(this);
-    }
+  public Cliente(String nombre, String clave, LinkedList<String> listaLibros) {
+    this.nombre = nombre;
+    this.clave = clave;
+    this.listaLibros = listaLibros;
+  }
+
+  public Cliente() {
   }
 
   public String getNombre() {
@@ -32,18 +30,4 @@ public class Cliente {
     this.clave = clave;
   }
 
-  public LinkedList<Cliente> getCredencialesClientes() {
-    return credencialesClientes;
-  }
-
-  public void setCredencialesClientes(LinkedList<Cliente> credencialesClientes) {
-    this.credencialesClientes = credencialesClientes;
-  }
-
-  @Override
-  public String toString() {
-    return "Cliente{" + "nombre=" + nombre + ", clave=" + clave + ", credencialesClientes=" + credencialesClientes + '}';
-  }
-
 }
-

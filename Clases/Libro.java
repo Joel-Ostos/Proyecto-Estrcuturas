@@ -1,4 +1,5 @@
 package Clases;
+//es solo una clase para almacenar libros
 public class Libro {
     private String NombreLibro;
     private String Autor;

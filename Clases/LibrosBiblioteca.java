@@ -1,4 +1,6 @@
 package Clases;
+//Este es el almacen, aca esta el inventario
+
 import java.util.LinkedList;
 
 public class LibrosBiblioteca {
