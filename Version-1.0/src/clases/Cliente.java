@@ -1,19 +1,17 @@
+package clases;
 import java.util.LinkedList;
 
 public class Cliente {
   private String nombre;
   private String clave;
   private LinkedList<String> listaLibros = new LinkedList<>();
-
-  public Cliente(String nombre, String clave, LinkedList<String> listaLibros) {
+  public Cliente(String nombre, String clave,LinkedList<String> listaLibros) {
     this.nombre = nombre;
     this.clave = clave;
     this.listaLibros = listaLibros;
   }
-
-  public Cliente() {
+  public Cliente(){
   }
-
   public String getNombre() {
     return nombre;
   }
@@ -29,5 +27,16 @@ public class Cliente {
   public void setClave(String clave) {
     this.clave = clave;
   }
+  public void mostrarLibros(){
+    for(String i : this.listaLibros){
+      System.out.println(i);
+    }
+  }
+
+  public LinkedList<String> getListaLibros() {
+    return listaLibros;
+  }
+
 
 }
+
