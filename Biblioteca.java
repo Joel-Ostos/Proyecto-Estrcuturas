@@ -2,7 +2,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
 import Clases;
-
 public class Biblioteca {
 
     public static void main(String[] args) {
@@ -158,3 +157,21 @@ public class Biblioteca {
         }
     }
 }
+
+
+/*
+ * libros.create("Introduction to set theory","Jech",10,"Norma" );
+ * libros.create("Akelarre", "Jorge Isaac",12,"Planeta");
+ * libros.create("100 anos de Soledad", "Gabriel Garcia Marquez",10,"Penguin");
+ * 
+ * // LibrosNombre muestra todos los nombres de los libros
+ * System.out.println("Consulta de libro por nombre: (100 años de soledad)");
+ * System.out.println(libros.MostrarPorNombre("100 anos de Soledad").
+ * getNombreLibro());
+ * System.out.println("Mostrar todo los libros en el inventario");
+ * System.out.println(libros.MostrarTodos());
+ * System.out.println("Mostrar Libro que se eliminó");
+ * System.out.println(libros.EliminarLibro("Física"));
+ * System.out.println("Mostrar todo los libros en el inventario");
+ * System.out.println(libros.MostrarTodos());
+ */
