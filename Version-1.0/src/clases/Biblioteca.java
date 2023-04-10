@@ -53,8 +53,8 @@ public class Biblioteca {
 		scanner.nextLine();
 		System.out.println("Ingresa el nombre de la editorial: ");
 		String editorial = scanner.nextLine();
-
-		libros.create(nombreLibro, nombreAutor, unidades, editorial);
+for (int i = 0; i < unidades; i++){
+		libros.create(nombreLibro, nombreAutor,1, editorial);}
 		System.out.println("Libro agregado.");
 		break;
 	      case 2:
@@ -119,6 +119,7 @@ public class Biblioteca {
 
 	      if (libroEncontrado != null && libroEncontrado.getCantidadLibros() > 0) {
 		cliente.getListaLibros().add(libro);
+  libros.eliminarLibro(libro);
 		libroEncontrado.setCantidadLibros(libroEncontrado.getCantidadLibros() - 1);
 		System.out.println("Libro prestado con éxito.");
 	      } else {
