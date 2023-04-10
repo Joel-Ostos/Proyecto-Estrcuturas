@@ -1,9 +1,11 @@
 package clases;
 
-import java.util.LinkedList;
+import java.util.*;
 
 public class LibrosBiblioteca {
     LinkedList<Libro> libros = new LinkedList<>();
+    Queue<Libro>Cola = new LinkedList<>();
+    
 
     public void create(String NombreLibro, String Autor, int CantidadLibros, String Editorial) {
         Libro libro = new Libro();
@@ -19,7 +21,8 @@ public class LibrosBiblioteca {
                 System.out.println("Libro en la Biblioteca");
                 System.out.println("guardando libro...");
             }else{
-                System.out.println("Libro no disponible");
+                System.out.println("Libro no disponible\nagregando a la cola...");
+                Cola.add(i);
             }
         }
     }
