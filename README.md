@@ -2,7 +2,7 @@
 
 En el siguiente video encontrará la manera en la que se puede ejecutar el programa, de dos maneras diferentes.
 
-1. Por consola. [[]]
+1. Por consola. [[https://www.loom.com/share/7da1ab127cdb4070859c823b3635d7e0]]
 2. Por NetBeans. [[]]
 
 Dependiendo de la versión del programa que desee ejecutar, deberá cambiar de rama.
