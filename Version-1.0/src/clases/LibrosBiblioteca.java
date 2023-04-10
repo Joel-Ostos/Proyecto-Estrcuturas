@@ -9,7 +9,6 @@ public class LibrosBiblioteca {
         Libro libro = new Libro();
         libro.setNombreLibro(NombreLibro);
         libro.setAutor(Autor);
-        libro.setCantidadLibros(CantidadLibros);
         libro.setEditorial(Editorial);
         libros.add(libro);
     }
@@ -32,6 +31,14 @@ public class LibrosBiblioteca {
         }
         return null;
     }
+    public Libro MostrarPorAutor(String Autor){
+    for (Libro libro : libros) {
+      if (libro.getAutor() == Autor)
+	return libro;
+    }
+    return null;
+  }
+
 
     public LinkedList<String> mostrarTodos() {
         LinkedList<String> todosLibros = new LinkedList<>();
@@ -39,6 +46,17 @@ public class LibrosBiblioteca {
             todosLibros.add(libro.getNombreLibro());
         }
         return todosLibros;
+    }
+
+    int CantLibros = 0;
+
+    public int CantidadLibros(String NombreLibro){
+      for (Libro l :libros){
+	if (l.getNombreLibro().equals(NombreLibro)){
+	  CantLibros += 1;
+	}
+      }
+      return CantLibros;
     }
 
     public String eliminarLibro(String NombreLibro) {

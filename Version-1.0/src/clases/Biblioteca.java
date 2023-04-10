@@ -36,8 +36,9 @@ public class Biblioteca {
 	    System.out.println("1. Agregar libro");
 	    System.out.println("2. Eliminar libro");
 	    System.out.println("3. Mostrar todos los libros");
-	    System.out.println("4. Volver al menú principal");
-	    System.out.println("5. Salir");
+	    System.out.println("4. Mostrar cantidad de unidades de un libro");
+	    System.out.println("5. Volver al menú principal");
+	    System.out.println("6. Salir");
 
 	    int opcion = scanner.nextInt();
 	    scanner.nextLine();
@@ -53,8 +54,8 @@ public class Biblioteca {
 		scanner.nextLine();
 		System.out.println("Ingresa el nombre de la editorial: ");
 		String editorial = scanner.nextLine();
-for (int i = 0; i < unidades; i++){
-		libros.create(nombreLibro, nombreAutor,1, editorial);}
+		for (int i = 0; i < unidades; i++){
+		  libros.create(nombreLibro, nombreAutor,1, editorial);}
 		System.out.println("Libro agregado.");
 		break;
 	      case 2:
@@ -71,9 +72,15 @@ for (int i = 0; i < unidades; i++){
 		System.out.println(libros.mostrarTodos());
 		break;
 	      case 4:
+		System.out.println("Cual es el nombre del titulo que desea consultar?");
+		String NombreLibro= scanner.nextLine();
+		System.out.println(libros.CantidadLibros(NombreLibro));
+		break;
+
+	      case 5:
 		System.out.println("Volviendo al menú principal...");
 		break;
-	      case 5:
+	      case 6:
 		System.out.println("Saliendo...");
 		System.exit(0);
 	      default:
@@ -117,10 +124,9 @@ for (int i = 0; i < unidades; i++){
 	      String libro = scanner.nextLine();
 	      Libro libroEncontrado = libros.mostrarPorNombre(libro);
 
-	      if (libroEncontrado != null && libroEncontrado.getCantidadLibros() > 0) {
+	      if (libroEncontrado != null) {
 		cliente.getListaLibros().add(libro);
-  libros.eliminarLibro(libro);
-		libroEncontrado.setCantidadLibros(libroEncontrado.getCantidadLibros() - 1);
+		libros.eliminarLibro(libro);
 		System.out.println("Libro prestado con éxito.");
 	      } else {
 		System.out.println("No se encontró el libro o no hay unidades disponibles.");
@@ -135,10 +141,14 @@ for (int i = 0; i < unidades; i++){
 	    case 3:
 	      System.out.println("Ingrese el nombre del libro que desea devolver: ");
 	      String libroDevolver = scanner.nextLine();
+	      System.out.println("Ingrese el nombre del autor del libro: ");
+	      String autorDevolver = scanner.nextLine();
+	      System.out.println("Ingrese el nombre de la editorial: ");
+	      String editorialDevolver = scanner.nextLine();
+	      System.out.println("Ingrese el nombre del libro que desea devolver: ");
 	      if (cliente.getListaLibros().remove(libroDevolver)) {
-		Libro libroDevuelto = libros.mostrarPorNombre(libroDevolver);
-		libroDevuelto.setCantidadLibros(libroDevuelto.getCantidadLibros() + 1);
 		System.out.println("Libro devuelto con éxito.");
+		libros.create(libroDevolver, autorDevolver, 1, editorialDevolver);
 	      } else {
 		System.out.println("No se encontró el libro en su lista de libros prestados.");
 	      }
