@@ -7,9 +7,9 @@ public class Biblioteca {
       // Función para la creación de libro
       libros.create("1","2",i,"editorial");
       // Función para mostrar un libro
-      libros.mostrarPorNombre("1");
+      // libros.mostrarPorNombre("1");
       // Función para modificación del nombre del libro
-      libros.ModificarNombre("1","2");
+      // libros.ModificarNombre("1","2");
       // Función para eliminar libro
       libros.eliminarLibro("1");
     }
