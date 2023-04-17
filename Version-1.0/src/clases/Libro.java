@@ -20,14 +20,6 @@ public class Libro {
         this.Autor = Autor;
     }
 
-    // Metodo para obtener y fijar la cantidad de libros (getters y setters).
-    public int getCantidadLibros(){
-      return CantidadLibros;
-    }
-    public void setCantidadLibros(int CantidadLibros){
-      this.CantidadLibros = CantidadLibros;
-    }
-
     public String getEditorial() {
         return Editorial;
     }
