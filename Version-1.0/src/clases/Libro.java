@@ -27,6 +27,14 @@ public class Libro {
     public void setEditorial(String Editorial) {
         this.Editorial = Editorial;
     }
+
+    public void setCantidadLibros(int CantidadLibros){
+      this.CantidadLibros = CantidadLibros;
+    }
+
+    public int getCantidadLibros(){
+      return CantidadLibros;
+    }
     
 }
 

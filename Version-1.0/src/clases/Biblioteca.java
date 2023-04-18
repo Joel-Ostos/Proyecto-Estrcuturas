@@ -1,9 +1,11 @@
 package clases;
+
+import java.util.*;
 public class Biblioteca {
 
   public static void main(String[] args) {
     LibrosBiblioteca libros = new LibrosBiblioteca();
-
+    Scanner scanner = new Scanner(System.in);
     while (true) {
       System.out.println("¿Qué tipo de usuario eres?");
       System.out.println("1. Bibliotecario");
