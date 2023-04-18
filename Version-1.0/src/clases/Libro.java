@@ -5,6 +5,13 @@ public class Libro {
 	private String Autor;
 	private int CantLibros;
 	private String Editorial;
+	
+	public Libro(String NombreLibro, String Autor, int CantLibros, String Editorial){
+	  this.NombreLibro = NombreLibro;
+	  this.Autor = Autor;
+	  this.CantLibros = CantLibros;
+	  this.Editorial = Editorial;
+	}
 
 	// Metodo para obtener y fijar el nombre del libro (getters y setters).
 	public String getNombreLibro() {
