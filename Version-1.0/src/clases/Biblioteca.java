@@ -1,17 +1,7 @@
 package clases;
-
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Scanner;
-
 public class Biblioteca {
 
   public static void main(String[] args) {
-    HashMap<String, String> credencialesBibliotecario = new HashMap<>();
-    credencialesBibliotecario.put("Pablo", "12345678");
-    HashMap<String, Cliente> clientes = new HashMap<>();
-    Scanner scanner = new Scanner(System.in);
-
     LibrosBiblioteca libros = new LibrosBiblioteca();
 
     while (true) {
