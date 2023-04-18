@@ -6,23 +6,17 @@ import java.util.Scanner;
 
 public class Biblioteca {
 
-  public static void main(String[] args) {
-    HashMap<String, String> credencialesBibliotecario = new HashMap<>();
-    credencialesBibliotecario.put("Pablo", "12345678");
-    HashMap<String, Cliente> clientes = new HashMap<>();
-    Scanner scanner = new Scanner(System.in);
+  Biblioteca libros = new LibrosBiblioteca();
 
-    LibrosBiblioteca libros = new LibrosBiblioteca();
-
-    while (true) {
       System.out.println("¿Qué tipo de usuario eres?");
       System.out.println("1. Bibliotecario");
       System.out.println("2. Cliente");
+      if (tipoUsuario == 1) {
 
       int tipoUsuario = scanner.nextInt();
       scanner.nextLine();
+      while (true) {
 
-      if (tipoUsuario == 1) {
 	System.out.println("Ingresa tu nombre: ");
 	String nombre = scanner.nextLine();
 	System.out.println("Ingresa tu clave: ");
