@@ -4,12 +4,10 @@ import java.util.LinkedList;
 import java.util.ArrayList;
 public class LibrosBiblioteca {
   LinkedList<Libro> libros = new LinkedList<>();
-  // ArrayList<Libro> libros = new ArrayList<Libro>();
   public void create(String NombreLibro, String Autor, int CantidadLibros, String Editorial) {
     Libro libro = new Libro();
     libro.setNombreLibro(NombreLibro);
     libro.setAutor(Autor);
-    libro.setCantidadLibros(CantidadLibros);
     libro.setEditorial(Editorial);
     libros.add(libro);
   }
@@ -61,5 +59,14 @@ public class LibrosBiblioteca {
     String Nombre = MostrarPorAutor(Autor).getAutor();
     MostrarPorAutor(Autor).setNombreLibro(NuevoNombreLibro);
     return Nombre;
+  }
+  int nLibros = 0;
+  public int CantidadLibros(String NombreLibro){
+    for (Libro l : libros){
+      if (l.getNombreLibro().equals(NombreLibro)){
+	nLibros += 1;
+      }
+    }
+    return nLibros;
   }
 }

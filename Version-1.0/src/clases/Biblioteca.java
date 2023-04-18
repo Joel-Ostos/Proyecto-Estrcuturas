@@ -1,11 +1,19 @@
 package clases;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Scanner;
+
 public class Biblioteca {
 
   public static void main(String[] args) {
-    LibrosBiblioteca libros = new LibrosBiblioteca();
+    HashMap<String, String> credencialesBibliotecario = new HashMap<>();
+    credencialesBibliotecario.put("Pablo", "12345678");
+    HashMap<String, Cliente> clientes = new HashMap<>();
     Scanner scanner = new Scanner(System.in);
+
+    LibrosBiblioteca libros = new LibrosBiblioteca();
+
     while (true) {
       System.out.println("¿Qué tipo de usuario eres?");
       System.out.println("1. Bibliotecario");
@@ -65,7 +73,7 @@ public class Biblioteca {
 		break;
 	      case 4:
 		System.out.println("Cual es el nombre del titulo que desea consultar?");
-		String NombreLibro= scanner.nextLine();
+		String NombreLibro = scanner.nextLine();
 		System.out.println(libros.CantidadLibros(NombreLibro));
 		break;
 

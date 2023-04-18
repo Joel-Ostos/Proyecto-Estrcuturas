@@ -1,41 +1,35 @@
 package clases;
 
 public class Libro {
-    private String NombreLibro;
-    private String Autor;
-    private int CantidadLibros;
-    private String Editorial;
+	private String NombreLibro;
+	private String Autor;
+	private int CantLibros;
+	private String Editorial;
 
-    // Metodo para obtener y fijar el nombre del libro (getters y setters).
-    public String getNombreLibro() {return NombreLibro;}
-    public void setNombreLibro(String NombreLibro) {
-        this.NombreLibro = NombreLibro;
-    }
-    
-    // Metodo para obtener y fijar autor (getters y setters).
-    public String getAutor() {
-        return Autor;
-    }
-    public void setAutor(String Autor) {
-        this.Autor = Autor;
-    }
+	// Metodo para obtener y fijar el nombre del libro (getters y setters).
+	public String getNombreLibro() {
+		return NombreLibro;
+	}
 
-    public String getEditorial() {
-        return Editorial;
-    }
+	public void setNombreLibro(String NombreLibro) {
+		this.NombreLibro = NombreLibro;
+	}
 
-    public void setEditorial(String Editorial) {
-        this.Editorial = Editorial;
-    }
+	// Metodo para obtener y fijar autor (getters y setters).
+	public String getAutor() {
+		return Autor;
+	}
 
-    public void setCantidadLibros(int CantidadLibros){
-      this.CantidadLibros = CantidadLibros;
-    }
+	public void setAutor(String Autor) {
+		this.Autor = Autor;
+	}
 
-    public int getCantidadLibros(){
-      return CantidadLibros;
-    }
-    
+	public String getEditorial() {
+		return Editorial;
+	}
+
+	public void setEditorial(String Editorial) {
+		this.Editorial = Editorial;
+	}
+
 }
-
-
