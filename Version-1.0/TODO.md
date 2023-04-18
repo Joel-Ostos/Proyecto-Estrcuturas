@@ -2,4 +2,5 @@
     [] Implementar cola
     [] Interfaz grafica
     [] Solucionar problema de getCantidadLibros
-    []implementar árbol para búsqueda de libros
+    [] Implementar árbol para búsqueda de libros
+    [] Implementar constructor en clase Libro
