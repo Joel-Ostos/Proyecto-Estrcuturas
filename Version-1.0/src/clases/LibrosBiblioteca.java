@@ -2,13 +2,11 @@ package clases;
 
 import java.util.LinkedList;
 import java.util.ArrayList;
+
 public class LibrosBiblioteca {
   LinkedList<Libro> libros = new LinkedList<>();
   public void create(String NombreLibro, String Autor, int CantidadLibros, String Editorial) {
-    Libro libro = new Libro();
-    libro.setNombreLibro(NombreLibro);
-    libro.setAutor(Autor);
-    libro.setEditorial(Editorial);
+    Libro libro = new Libro(NombreLibro, Autor,CantidadLibros, Editorial);
     libros.add(libro);
   }
   public void create(String NombreLibro){
