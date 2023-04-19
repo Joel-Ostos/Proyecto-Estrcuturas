@@ -9,17 +9,7 @@ public class LibrosBiblioteca {
     Libro libro = new Libro(NombreLibro, Autor,CantidadLibros, Editorial);
     libros.add(libro);
   }
-  public void create(String NombreLibro){
-    for(Libro i : libros){
-      if(i.getNombreLibro().equals(NombreLibro)){
-	System.out.println("Libro en la Biblioteca");
-	System.out.println("guardando libro...");
-      }else{
-	System.out.println("Libro no disponible");
-      }
-    }
-  }
-
+  
   public Libro mostrarPorNombre(String NombreLibro) {
     for (Libro libro : libros) {
       if (libro.getNombreLibro().equals(NombreLibro)) {
