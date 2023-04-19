@@ -13,8 +13,8 @@ public class Biblioteca {
       System.out.println("2. Cliente");
       if (tipoUsuario == 1) {
 
+	scanner.nextLine();
       int tipoUsuario = scanner.nextInt();
-      scanner.nextLine();
       while (true) {
 
 	System.out.println("Ingresa tu nombre: ");
