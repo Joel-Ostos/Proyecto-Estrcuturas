@@ -3,6 +3,8 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.TreeSet;
 
+import com.sun.source.tree.Tree;
+
 public class LibrosBiblioteca {
   private TreeSet<Libro> libros;
 
@@ -10,8 +12,8 @@ public class LibrosBiblioteca {
     libros = new TreeSet<>(Comparator.comparing(Libro::getNombre));
   }
 
-  public void create(String nombre, String autor, int cantidad, String editorial) {
-    Libro libro = new Libro(nombre, autor, cantidad, editorial);
+  public void create(String nombre, String autor, int cantidad, String editorial, String categoria ) {
+    Libro libro = new Libro(nombre, autor, cantidad, editorial, categoria);
     libros.add(libro);
   }
 
@@ -24,14 +26,40 @@ public class LibrosBiblioteca {
     return null;
   }
 
-  public LinkedList<Libro> mostrarPorAutor(String autor) {
-    LinkedList<Libro> librosPorAutor = new LinkedList<>();
+  public TreeSet<Libro> mostrarPorAutor(String autor) {
+    TreeSet<Libro> librosPorAutor = new LinkedList<>();
     for (Libro libro : libros) {
       if (libro.getAutor().equals(autor)) {
 	librosPorAutor.add(libro);
       }
     }
     return librosPorAutor;
+  }
+  public TreeSet<Libro> mostrarPorAutorYEditorial(String autor, String nombreLibro) {
+    TreeSet<Libro> librosPorAutorYEditorial = new LinkedList<>();
+    for (Libro libro : libros) {
+      if (libro.getAutor().equals(autor) && libro.getEditorial().equals(nombreLibro)) {
+	librosPorAutorYEditorial.add(libro);
+      }
+    }
+    return librosPorAutorYLibro;
+  }
+
+  public TreeSet<Libro> mostrarPorAutorYCategoria(String autor, String categoria){
+    TreeSet<Libro> librosPorAutorYCategoria = new LinkedList<>();
+    for (Libro l : libros){
+      if ( l.getAutor().equals(autor) && l.getCategoria().equals(categoria)){
+	librosPorAutorYCategoria.add(l);
+      }
+    }
+    return librosPorAutorYCategoria;
+  }
+  public TreeSet<Libro> mostrarTodos(){
+    TreeSet<Libro> librosTodo = new LinkedList<>();
+    for(Libro libro : libros){
+      librosTodo.add(libro);
+    }
+    return librosTodo;
   }
 
   public boolean actualizarLibro(String nombre, String nuevoNombre, String nuevoAutor, String nuevaEditorial, String nuevaCategoria) {
@@ -55,22 +83,7 @@ public class LibrosBiblioteca {
     return null;
   }
 
-  public LinkedList<Libro> mostrarPorAutorYLibro(String autor, String nombreLibro) {
-    LinkedList<Libro> librosPorAutorYLibro = new LinkedList<>();
-    for (Libro libro : libros) {
-      if (libro.getAutor().equals(autor) && libro.getNombre().equals(nombreLibro)) {
-	librosPorAutorYLibro.add(libro);
-      }
-    }
-    return librosPorAutorYLibro;
-  }
-  public LinkedList<Libro> mostrarTodos(){
-    LinkedList<Libro> librosTodo = new LinkedList<>();
-    for(Libro libro : libros){
-      librosTodo.add(libro);
-    }
-    return librosTodo;
-  }
+
   int nLibros = 0;
   public int CantidadLibros(String NombreLibro){
     for (Libro l : libros){
@@ -81,5 +94,4 @@ public class LibrosBiblioteca {
     return nLibros;
   }
 
-  // Otros métodos de la clase LibrosBiblioteca
 }
