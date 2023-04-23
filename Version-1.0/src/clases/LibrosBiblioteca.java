@@ -27,7 +27,7 @@ public class LibrosBiblioteca {
   }
 
   public TreeSet<Libro> mostrarPorAutor(String autor) {
-    TreeSet<Libro> librosPorAutor = new LinkedList<>();
+    TreeSet<Libro> librosPorAutor = new TreeSet<>();
     for (Libro libro : libros) {
       if (libro.getAutor().equals(autor)) {
 	librosPorAutor.add(libro);
@@ -36,17 +36,17 @@ public class LibrosBiblioteca {
     return librosPorAutor;
   }
   public TreeSet<Libro> mostrarPorAutorYEditorial(String autor, String nombreLibro) {
-    TreeSet<Libro> librosPorAutorYEditorial = new LinkedList<>();
+    TreeSet<Libro> librosPorAutorYEditorial = new TreeSet<>();
     for (Libro libro : libros) {
       if (libro.getAutor().equals(autor) && libro.getEditorial().equals(nombreLibro)) {
 	librosPorAutorYEditorial.add(libro);
       }
     }
-    return librosPorAutorYLibro;
+    return librosPorAutorYEditorial;
   }
 
   public TreeSet<Libro> mostrarPorAutorYCategoria(String autor, String categoria){
-    TreeSet<Libro> librosPorAutorYCategoria = new LinkedList<>();
+    TreeSet<Libro> librosPorAutorYCategoria = new TreeSet<>();
     for (Libro l : libros){
       if ( l.getAutor().equals(autor) && l.getCategoria().equals(categoria)){
 	librosPorAutorYCategoria.add(l);
@@ -55,7 +55,7 @@ public class LibrosBiblioteca {
     return librosPorAutorYCategoria;
   }
   public TreeSet<Libro> mostrarTodos(){
-    TreeSet<Libro> librosTodo = new LinkedList<>();
+    TreeSet<Libro> librosTodo = new TreeSet<>();
     for(Libro libro : libros){
       librosTodo.add(libro);
     }
@@ -87,7 +87,7 @@ public class LibrosBiblioteca {
   int nLibros = 0;
   public int CantidadLibros(String NombreLibro){
     for (Libro l : libros){
-      if (l.getNombreLibro().equals(NombreLibro)){
+      if (l.getNombre().equals(NombreLibro)){
 	nLibros += 1;
       }
     }
