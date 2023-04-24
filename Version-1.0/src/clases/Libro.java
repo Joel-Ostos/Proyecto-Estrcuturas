@@ -1,42 +1,62 @@
 package clases;
 
 public class Libro {
-	private String NombreLibro;
-	private String Autor;
-	private int CantLibros;
-	private String Editorial;
-	
-	public Libro(String NombreLibro, String Autor, int CantLibros, String Editorial){
-	  this.NombreLibro = NombreLibro;
-	  this.Autor = Autor;
-	  this.CantLibros = CantLibros;
-	  this.Editorial = Editorial;
-	}
+    private String nombre;
+    private String autor;
+    private int cantidad;
+    private String editorial;
+    private String categoria;
 
-	// Metodo para obtener y fijar el nombre del libro (getters y setters).
-	public String getNombreLibro() {
-		return NombreLibro;
-	}
+    public Libro(String nombre, String autor, int cantidad, String editorial, String categoria) {
+        this.nombre = nombre;
+        this.autor = autor;
+        this.cantidad = cantidad;
+        this.editorial = editorial;
+        this.categoria = categoria;
+    }
 
-	public void setNombreLibro(String NombreLibro) {
-		this.NombreLibro = NombreLibro;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	// Metodo para obtener y fijar autor (getters y setters).
-	public String getAutor() {
-		return Autor;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setAutor(String Autor) {
-		this.Autor = Autor;
-	}
+    public String getAutor() {
+        return autor;
+    }
 
-	public String getEditorial() {
-		return Editorial;
-	}
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
 
-	public void setEditorial(String Editorial) {
-		this.Editorial = Editorial;
-	}
+    public int getCantidad() {
+        return cantidad;
+    }
 
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getEditorial() {
+        return editorial;
+    }
+
+    public void setEditorial(String editorial) {
+        this.editorial = editorial;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    @Override
+    public String toString() {
+        return "Libro{" + "nombre=" + nombre + ", autor=" + autor + ", cantidad=" + cantidad + ", editorial=" + editorial + ", categoria=" + categoria + '}';
+    }
 }
