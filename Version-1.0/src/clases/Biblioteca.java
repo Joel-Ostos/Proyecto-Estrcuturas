@@ -15,7 +15,7 @@ public class Biblioteca {
     LibrosBiblioteca libros = new LibrosBiblioteca();
 
     while (true) {
-      System.out.println("¿Qué tipo de usuario eres?");
+      System.out.println("Que tipo de usuario eres?");
       System.out.println("1. Bibliotecario");
       System.out.println("2. Cliente");
 
@@ -32,11 +32,11 @@ public class Biblioteca {
 	  System.out.println("No eres un bibliotecario autorizado.");
 	} else {
 	  while (true) {
-	    System.out.println("¿Qué deseas hacer?");
+	    System.out.println("Que deseas hacer?");
 	    System.out.println("1. Agregar libro");
 	    System.out.println("2. Eliminar libro");
 	    System.out.println("3. Mostrar todos los libros");
-	    System.out.println("4. Volver al menú principal");
+	    System.out.println("4. Volver al menu principal");
 	    System.out.println("5. Salir");
 
 	    int opcion = scanner.nextInt();
@@ -66,7 +66,7 @@ public class Biblioteca {
 		if (libros.eliminarLibro(nombreLibroEliminar) != null) {
 		  System.out.println("Libro eliminado.");
 		} else {
-		  System.out.println("No se encontró el libro especificado.");
+		  System.out.println("No se encontro el libro especificado.");
 		}
 		break;
 	      case 3:
@@ -74,13 +74,13 @@ public class Biblioteca {
 		System.out.println(libros.mostrarTodos());
 		break;
 	      case 4:
-		System.out.println("Volviendo al menú principal...");
+		System.out.println("Volviendo al menu principal...");
 		break;
 	      case 5:
 		System.out.println("Saliendo...");
 		System.exit(0);
 	      default:
-		System.out.println("Opción no válida.");
+		System.out.println("Opcion no valida.");
 	    }
 	    if (opcion == 4) {
 	      break;
@@ -103,11 +103,11 @@ public class Biblioteca {
 	}
 
 	while (true) {
-	  System.out.println("¿Qué quieres hacer?");
-	  System.out.println("1. Solicitar préstamo de libro");
+	  System.out.println("Que quieres hacer?");
+	  System.out.println("1. Solicitar prestamo de libro");
 	  System.out.println("2. Ver libros prestados");
 	  System.out.println("3. Devolver libro");
-	  System.out.println("4. Volver al menú principal");
+	  System.out.println("4. Volver al menu principal");
 	  System.out.println("5. Salir");
 
 	  int opcion = scanner.nextInt();
@@ -124,9 +124,9 @@ public class Biblioteca {
 	      if (libroEncontrado != null) {
 		cliente.getListaLibros().add(libro);
 		libros.eliminarLibro(libro);
-		System.out.println("Libro prestado con éxito.");
+		System.out.println("Libro prestado con exito.");
 	      } else {
-		System.out.println("No se encontró el libro o no hay unidades disponibles.");
+		System.out.println("No se encontro el libro o no hay unidades disponibles.");
 	      }
 	      break;
 	    case 2:
@@ -142,21 +142,23 @@ public class Biblioteca {
 	      String autorDevolver = scanner.nextLine();
 	      System.out.println("Ingrese el nombre de la editorial: ");
 	      String editorialDevolver = scanner.nextLine();
+	      System.out.println("Ingrese a que categoria pertenece el libro: ");
+	      String categoriaDevolver = scanner.nextLine();
 	      if (cliente.getListaLibros().remove(libroDevolver)) {
-		System.out.println("Libro devuelto con éxito.");
-		libros.create(libroDevolver, autorDevolver, 1 , editorialDevolver);
+		System.out.println("Libro devuelto con exito.");
+		libros.create(libroDevolver, autorDevolver, 1 , editorialDevolver, categoriaDevolver);
 	      } else {
-		System.out.println("No se encontró el libro en su lista de libros prestados.");
+		System.out.println("No se encontro el libro en su lista de libros prestados.");
 	      }
 	      break;
 	    case 4:
-	      System.out.println("Volviendo al menú principal...");
+	      System.out.println("Volviendo al menu principal...");
 	      break;
 	    case 5:
 	      System.out.println("Saliendo...");
 	      System.exit(0);
 	    default:
-	      System.out.println("Opción no válida.");
+	      System.out.println("Opcion no valida.");
 	  }
 	  if (opcion == 4) {
 	    break;
