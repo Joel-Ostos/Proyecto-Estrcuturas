@@ -34,7 +34,7 @@ public class LibrosBiblioteca {
             if (libro.getAutor().equals(autor)) {
                 librosPorAutor.add(libro);
             }else {
-                System.out.println("El libro no está en la biblioteca");
+                System.out.println("El libro no esta en la biblioteca");
             }
         }
         return librosPorAutor;
@@ -46,7 +46,7 @@ public class LibrosBiblioteca {
             if (libro.getAutor().equals(autor) && libro.getEditorial().equals(nombreLibro)) {
                 librosPorAutorYEditorial.add(libro);
             }else {
-                System.out.println("El libro no está en la biblioteca");
+                System.out.println("El libro no esta en la biblioteca");
             }
         }
         return librosPorAutorYEditorial;
@@ -58,7 +58,7 @@ public class LibrosBiblioteca {
             if (l.getAutor().equals(autor) && l.getCategoria().equals(categoria)) {
                 librosPorAutorYCategoria.add(l);
             }else {
-                System.out.println("El libro no está en la biblioteca");
+                System.out.println("El libro no esta en la biblioteca");
             }
         }
         return librosPorAutorYCategoria;
@@ -67,9 +67,9 @@ public class LibrosBiblioteca {
     public TreeSet<Libro> mostrarTodos() {
        TreeSet<Libro> librosTodos = new TreeSet<>();
         for (Libro libro : libros) {
-            librosTodo.add(libro);
+            librosTodos.add(libro);
         }
-        return librosTodo;
+        return librosTodos;
     }
 
     public boolean actualizarLibro(String nombre, String nuevoNombre, String nuevoAutor, String nuevaEditorial, String nuevaCategoria) {
