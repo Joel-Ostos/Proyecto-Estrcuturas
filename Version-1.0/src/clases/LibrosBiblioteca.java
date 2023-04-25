@@ -1,4 +1,5 @@
 package clases;
+
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -10,13 +11,19 @@ public class LibrosBiblioteca {
     private Queue<Reserva> reservas;
 
     public LibrosBiblioteca() {
-        libros = new TreeSet<>(Comparator.comparing(Libro::getNombre));
+        libros = new TreeSet<>
+        (Comparator.comparing(Libro::getNombre)
+        .thenComparing(Libro::getAutor)
+        .thenComparingInt(Libro::getCantidad)
+        .thenComparing(Libro::getEditorial)
+        .thenComparing(Libro::getCategoria));
         reservas = new LinkedList<>();
     }
 
     public void create(String nombre, String autor, int cantidad, String editorial, String categoria) {
-        Libro libro = new Libro(nombre, autor, cantidad, editorial, categoria);
+        Libro libro = new Libro(nombre, autor, cantidad , editorial, categoria);
         libros.add(libro);
+        
     }
 
     public Libro mostrarPorNombre(String nombre) {
@@ -34,7 +41,7 @@ public class LibrosBiblioteca {
             if (libro.getAutor().equals(autor)) {
                 librosPorAutor.add(libro);
             }else {
-                System.out.println("El libro no esta en la biblioteca");
+                System.out.println("El libro no está en la biblioteca");
             }
         }
         return librosPorAutor;
@@ -46,7 +53,7 @@ public class LibrosBiblioteca {
             if (libro.getAutor().equals(autor) && libro.getEditorial().equals(nombreLibro)) {
                 librosPorAutorYEditorial.add(libro);
             }else {
-                System.out.println("El libro no esta en la biblioteca");
+                System.out.println("El libro no está en la biblioteca");
             }
         }
         return librosPorAutorYEditorial;
@@ -58,18 +65,18 @@ public class LibrosBiblioteca {
             if (l.getAutor().equals(autor) && l.getCategoria().equals(categoria)) {
                 librosPorAutorYCategoria.add(l);
             }else {
-                System.out.println("El libro no esta en la biblioteca");
+                System.out.println("El libro no está en la biblioteca");
             }
         }
         return librosPorAutorYCategoria;
     }
 
-    public TreeSet<Libro> mostrarTodos() {
-       TreeSet<Libro> librosTodos = new TreeSet<>();
+    public void mostrarTodos() {
+        //LinkedList<Libro> librosTodo = new LinkedList<>();
         for (Libro libro : libros) {
-            librosTodos.add(libro);
+            System.out.println(libro);
         }
-        return librosTodos;
+        //return librosTodo;
     }
 
     public boolean actualizarLibro(String nombre, String nuevoNombre, String nuevoAutor, String nuevaEditorial, String nuevaCategoria) {
@@ -84,7 +91,7 @@ public class LibrosBiblioteca {
         return true;
     }
 
-    public Libro eliminarLibro(String nombre) {
+    public Libro eliminarLibro(String nombre) { 
         Libro libro = mostrarPorNombre(nombre);
         if (libro != null) {
             libros.remove(libro);
@@ -139,4 +146,6 @@ public class LibrosBiblioteca {
         }
     }
 }
+
+
 
