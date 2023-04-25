@@ -11,7 +11,7 @@ public class Biblioteca {
       // Función para modificación del nombre del libro
       // libros.ModificarNombre("1","2");
       // Función para eliminar libro
-      libros.eliminarLibro("1");
+      // libros.eliminarLibro("1");
     }
   }
 }
