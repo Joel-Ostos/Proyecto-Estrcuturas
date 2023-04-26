@@ -101,7 +101,7 @@ public class Biblioteca {
 	      default:
 		System.out.println("Opcion no valida.");
 	    }
-	    if (opcion == 5) {
+	    if (opcion == 6) {
 	      break;
 	    }
 	  }
@@ -159,14 +159,11 @@ public class Biblioteca {
 	      cliente.mostrarLibros();
 	      System.out.println("Ingrese el nombre del libro que desea devolver: ");
 	      String NombreDevolver = scanner.nextLine();
-	      for (Libro l : cliente.getListaLibros()){
-		if (l.getNombre() == NombreDevolver){
-		  libros.mostrarPorNombre(NombreDevolver).setCantidad(libros.mostrarPorNombre(NombreDevolver).getCantidad()+1);		  // cliente.getListaLibros().remove(l);
-		}else{
-		  System.out.println("Este libro nunca fue prestado, revise los datos");
-		}
-	      }	
-
+	      Libro l = libros.mostrarPorNombre(NombreDevolver);
+	      l.setCantidad(l.getCantidad()+1);
+	      if (l != null){
+		cliente.getListaLibros().remove(l);
+	      }
 	      break;
 	    case 4: 
 	      System.out.println("Reservar Libro: ");
