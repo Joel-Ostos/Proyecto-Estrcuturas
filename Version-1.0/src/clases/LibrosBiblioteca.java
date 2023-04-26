@@ -38,17 +38,36 @@ public class LibrosBiblioteca {
         return null;
     }
 
-    public TreeSet<Libro> mostrarPorAutor(String autor) {
-        TreeSet<Libro> librosPorAutor = new TreeSet<>();
-        for (Libro libro : libros) {
-            if (libro.getAutor().equals(autor)) {
-                librosPorAutor.add(libro);
-            }else {
-                System.out.println("El libro no esta en la biblioteca");
-            }
-        }
-        return librosPorAutor;
+    public Libro mostrarPorAutor(String autor) {
+      for (Libro libro : libros) {
+	if (libro.getAutor().equals(autor)) {
+	  return libro;
+	}
+      }
+      return null;
     }
+
+
+
+    public Libro mostrarPorAutorEditorial(String autor, String editorial) {
+      for (Libro libro : libros) {
+	if (libro.getAutor().equals(autor) && libro.getEditorial().equals(editorial)) {
+	  return libro;
+	}
+      }
+      return null;
+    }
+
+
+    public Libro mostrarPorEditorial(String editorial) {
+      for (Libro libro : libros) {
+	if (libro.getEditorial().equals(editorial)) {
+	  return libro;
+	}
+      }
+      return null;
+    }
+
 
     public int cantidadLibros(String NombreLibro){
       Libro libro = mostrarPorNombre(NombreLibro);
@@ -80,7 +99,6 @@ public class LibrosBiblioteca {
 	    return libro;
 	}else if (libro.getCantidad() == 0){
 	  libros.remove(libro);
-	  return libro;
 	}
        return null;
     }

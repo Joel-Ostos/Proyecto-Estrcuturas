@@ -139,6 +139,7 @@ public class Biblioteca {
 	      System.out.println("Digita el nombre del libro que deseas pedir prestado?");
 	      String Nombre = scanner.nextLine();
 	      Libro libroPrestado = libros.mostrarPorNombre(Nombre);
+	      if (libroPrestado.getCantidad() > 0){
 	      if (libros.eliminarLibro(Nombre) != null){
 		System.out.println("Libro prestado con exito.");
 		cliente.getListaLibros().add(libroPrestado);
@@ -147,6 +148,7 @@ public class Biblioteca {
 		    lib.setCantidad(1);
 		  }
 		}
+	      }
 	      }else{
 		System.out.println("Este libro no se encuentra en el sistema");
 	      }
@@ -160,9 +162,12 @@ public class Biblioteca {
 	      System.out.println("Ingrese el nombre del libro que desea devolver: ");
 	      String NombreDevolver = scanner.nextLine();
 	      Libro l = libros.mostrarPorNombre(NombreDevolver);
-	      l.setCantidad(l.getCantidad()+1);
 	      if (l != null){
+		l.setCantidad(l.getCantidad()+1);
 		cliente.getListaLibros().remove(l);
+	      }else{
+		Libro t = cliente.mostrarPorNombreCli(NombreDevolver);	
+		libros.create(t.getNombre(), t.getAutor(),1,t.getEditorial(),t.getCategoria());
 	      }
 	      break;
 	    case 4: 

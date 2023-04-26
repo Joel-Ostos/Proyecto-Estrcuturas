@@ -38,4 +38,13 @@ public class Cliente {
         return listaLibros;
     }
 
+    public Libro mostrarPorNombreCli(String Nombre){
+      for (Libro i : getListaLibros()){
+	if (i.getNombre().equals(Nombre)){
+	  return i;
+	}
+      }
+      return null;
+    }
+
 }
