@@ -1,4 +1,5 @@
 package clases;
+
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -10,13 +11,22 @@ public class LibrosBiblioteca {
     private Queue<Reserva> reservas;
 
     public LibrosBiblioteca() {
-        libros = new TreeSet<>(Comparator.comparing(Libro::getNombre));
+        libros = new TreeSet<>
+        (Comparator.comparing(Libro::getNombre)
+        .thenComparing(Libro::getAutor)
+        .thenComparingInt(Libro::getCantidad)
+        .thenComparing(Libro::getEditorial)
+        .thenComparing(Libro::getCategoria));
         reservas = new LinkedList<>();
     }
 
     public void create(String nombre, String autor, int cantidad, String editorial, String categoria) {
-        Libro libro = new Libro(nombre, autor, cantidad, editorial, categoria);
-        libros.add(libro);
+        Libro libro = new Libro(nombre, autor, cantidad , editorial, categoria);
+	if (mostrarPorNombre(nombre) != null){
+	  mostrarPorNombre(nombre).setCantidad(mostrarPorNombre(nombre).getCantidad()+cantidad);
+	}else{
+	  libros.add(libro);}
+	
     }
 
     public Libro mostrarPorNombre(String nombre) {
@@ -40,36 +50,15 @@ public class LibrosBiblioteca {
         return librosPorAutor;
     }
 
-    public TreeSet<Libro> mostrarPorAutorYEditorial(String autor, String nombreLibro) {
-        TreeSet<Libro> librosPorAutorYEditorial = new TreeSet<>();
-        for (Libro libro : libros) {
-            if (libro.getAutor().equals(autor) && libro.getEditorial().equals(nombreLibro)) {
-                librosPorAutorYEditorial.add(libro);
-            }else {
-                System.out.println("El libro no esta en la biblioteca");
-            }
-        }
-        return librosPorAutorYEditorial;
+    public int cantidadLibros(String NombreLibro){
+      Libro libro = mostrarPorNombre(NombreLibro);
+      return libro.getCantidad();
     }
 
-    public TreeSet<Libro> mostrarPorAutorYCategoria(String autor, String categoria) {
-        TreeSet<Libro> librosPorAutorYCategoria = new TreeSet<>();
-        for (Libro l : libros) {
-            if (l.getAutor().equals(autor) && l.getCategoria().equals(categoria)) {
-                librosPorAutorYCategoria.add(l);
-            }else {
-                System.out.println("El libro no esta en la biblioteca");
-            }
-        }
-        return librosPorAutorYCategoria;
-    }
-
-    public TreeSet<Libro> mostrarTodos() {
-       TreeSet<Libro> librosTodos = new TreeSet<>();
+    public void mostrarTodos() {
         for (Libro libro : libros) {
-            librosTodos.add(libro);
+            System.out.println(libro);
         }
-        return librosTodos;
     }
 
     public boolean actualizarLibro(String nombre, String nuevoNombre, String nuevoAutor, String nuevaEditorial, String nuevaCategoria) {
@@ -84,26 +73,18 @@ public class LibrosBiblioteca {
         return true;
     }
 
-    public Libro eliminarLibro(String nombre) {
+    public Libro eliminarLibro(String nombre) { 
         Libro libro = mostrarPorNombre(nombre);
-        if (libro != null) {
-            libros.remove(libro);
-            return libro;
-        }
-        return null;
+	if (libro.getCantidad() > 0){
+	    libro.setCantidad(libro.getCantidad()-1);
+	    return libro;
+	}else if (libro.getCantidad() == 0){
+	  libros.remove(libro);
+	  return libro;
+	}
+       return null;
     }
-
-    int nLibros = 0;
-
-    public int CantidadLibros(String NombreLibro) {
-        for (Libro l : libros) {
-            if (l.getNombre().equals(NombreLibro)) {
-                nLibros += 1;
-            }
-        }
-        return nLibros;
-    }
-
+    
     public boolean reservarLibro(String cliente, String libro) {
         Libro libroEncontrado = mostrarPorNombre(libro);
         if (libroEncontrado == null) {
