@@ -22,8 +22,8 @@ public class LibrosBiblioteca {
 
     public void create(String nombre, String autor, int cantidad, String editorial, String categoria) {
         Libro libro = new Libro(nombre, autor, cantidad , editorial, categoria);
-	if (mostrarPorNombre(nombre) != null){
-	  mostrarPorNombre(nombre).setCantidad(mostrarPorNombre(nombre).getCantidad()+cantidad);
+	if (libros.contains(libro) != false){
+	  libro.setCantidad(libro.getCantidad()+cantidad);
 	}else{
 	  libros.add(libro);}
 	
