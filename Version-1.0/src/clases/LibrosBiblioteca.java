@@ -26,7 +26,6 @@ public class LibrosBiblioteca {
 	  libro.setCantidad(libro.getCantidad()+cantidad);
 	}else{
 	  libros.add(libro);}
-	
     }
 
     public Libro mostrarPorNombre(String nombre) {
