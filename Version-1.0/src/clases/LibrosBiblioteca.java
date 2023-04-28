@@ -39,31 +39,27 @@ public class LibrosBiblioteca {
         return null;
     }
 
-    public Libro mostrarPorAutor(String autor) {
+    public void mostrarPorAutor(String autor) {
         for (Libro libro : libros) {
             if (libro.getAutor().equals(autor)) {
-                return libro;
+                System.out.println(libro);;
             }
         }
-        return null;
     }
 
-    public Libro mostrarPorAutorEditorial(String autor, String editorial) {
+    public void mostrarPorAutorEditorial(String autor, String editorial) {
         for (Libro libro : libros) {
             if (libro.getAutor().equals(autor) && libro.getEditorial().equals(editorial)) {
-                return libro;
+                System.out.println(libro);;
             }
         }
-        return null;
     }
 
-    public Libro mostrarPorEditorial(String editorial) {
+    public void mostrarPorEditorial(String editorial) {
         for (Libro libro : libros) {
             if (libro.getEditorial().equals(editorial)) {
-                return libro;
-            }
+                System.out.println(libro);            }
         }
-        return null;
     }
 
     public int cantidadLibros(String NombreLibro) {
@@ -103,7 +99,7 @@ public class LibrosBiblioteca {
     public boolean reservarLibro(String cliente, String libro) {
         Libro libroEncontrado = mostrarPorNombre(libro);
         System.out.println(libroEncontrado);
-        if (libroEncontrado == null) {
+        if (libroEncontrado == null && libroEncontrado.getCantidad() > 0) {
             return false;
         }
         reservas.add(new Reserva(cliente, libro));
@@ -149,7 +145,7 @@ public class LibrosBiblioteca {
         Libro libro = mostrarPorNombre(reservaCliente.getLibro());
         if (libro != null) {
             reservas.remove(reservaCliente);
-            System.out.println("Notificación: El libro " + libro.getNombre() + " reservado por " + cliente + " está disponible.");
+            System.out.println("Notificacion: El libro " + libro.getNombre() + " reservado por " + cliente + " esta disponible.");
             return reservaCliente.getCliente();
         } else {
             return null;

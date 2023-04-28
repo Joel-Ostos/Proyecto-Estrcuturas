@@ -127,10 +127,10 @@ public class Biblioteca {
                     System.out.println("3. Devolver libro");
                     System.out.println("4. Mis Reservaciones");
                     System.out.println("5. Cancelar reservacion");
-                    System.out.println("6. Búsqueda de libros por Autor");
-                    System.out.println("7. Búsqueda de libros por Editorial");
-                    System.out.println("8. Búsqueda de libros por Autor y Editorial");
-                    System.out.println("9. Búsqueda de libros por Nombre del libro");
+                    System.out.println("6. Busqueda de libros por Autor");
+                    System.out.println("7. Busqueda de libros por Editorial");
+                    System.out.println("8. Busqueda de libros por Autor y Editorial");
+                    System.out.println("9. Busqueda de libros por Nombre del libro");
                     System.out.println("10. Volver al menu principal");
                     System.out.println("11. salir");
                     libros.notificarCliente(cliente.getNombre());
@@ -144,15 +144,10 @@ public class Biblioteca {
                             System.out.println("Digita el nombre del libro que deseas pedir prestado?");
                             String Nombre = scanner.nextLine();
                             Libro libroPrestado = libros.mostrarPorNombre(Nombre);
-                            if (libroPrestado.getCantidad() > 0) {
+                            if (libroPrestado != null && libroPrestado.getCantidad() > 0) {
                                 if (libros.eliminarLibro(Nombre) != null) {
                                     System.out.println("Libro prestado con exito.");
                                     cliente.getListaLibros().add(libroPrestado);
-                                    for (Libro lib : cliente.getListaLibros()) {
-                                        if (lib.getNombre() == Nombre) {
-                                            lib.setCantidad(1);
-                                        }
-                                    }
                                 }
                             } else {
                                 System.out.println("Este libro no se encuentra en el sistema");
