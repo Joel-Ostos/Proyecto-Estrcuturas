@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.TreeSet;
-
+import java.util.Iterator;
 public class LibrosBiblioteca {
 
     private TreeSet<Libro> libros;
@@ -22,21 +22,38 @@ public class LibrosBiblioteca {
 
     public void create(String nombre, String autor, int cantidad, String editorial, String categoria) {
         Libro libro = new Libro(nombre, autor, cantidad , editorial, categoria);
-	if (libros.contains(libro) != false){
-	  libro.setCantidad(libro.getCantidad()+cantidad);
+	if (mostrarPorNombre(nombre) != null){
+	  mostrarPorNombre(nombre).setCantidad(mostrarPorNombre(nombre).getCantidad()+cantidad);;
 	}else{
 	  libros.add(libro);}
 	
     }
-
-    public Libro mostrarPorNombre(String nombre) {
-        for (Libro libro : libros) {
-            if (libro.getNombre().equals(nombre)) {
-                return libro;
-            }
-        }
-        return null;
+public Libro mostrarPorNombre(String nombre) {
+        Iterator<Libro> iterator = libros.iterator();
+        return mostrarPorNombreRecursivo(nombre, iterator);
     }
+
+    private Libro mostrarPorNombreRecursivo(String nombre, Iterator<Libro> iterator) {
+        if (!iterator.hasNext()) {
+            return null;
+        }
+
+        Libro libro = iterator.next();
+        if (libro.getNombre().equals(nombre)) {
+            return libro;
+        }
+
+        return mostrarPorNombreRecursivo(nombre, iterator);
+    }
+
+//     public Libro mostrarPorNombre(String nombre) {
+//         for (Libro libro : libros) {
+//             if (libro.getNombre().equals(nombre)) {
+//                 return libro;
+//             }
+//         }
+//         return null;
+//     }
 
     public Libro mostrarPorAutor(String autor) {
       for (Libro libro : libros) {
