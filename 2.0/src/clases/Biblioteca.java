@@ -8,7 +8,7 @@ public class Biblioteca {
 
   public static void main(String[] args) {
     HashMap<String, String> credencialesBibliotecario = new HashMap<>();
-    credencialesBibliotecario.put("Pablo", "12345678");
+    credencialesBibliotecario.put("a", "1");
     HashMap<String, Cliente> clientes = new HashMap<>();
     Scanner scanner = new Scanner(System.in);
 
