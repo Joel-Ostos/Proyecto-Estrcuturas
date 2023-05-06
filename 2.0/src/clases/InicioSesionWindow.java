@@ -116,13 +116,10 @@ public class InicioSesionWindow extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(207, 207, 207)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(207, 207, 207)
-                        .addComponent(labelContrasena))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(labelUsuario)))
+                    .addComponent(labelContrasena)
+                    .addComponent(labelUsuario))
                 .addGap(139, 139, 139)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tfUsuario)
@@ -320,7 +317,7 @@ public class InicioSesionWindow extends javax.swing.JFrame {
         String nombre = tfUsuario.getText() ;
         String clave = passField.getText();
         
-        credencialesBibliotecario.put("Ad", "1");
+        credencialesBibliotecario.put("a", "1");
         
         
         if(rbAdmin.isSelected()){
@@ -329,6 +326,9 @@ public class InicioSesionWindow extends javax.swing.JFrame {
 	} 
             else{
                 labelEstadoSesion.setText("Si es un admin, borrar esto y montar ejecutable");
+                ExeAdminWindow VentanaAdmin = new ExeAdminWindow();
+                VentanaAdmin.setVisible(true);
+                this.dispose();
             }
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////

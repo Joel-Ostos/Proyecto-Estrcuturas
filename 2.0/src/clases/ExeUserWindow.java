@@ -26,21 +26,83 @@ public class ExeUserWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu3 = new javax.swing.JMenu();
+        jPanel2 = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        perfil = new javax.swing.JMenu();
+        itemEditarDatos = new javax.swing.JMenuItem();
+        itemCambiarC = new javax.swing.JMenuItem();
+        itemVerLibros = new javax.swing.JMenuItem();
+
+        jMenu3.setText("jMenu3");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1078, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 88, Short.MAX_VALUE)
+        );
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        perfil.setText("Perfil");
+
+        itemEditarDatos.setText("Editar Datos Personales");
+        itemEditarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemEditarDatosActionPerformed(evt);
+            }
+        });
+        perfil.add(itemEditarDatos);
+
+        itemCambiarC.setText("Cambiar Contraseña");
+        perfil.add(itemCambiarC);
+
+        itemVerLibros.setText("Ver Libros ");
+        itemVerLibros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemVerLibrosActionPerformed(evt);
+            }
+        });
+        perfil.add(itemVerLibros);
+
+        jMenuBar1.add(perfil);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(603, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void itemVerLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemVerLibrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemVerLibrosActionPerformed
+
+    private void itemEditarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemEditarDatosActionPerformed
+        
+    }//GEN-LAST:event_itemEditarDatosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +140,13 @@ public class ExeUserWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem itemCambiarC;
+    private javax.swing.JMenuItem itemEditarDatos;
+    private javax.swing.JMenuItem itemVerLibros;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenu perfil;
     // End of variables declaration//GEN-END:variables
 }
