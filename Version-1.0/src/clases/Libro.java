@@ -1,6 +1,6 @@
 package clases;
-
 public class Libro {
+    
     private String nombre;
     private String autor;
     private int cantidad;
@@ -8,7 +8,7 @@ public class Libro {
     private String categoria;
 
     public Libro(String nombre, String autor, int cantidad, String editorial, String categoria) {
-        this.nombre = nombre;
+      this.nombre = nombre;
         this.autor = autor;
         this.cantidad = cantidad;
         this.editorial = editorial;
@@ -47,13 +47,15 @@ public class Libro {
         this.editorial = editorial;
     }
 
+    public String getCategoria() {
+      return categoria;
+    }
+
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
-    public String getCategoria() {
-        return categoria;
-    }
+    
 
     @Override
     public String toString() {
