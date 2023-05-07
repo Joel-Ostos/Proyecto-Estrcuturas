@@ -107,120 +107,129 @@ public class Biblioteca {
                     }
                 }
             } else if (tipoUsuario == 2) {
-                System.out.println("Ingresa tu nombre: ");
-                String nombre = scanner.nextLine();
-                System.out.println("Ingresa tu clave: ");
-                String clave = scanner.nextLine();
+                boolean passwordCorrecta;
+                Cliente cliente = null;
 
-                Cliente cliente;
-                if (clientes.containsKey(nombre)) {
-                    cliente = clientes.get(nombre);
-                } else {
-                    cliente = new Cliente(nombre, clave, new LinkedList<>());
-                    clientes.put(nombre, cliente);
-                }
+                do {
+                    System.out.println("Ingresa tu nombre: ");
+                    String nombre = scanner.nextLine();
+                    System.out.println("Ingresa tu clave: ");
+                    String clave = scanner.nextLine();
 
-                while (true) {
-                    System.out.println("Que quieres hacer?");
-                    System.out.println("1.  Solicitar  libro");
-                    System.out.println("2.  Ver libros prestados");
-                    System.out.println("3.  Devolver libro");
-                    System.out.println("4.  Hacer reservacion");
-                    System.out.println("5.  Cancelar reservacion");
-                    System.out.println("6.  Mirar libros reservados");
-                    System.out.println("7.  Busqueda de libros por Autor");
-                    System.out.println("8.  Busqueda de libros por Editorial");
-                    System.out.println("9.  Busqueda de libros por Autor y Editorial");
-                    System.out.println("10. Busqueda de libros por Nombre del libro");
-                    System.out.println("11. Volver al menu principal");
-                    System.out.println("12. salir");
-                    libros.notificarCliente(cliente.getNombre());
+                    if (clientes.containsKey(nombre)) {
+                        cliente = clientes.get(nombre);
+                        passwordCorrecta = cliente.getClave().equals(clave);
+                        if (!passwordCorrecta) {
+                            System.out.println("Contraseña equivocada, intente de nuevo");
+                        }
+                    } else {
+                        cliente = new Cliente(nombre, clave, new LinkedList<>());
+                        clientes.put(nombre, cliente);
+                        passwordCorrecta = true;
+                    }
+                } while(!passwordCorrecta);
+                    while (true) {
+                        System.out.println("Que quieres hacer?");
+                        System.out.println("1.  Solicitar  libro");
+                        System.out.println("2.  Ver libros prestados");
+                        System.out.println("3.  Devolver libro");
+                        System.out.println("4.  Hacer reservacion");
+                        System.out.println("5.  Cancelar reservacion");
+                        System.out.println("6.  Mirar libros reservados");
+                        System.out.println("7.  Busqueda de libros por Autor");
+                        System.out.println("8.  Busqueda de libros por Editorial");
+                        System.out.println("9.  Busqueda de libros por Autor y Editorial");
+                        System.out.println("10. Busqueda de libros por Nombre del libro");
+                        System.out.println("11. Volver al menu principal");
+                        System.out.println("12. salir");
+                        libros.notificarCliente(cliente.getNombre());
 
-                    int opcion = scanner.nextInt();
-                    scanner.nextLine();
+                        int opcion = scanner.nextInt();
+                        scanner.nextLine();
 
-                    switch (opcion) {
-                        case 1:
-                            libros.mostrarTodos();
-                            System.out.println("Digita el nombre del libro que deseas pedir prestado?");
-                            String Nombre = scanner.nextLine();
-                            Libro libroPrestado = libros.mostrarPorNombre(Nombre);
-                            if (libroPrestado != null && libroPrestado.getCantidad() > 0) {
-                                if (libros.eliminarLibro(Nombre) != null) {
-                                    System.out.println("Libro prestado con exito.");
-                                    cliente.getListaLibros().add(libroPrestado);
+                        switch (opcion) {
+                            case 1:
+                                libros.mostrarTodos();
+                                System.out.println("Digita el nombre del libro que deseas pedir prestado?");
+                                String Nombre = scanner.nextLine();
+                                Libro libroPrestado = libros.mostrarPorNombre(Nombre);
+                                if (libroPrestado != null && libroPrestado.getCantidad() > 0) {
+                                    if (libros.eliminarLibro(Nombre) != null) {
+                                        System.out.println("Libro prestado con exito.");
+                                        cliente.getListaLibros().add(libroPrestado);
+                                    }
+                                } else {
+                                    System.out.println("Este libro no se encuentra en el sistema");
                                 }
-                            } else {
-                                System.out.println("Este libro no se encuentra en el sistema");
-                            }
+                                break;
+                            case 2:
+                                System.out.println("Libros prestados:");
+                                cliente.mostrarLibros();
+                                break;
+                            case 3:
+                                cliente.mostrarLibros();
+                                System.out.println("Ingrese el nombre del libro que desea devolver: ");
+                                String NombreDevolver = scanner.nextLine();
+                                Libro l = libros.mostrarPorNombre(NombreDevolver);
+                                if (l != null) {
+                                    l.setCantidad(l.getCantidad() + 1);
+                                    cliente.getListaLibros().remove(l);
+                                } else {
+                                    Libro t = cliente.mostrarPorNombreCli(NombreDevolver);
+                                    libros.create(t.getNombre(), t.getAutor(), 1, t.getEditorial(), t.getCategoria());
+                                }
+                                break;
+                            case 4:
+                                System.out.println("Ingresa el Libro que quieras reservar: ");
+                                String libroReservar = scanner.nextLine();
+                                libros.reservarLibro(cliente.getNombre(), libroReservar);
+                                break;
+                            case 5:
+                                System.out.println("Ingresa el libro que quieras cancelar:");
+                                libros.mostrarLibrosReservados();
+                                System.out.println("Ingresa el libro que ya no quieras reservar:");
+                                String libroCancelar = scanner.nextLine();
+                                libros.cancelarReserva(cliente.getNombre(), libroCancelar);
+                                break;
+                            case 6:
+                                System.out.println("Libros reservados: ");
+                                libros.mostrarLibrosReservados();
+                            case 7:
+                                System.out.println("Ingresa el nombre del Autor para inicar la busqueda: ");
+                                String busquedaA = scanner.nextLine();
+                                libros.mostrarPorAutor(busquedaA);
+                                break;
+                            case 8:
+                                System.out.println("Ingresa el nombre de la Editorial para inicar la busqueda: ");
+                                String busquedaE = scanner.nextLine();
+                                libros.mostrarPorEditorial(busquedaE);
+                                break;
+                            case 9:
+                                System.out.println("Ingresa el nombre del Autor para inicar la busqueda: ");
+                                String busquedaAutor = scanner.nextLine();
+                                System.out.println("Ingresa el nombre de la Editorial para inicar la busqueda: ");
+                                String busquedaEditorial = scanner.nextLine();
+                                libros.mostrarPorAutorEditorial(busquedaAutor, busquedaEditorial);
+                                break;
+                            case 10:
+                                System.out.println("Ingresa el nombre del Libro para inicar la busqueda: ");
+                                String busquedaLibro = scanner.nextLine();
+                                libros.mostrarPorAutor(busquedaLibro);
+                                break;
+                            case 11:
+                                System.out.println("Volviendo al menu principal...");
+                                break;
+                            case 12:
+                                System.out.println("Saliendo...");
+                                System.exit(0);
+                            default:
+                                System.out.println("Opcion no valida.");
+                        }
+                        if (opcion == 11) {
                             break;
-                        case 2:
-                            System.out.println("Libros prestados:");
-                            cliente.mostrarLibros();
-                            break;
-                        case 3:
-                            cliente.mostrarLibros();
-                            System.out.println("Ingrese el nombre del libro que desea devolver: ");
-                            String NombreDevolver = scanner.nextLine();
-                            Libro l = libros.mostrarPorNombre(NombreDevolver);
-                            if (l != null) {
-                                l.setCantidad(l.getCantidad() + 1);
-                                cliente.getListaLibros().remove(l);
-                            } else {
-                                Libro t = cliente.mostrarPorNombreCli(NombreDevolver);
-                                libros.create(t.getNombre(), t.getAutor(), 1, t.getEditorial(), t.getCategoria());
-                            }
-                            break;
-                        case 4:
-                            System.out.println("Ingresa el Libro que quieras reservar: ");
-                            String libroReservar = scanner.nextLine();
-                            libros.reservarLibro(cliente.getNombre(), libroReservar);
-                            break;
-                        case 5:
-                            System.out.println("Ingresa el libro que quieras cancelar:");
-                            libros.mostrarLibrosReservados();
-                            System.out.println("Ingresa el libro que ya no quieras reservar:");
-                            String libroCancelar = scanner.nextLine();
-                            libros.cancelarReserva(cliente.getNombre(), libroCancelar);
-                            break;
-                        case 6:
-                            System.out.println("Libros reservados: ");
-                            libros.mostrarLibrosReservados();
-                        case 7:
-                            System.out.println("Ingresa el nombre del Autor para inicar la busqueda: ");
-                            String busquedaA = scanner.nextLine();
-                            libros.mostrarPorAutor(busquedaA);
-                            break;
-                        case 8:
-                            System.out.println("Ingresa el nombre de la Editorial para inicar la busqueda: ");
-                            String busquedaE = scanner.nextLine();
-                            libros.mostrarPorEditorial(busquedaE);
-                            break;
-                        case 9:
-                            System.out.println("Ingresa el nombre del Autor para inicar la busqueda: ");
-                            String busquedaAutor = scanner.nextLine();
-                            System.out.println("Ingresa el nombre de la Editorial para inicar la busqueda: ");
-                            String busquedaEditorial = scanner.nextLine();
-                            libros.mostrarPorAutorEditorial(busquedaAutor, busquedaEditorial);
-                            break;
-                        case 10:
-                            System.out.println("Ingresa el nombre del Libro para inicar la busqueda: ");
-                            String busquedaLibro = scanner.nextLine();
-                            libros.mostrarPorAutor(busquedaLibro);
-                            break;
-                        case 11:
-                            System.out.println("Volviendo al menu principal...");
-                            break;
-                        case 12:
-                            System.out.println("Saliendo...");
-                            System.exit(0);
-                        default:
-                            System.out.println("Opcion no valida.");
+                        }
                     }
-                    if (opcion == 11) {
-                        break;
-                    }
-                }
+                
             }
         }
     }
