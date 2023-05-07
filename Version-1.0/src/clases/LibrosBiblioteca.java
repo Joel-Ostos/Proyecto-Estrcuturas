@@ -109,7 +109,7 @@ public class LibrosBiblioteca {
         libroEncontrado.setCantidad(libroEncontrado.getCantidad() - 1);
 
         if (libroEncontrado.getCantidad() > 0) {
-            System.out.println("Libro reservado. Pero quedan " + libroEncontrado.getCantidad() + " copias disponibles.");
+            System.out.println("Libro reservado, Pero quedan " + libroEncontrado.getCantidad() + " copias disponibles.");
             return true;
         }
 
