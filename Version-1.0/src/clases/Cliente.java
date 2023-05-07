@@ -6,17 +6,13 @@ public class Cliente {
 
     private String nombre;
     private String clave;
-    private LinkedList<String> listaLibros = new LinkedList<>();
+    private LinkedList<Libro> listaLibros = new LinkedList<Libro>();
 
-    public Cliente(String nombre, String clave, LinkedList<String> listaLibros) {
+    public Cliente(String nombre, String clave, LinkedList<Libro> listaLibros) {
         this.nombre = nombre;
         this.clave = clave;
         this.listaLibros = listaLibros;
     }
-
-    public Cliente() {
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -34,13 +30,21 @@ public class Cliente {
     }
 
     public void mostrarLibros() {
-        for (String i : this.listaLibros) {
+        for (Libro i : this.listaLibros) {
             System.out.println(i);
         }
     }
-
-    public LinkedList<String> getListaLibros() {
+    public LinkedList<Libro> getListaLibros() {
         return listaLibros;
+    }
+
+    public Libro mostrarPorNombreCli(String Nombre){
+      for (Libro i : getListaLibros()){
+	if (i.getNombre().equals(Nombre)){
+	  return i;
+	}
+      }
+      return null;
     }
 
 }
