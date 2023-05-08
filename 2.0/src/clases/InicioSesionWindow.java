@@ -333,15 +333,9 @@ public class InicioSesionWindow extends javax.swing.JFrame {
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////
         if(rbUsuario.isSelected()){
+            boolean passwordCorrecta;
+            Cliente cliente = null;
             
-            if (clientes.containsKey(nombre)) {
-            cliente = clientes.get(nombre);
-            labelEstadoSesion.setText("Si es un usuario, borrar esto y montar ejecutable");
-            } 
-            else {
-                cliente = new Cliente(nombre, clave, new LinkedList<>());
-                clientes.put(nombre, cliente);
-            }
         }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
