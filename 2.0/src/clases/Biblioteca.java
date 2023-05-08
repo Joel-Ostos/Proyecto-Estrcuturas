@@ -118,16 +118,20 @@ public class Biblioteca {
 
                     if (clientes.containsKey(nombre)) {
                         cliente = clientes.get(nombre);
+                        System.out.println("busca el cliente");
                         passwordCorrecta = cliente.getClave().equals(clave);
+                        System.out.println("aca manda un booleano de si la clave guardada es igual a la escrita");
+                        System.out.println(passwordCorrecta);
                         if (!passwordCorrecta) {
-                            System.out.println("Contraseña equivocada, intente de nuevo");
+                            System.out.println("Contraseï¿½a equivocada, intente de nuevo");
                         }
                     } else {
+                        System.out.println("aca no encuentra el cliente");
                         cliente = new Cliente(nombre, clave, new LinkedList<>());
                         clientes.put(nombre, cliente);
                         passwordCorrecta = true;
                     }
-                } while(!passwordCorrecta);
+                } while(!passwordCorrecta); //ejecuta otra vez si la password es incorrecta
                     while (true) {
                         System.out.println("Que quieres hacer?");
                         System.out.println("1.  Solicitar  libro");
