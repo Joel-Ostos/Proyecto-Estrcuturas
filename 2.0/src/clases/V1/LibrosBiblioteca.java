@@ -1,5 +1,6 @@
-package clases;
+package clases.V1;
 
+import clases.V1.Libro;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -101,7 +102,7 @@ public class LibrosBiblioteca {
         Libro libroEncontrado = mostrarPorNombre(libro);
 
         if (libroEncontrado == null || libroEncontrado.getCantidad() == 0) {
-            System.out.println("El libro " + libro + " no está disponible para reservar.");
+            System.out.println("El libro " + libro + " no estï¿½ disponible para reservar.");
             return false;
         }
 
@@ -115,12 +116,12 @@ public class LibrosBiblioteca {
 
         // Agregamos la reserva a la cola de reservas
         reservas.add(new Reserva(cliente, libro));
-        System.out.println("Libro reservado con éxito. Serás notificado cuando el libro esté disponible.");
+        System.out.println("Libro reservado con ï¿½xito. Serï¿½s notificado cuando el libro estï¿½ disponible.");
 
-        // Verificamos si el libro ya está disponible
+        // Verificamos si el libro ya estï¿½ disponible
         String clienteNotificado = notificarCliente(cliente);
         if (clienteNotificado != null) {
-            System.out.println("El cliente " + clienteNotificado + " ha sido notificado de que el libro " + libro + " está disponible.");
+            System.out.println("El cliente " + clienteNotificado + " ha sido notificado de que el libro " + libro + " estï¿½ disponible.");
         }
 
         return true;
@@ -171,7 +172,7 @@ public class LibrosBiblioteca {
 
         Libro libro = mostrarPorNombre(reservaCliente.getLibro());
         if (libro != null && libro.getCantidad() > 0) {
-            System.out.println("Notificación: El libro " + libro.getNombre() + " reservado por " + cliente + " está disponible.");
+            System.out.println("Notificaciï¿½n: El libro " + libro.getNombre() + " reservado por " + cliente + " estï¿½ disponible.");
             return reservaCliente.getCliente();
         } else {
             return null;

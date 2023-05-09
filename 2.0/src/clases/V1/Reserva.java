@@ -1,4 +1,4 @@
-package clases;
+package clases.V1;
 
 public class Reserva {
     private String cliente;

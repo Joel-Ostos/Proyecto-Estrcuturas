@@ -1,4 +1,4 @@
-package clases;
+package clases.V1;
 public class Libro {
     
     private String nombre;
