@@ -1,20 +1,38 @@
-package clases.V1;
+  package clases.V1;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Biblioteca {
 
     public static void main(String[] args) {
         HashMap<String, String> credencialesBibliotecario = new HashMap<>();
-        credencialesBibliotecario.put("Pablo", "12345678");
+        credencialesBibliotecario.put("a", "1");
         HashMap<String, Cliente> clientes = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
 
         LibrosBiblioteca libros = new LibrosBiblioteca();
 
         while (true) {
+            //creacion de libros por default
+            
+            libros.create("Libro1", "Gauss", 50, "McGrawHill", "Matematicas");
+            libros.create("Libro2", "Gauss", 5, "McGrawHill", "Matematicas");
+            libros.create("Libro3", "Dietel", 57, "Norma", "Historia");
+            libros.create("Libro4", "Martinez", 70, "Norma", "Literatura");
+            libros.create("Libro5", "Bonn", 1, "McGrawHill", "Ingenieria");
+            libros.create("Libro6", "Arrieta", 6, "McGrawHill", "Estadistica");
+            libros.create("Libro7", "Parrado", 3, "Pearson", "Literatura");
+            libros.create("Libro8", "Demba Cisse", 4, "McGrawHill", "Literatura");
+            libros.create("Libro9", "Dietel", 15, "Pearson", "Politica");
+            libros.create("Libro10", "Gauss", 13, "Norma", "Novela");
+            libros.create("Libro11", "Gauss", 6, "Pearson", "Estadistica");
+            
+            
+            
+            
             System.out.println("Que tipo de usuario eres?");
             System.out.println("1. Bibliotecario");
             System.out.println("2. Cliente");
@@ -209,16 +227,17 @@ public class Biblioteca {
                                 libros.mostrarPorEditorial(busquedaE);
                                 break;
                             case 9:
-                                System.out.println("Ingresa el nombre del Autor para inicar la busqueda: ");
+                                System.out.println("Obsoleto");
+                                /*System.out.println("Ingresa el nombre del Autor para inicar la busqueda: ");
                                 String busquedaAutor = scanner.nextLine();
                                 System.out.println("Ingresa el nombre de la Editorial para inicar la busqueda: ");
                                 String busquedaEditorial = scanner.nextLine();
-                                libros.mostrarPorAutorEditorial(busquedaAutor, busquedaEditorial);
+                                libros.mostrarPorAutorEditorial(busquedaAutor, busquedaEditorial);*/
                                 break;
                             case 10:
                                 System.out.println("Ingresa el nombre del Libro para inicar la busqueda: ");
                                 String busquedaLibro = scanner.nextLine();
-                                libros.mostrarPorAutor(busquedaLibro);
+                                libros.mostrarPorNombre(busquedaLibro);
                                 break;
                             case 11:
                                 System.out.println("Volviendo al menu principal...");

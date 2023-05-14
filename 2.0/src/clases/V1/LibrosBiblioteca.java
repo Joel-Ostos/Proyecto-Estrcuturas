@@ -6,11 +6,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.TreeSet;
 import java.util.concurrent.CompletionStage;
+import java.util.ArrayList;
 
 public class LibrosBiblioteca {
 
     private TreeSet<Libro> libros;
     private Queue<Reserva> reservas;
+    private ArrayList<Libro> listaEnvio;
 
     public LibrosBiblioteca() {
         libros = new TreeSet<>(Comparator.comparing(Libro::getNombre)
@@ -19,6 +21,7 @@ public class LibrosBiblioteca {
                 .thenComparing(Libro::getEditorial)
                 .thenComparing(Libro::getCategoria));
         reservas = new LinkedList<>();
+        listaEnvio = new ArrayList<>();
     }
 
     public void create(String nombre, String autor, int cantidad, String editorial, String categoria) {
@@ -34,45 +37,99 @@ public class LibrosBiblioteca {
     public Libro mostrarPorNombre(String nombre) {
         for (Libro libro : libros) {
             if (libro.getNombre().equals(nombre)) {
+                
+                System.out.println(libro);
                 return libro;
             }
+            
         }
         return null;
     }
 
-    public void mostrarPorAutor(String autor) {
+    public ArrayList mostrarPorAutor(String autor) {
+        if(listaEnvio != null){
+            listaEnvio.clear();
+        }
+        
         for (Libro libro : libros) {
             if (libro.getAutor().equals(autor)) {
-                System.out.println(libro);;
+                
+                System.out.println(libro);             
+                listaEnvio.add(libro);
+                
             }
         }
-    }
-
-    public void mostrarPorAutorEditorial(String autor, String editorial) {
-        for (Libro libro : libros) {
-            if (libro.getAutor().equals(autor) && libro.getEditorial().equals(editorial)) {
-                System.out.println(libro);;
-            }
+        if(listaEnvio == null){
+            return null;
         }
+        else return listaEnvio;
     }
+        
+    
+    
 
-    public void mostrarPorEditorial(String editorial) {
+    public ArrayList mostrarPorEditorial(String editorial) {
+        if(listaEnvio != null){
+            listaEnvio.clear();
+        }
+        
         for (Libro libro : libros) {
             if (libro.getEditorial().equals(editorial)) {
-                System.out.println(libro);
+                
+                System.out.println(libro);             
+                listaEnvio.add(libro);
+                
             }
         }
+        if(listaEnvio == null){
+            return null;
+        }
+        
+        else return listaEnvio;
+        
+        
+        
+    }
+    
+    public ArrayList mostrarPorCategoria(String categoria) {
+        if(listaEnvio != null){
+            listaEnvio.clear();
+        }
+
+        for (Libro libro : libros) {
+            if (libro.getCategoria().equals(categoria)) {
+                
+                System.out.println(libro);              
+                listaEnvio.add(libro);
+                
+            }
+        }
+        if(listaEnvio == null){
+            return null;
+        }
+        else return listaEnvio;
     }
 
-    public int cantidadLibros(String NombreLibro) {
+    public int cantidadLibros(String NombreLibro) { //Obsoleto
+        
+        //obsoleto
         Libro libro = mostrarPorNombre(NombreLibro);
         return libro.getCantidad();
     }
 
-    public void mostrarTodos() {
+    public ArrayList mostrarTodos() {
+        if(listaEnvio != null){
+            listaEnvio.clear();
+        }        
         for (Libro libro : libros) {
-            System.out.println(libro);
+            System.out.println(libro);             
+            listaEnvio.add(libro);   
         }
+        
+        if(listaEnvio == null){
+            return null;
+        }
+        else return listaEnvio;
     }
 
     public boolean actualizarLibro(String nombre, String nuevoNombre, String nuevoAutor, String nuevaEditorial, String nuevaCategoria) {
@@ -89,12 +146,7 @@ public class LibrosBiblioteca {
 
     public Libro eliminarLibro(String nombre) {
         Libro libro = mostrarPorNombre(nombre);
-        if (libro.getCantidad() > 0) {
-            libro.setCantidad(libro.getCantidad() - 1);
-            return libro;
-        } else if (libro.getCantidad() == 0) {
-            libros.remove(libro);
-        }
+        libros.remove(libro);
         return null;
     }
 
