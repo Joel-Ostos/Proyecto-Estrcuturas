@@ -251,7 +251,8 @@ public class InicioSesion extends javax.swing.JFrame {
                     passField.setText("");
                 }
                 else{
-                    labelEstadoSesion.setText("Si es un usuario, borrar esto y montar ejecutable"); 
+                    labelEstadoSesion.setText("Si es un usuario, borrar esto y montar ejecutable");
+                    
                     Usuario VentanaUser = new Usuario();
                     VentanaUser.setVisible(true);
                     this.dispose();

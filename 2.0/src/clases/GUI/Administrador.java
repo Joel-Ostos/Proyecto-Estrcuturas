@@ -6,7 +6,7 @@ package clases.GUI;
 import clases.V1.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
-import java.util.Collections;
+
 
 public class Administrador extends javax.swing.JFrame {
 
@@ -29,8 +29,8 @@ public class Administrador extends javax.swing.JFrame {
         bg = new javax.swing.JPanel();
         barraSuperior = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        precarga = new javax.swing.JButton();
+        panelTabla = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblInventario = new javax.swing.JTable();
         panelEdicion = new javax.swing.JPanel();
@@ -53,7 +53,7 @@ public class Administrador extends javax.swing.JFrame {
         lblResultBusqueda = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        panelBusqueda = new javax.swing.JPanel();
         btnBuscar = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -74,10 +74,10 @@ public class Administrador extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jLabel10.setText("Sistema de Gestion de Biblioteca (SGB)");
 
-        jButton1.setText("poner datos default");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        precarga.setText("poner datos default");
+        precarga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                precargaActionPerformed(evt);
             }
         });
 
@@ -89,7 +89,7 @@ public class Administrador extends javax.swing.JFrame {
                 .addGap(498, 498, 498)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(precarga)
                 .addGap(111, 111, 111))
         );
         barraSuperiorLayout.setVerticalGroup(
@@ -98,13 +98,13 @@ public class Administrador extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(barraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jButton1))
+                    .addComponent(precarga))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
         bg.add(barraSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
 
-        jPanel3.setPreferredSize(new java.awt.Dimension(700, 650));
+        panelTabla.setPreferredSize(new java.awt.Dimension(700, 650));
 
         tblInventario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tblInventario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,24 +114,24 @@ public class Administrador extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblInventario);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelTablaLayout = new javax.swing.GroupLayout(panelTabla);
+        panelTabla.setLayout(panelTablaLayout);
+        panelTablaLayout.setHorizontalGroup(
+            panelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTablaLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        panelTablaLayout.setVerticalGroup(
+            panelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTablaLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(228, Short.MAX_VALUE))
         );
 
-        bg.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 760, 650));
+        bg.add(panelTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 760, 650));
 
         panelEdicion.setBackground(new java.awt.Color(150, 175, 255));
 
@@ -362,7 +362,7 @@ public class Administrador extends javax.swing.JFrame {
 
         bg.add(panelEdicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 70, 520, 390));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        panelBusqueda.setBackground(new java.awt.Color(204, 255, 255));
 
         btnBuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnBuscar.setPreferredSize(new java.awt.Dimension(100, 30));
@@ -399,50 +399,50 @@ public class Administrador extends javax.swing.JFrame {
 
         cbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre de libro", "Autor", "Editorial", "Categoria", "Sin filtro" }));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelBusquedaLayout = new javax.swing.GroupLayout(panelBusqueda);
+        panelBusqueda.setLayout(panelBusquedaLayout);
+        panelBusquedaLayout.setHorizontalGroup(
+            panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBusquedaLayout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addGap(69, 69, 69))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(panelBusquedaLayout.createSequentialGroup()
+                .addGroup(panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBusquedaLayout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(109, 109, 109))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBusquedaLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelprueba)
                     .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        panelBusquedaLayout.setVerticalGroup(
+            panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBusquedaLayout.createSequentialGroup()
                 .addGap(108, 108, 108)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelprueba))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
-        bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 460, -1, -1));
+        bg.add(panelBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 460, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -594,7 +594,7 @@ public class Administrador extends javax.swing.JFrame {
         tblModel.removeRow(fila);
     }//GEN-LAST:event_btnEliminarMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void precargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precargaActionPerformed
 
         // TODO add your handling code here:
             almacen.create("Libro1", "Gauss", 50, "McGrawHill", "Matematicas");
@@ -608,7 +608,7 @@ public class Administrador extends javax.swing.JFrame {
             almacen.create("Libro9", "Dietel", 15, "Pearson", "Politica");
             almacen.create("Libro10", "Gauss", 13, "Norma", "Novela");
             almacen.create("Libro11", "Gauss", 6, "Pearson", "Estadistica");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_precargaActionPerformed
 
     private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
         //boton busqueda
@@ -755,7 +755,6 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JPanel btnEliminar;
     private javax.swing.JPanel btnLimpiar;
     private javax.swing.JComboBox<String> cbFiltro;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -769,12 +768,13 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelprueba;
     private javax.swing.JLabel lblResultBusqueda;
+    private javax.swing.JPanel panelBusqueda;
     private javax.swing.JPanel panelEdicion;
+    private javax.swing.JPanel panelTabla;
+    private javax.swing.JButton precarga;
     private javax.swing.JTable tblInventario;
     private javax.swing.JTextField txtAutor;
     private javax.swing.JTextField txtBusqueda;
@@ -795,5 +795,5 @@ public class Administrador extends javax.swing.JFrame {
         
         
     }
-    }
 }
+

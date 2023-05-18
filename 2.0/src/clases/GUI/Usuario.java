@@ -35,17 +35,13 @@ public class Usuario extends javax.swing.JFrame {
         btnPerfil = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         panelSeccionBusqueda = new javax.swing.JPanel();
-        tfBusqueda = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JPanel();
+        btnMenuBusqueda = new javax.swing.JPanel();
         lblBuscar = new javax.swing.JLabel();
-        lblQuedeseabuscar = new javax.swing.JLabel();
-        lblSeleccioneeltipodebusqueda = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         panelContenedor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -94,43 +90,38 @@ public class Usuario extends javax.swing.JFrame {
         panelSeccionBusqueda.setBackground(new java.awt.Color(150, 175, 255));
         panelSeccionBusqueda.setPreferredSize(new java.awt.Dimension(1020, 200));
 
-        btnBuscar.setBackground(new java.awt.Color(255, 255, 255));
-        btnBuscar.setPreferredSize(new java.awt.Dimension(100, 35));
-        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnMenuBusqueda.setBackground(new java.awt.Color(255, 255, 255));
+        btnMenuBusqueda.setPreferredSize(new java.awt.Dimension(100, 35));
+        btnMenuBusqueda.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBuscarMouseClicked(evt);
+                btnMenuBusquedaMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnBuscarMouseEntered(evt);
+                btnMenuBusquedaMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnBuscarMouseExited(evt);
+                btnMenuBusquedaMouseExited(evt);
             }
         });
 
-        lblBuscar.setText("Buscar");
+        lblBuscar.setText("Menu de Busqueda");
 
-        javax.swing.GroupLayout btnBuscarLayout = new javax.swing.GroupLayout(btnBuscar);
-        btnBuscar.setLayout(btnBuscarLayout);
-        btnBuscarLayout.setHorizontalGroup(
-            btnBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarLayout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+        javax.swing.GroupLayout btnMenuBusquedaLayout = new javax.swing.GroupLayout(btnMenuBusqueda);
+        btnMenuBusqueda.setLayout(btnMenuBusquedaLayout);
+        btnMenuBusquedaLayout.setHorizontalGroup(
+            btnMenuBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnMenuBusquedaLayout.createSequentialGroup()
+                .addContainerGap(123, Short.MAX_VALUE)
                 .addComponent(lblBuscar)
-                .addGap(27, 27, 27))
+                .addGap(120, 120, 120))
         );
-        btnBuscarLayout.setVerticalGroup(
-            btnBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnBuscarLayout.createSequentialGroup()
+        btnMenuBusquedaLayout.setVerticalGroup(
+            btnMenuBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnMenuBusquedaLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(lblBuscar)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
-
-        lblQuedeseabuscar.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
-        lblQuedeseabuscar.setText("¿Que desea buscar?");
-
-        lblSeleccioneeltipodebusqueda.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
-        lblSeleccioneeltipodebusqueda.setText("Seleccione el tipo de busqueda");
 
         jLabel1.setText("jLabel1");
 
@@ -139,41 +130,23 @@ public class Usuario extends javax.swing.JFrame {
         panelSeccionBusquedaLayout.setHorizontalGroup(
             panelSeccionBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSeccionBusquedaLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(tfBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
-            .addGroup(panelSeccionBusquedaLayout.createSequentialGroup()
-                .addGap(221, 221, 221)
-                .addComponent(lblQuedeseabuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
-                .addComponent(lblSeleccioneeltipodebusqueda)
-                .addGap(212, 212, 212))
-            .addGroup(panelSeccionBusquedaLayout.createSequentialGroup()
-                .addGap(463, 463, 463)
+                .addComponent(btnMenuBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(233, 233, 233)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 382, Short.MAX_VALUE))
         );
         panelSeccionBusquedaLayout.setVerticalGroup(
             panelSeccionBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSeccionBusquedaLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(panelSeccionBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblQuedeseabuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSeleccioneeltipodebusqueda))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelSeccionBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(tfBusqueda))
-                .addGap(43, 43, 43)
-                .addComponent(jLabel1)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGroup(panelSeccionBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(btnMenuBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        bg.add(panelSeccionBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1020, 180));
+        bg.add(panelSeccionBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1020, 80));
 
-        panelContenedor.setBackground(new java.awt.Color(255, 255, 255));
+        panelContenedor.setBackground(new java.awt.Color(255, 153, 153));
 
         javax.swing.GroupLayout panelContenedorLayout = new javax.swing.GroupLayout(panelContenedor);
         panelContenedor.setLayout(panelContenedorLayout);
@@ -183,10 +156,10 @@ public class Usuario extends javax.swing.JFrame {
         );
         panelContenedorLayout.setVerticalGroup(
             panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGap(0, 570, Short.MAX_VALUE)
         );
 
-        bg.add(panelContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 1280, 470));
+        bg.add(panelContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 1280, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,15 +179,15 @@ public class Usuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseEntered
-        btnBuscar.setBackground(new Color (240,240,240));
-    }//GEN-LAST:event_btnBuscarMouseEntered
+    private void btnMenuBusquedaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuBusquedaMouseEntered
+        btnMenuBusqueda.setBackground(new Color (240,240,240));
+    }//GEN-LAST:event_btnMenuBusquedaMouseEntered
 
-    private void btnBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseExited
-        btnBuscar.setBackground(new Color (255,255,255));
-    }//GEN-LAST:event_btnBuscarMouseExited
+    private void btnMenuBusquedaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuBusquedaMouseExited
+        btnMenuBusqueda.setBackground(new Color (255,255,255));
+    }//GEN-LAST:event_btnMenuBusquedaMouseExited
 
-    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
+    private void btnMenuBusquedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuBusquedaMouseClicked
         
         jLabel1.setText("pulsado");
         PanelBusqueda pb = new PanelBusqueda();
@@ -225,7 +198,7 @@ public class Usuario extends javax.swing.JFrame {
         panelContenedor.revalidate();
         panelContenedor.repaint();
         
-    }//GEN-LAST:event_btnBuscarMouseClicked
+    }//GEN-LAST:event_btnMenuBusquedaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -265,15 +238,12 @@ public class Usuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel barraSuperior;
     private javax.swing.JPanel bg;
-    private javax.swing.JPanel btnBuscar;
+    private javax.swing.JPanel btnMenuBusqueda;
     private javax.swing.JPanel btnPerfil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblBuscar;
-    private javax.swing.JLabel lblQuedeseabuscar;
-    private javax.swing.JLabel lblSeleccioneeltipodebusqueda;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel panelContenedor;
     private javax.swing.JPanel panelSeccionBusqueda;
-    private javax.swing.JTextField tfBusqueda;
     // End of variables declaration//GEN-END:variables
 }
