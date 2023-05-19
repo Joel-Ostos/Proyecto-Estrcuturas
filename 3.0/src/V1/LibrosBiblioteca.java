@@ -38,7 +38,7 @@ public class LibrosBiblioteca {
         for (Libro libro : libros) {
             if (libro.getNombre().equals(nombre)) {
 
-                System.out.println(libro);
+                //System.out.println(libro);
                 return libro;
             }
 
@@ -119,7 +119,7 @@ public class LibrosBiblioteca {
             listaEnvio.clear();
         }
         for (Libro libro : libros) {
-            System.out.println(libro);
+            //System.out.println(libro);
             listaEnvio.add(libro);
         }
 
@@ -147,6 +147,16 @@ public class LibrosBiblioteca {
         libros.remove(libro);
         return null;
     }
+    
+    public Libro retirarUnidad(String nombre) {
+        Libro libro = mostrarPorNombre(nombre);
+        if (libro.getCantidad() > 0) {
+            libro.setCantidad(libro.getCantidad() - 1);
+            return libro;
+        }         
+        return null;
+    }
+   
 
     public boolean reservarLibro(String cliente, String libro) {
         Libro libroEncontrado = mostrarPorNombre(libro);
@@ -160,14 +170,25 @@ public class LibrosBiblioteca {
             // Si hay libros disponibles, reduce la cantidad de libros y notifica al cliente
             libroEncontrado.setCantidad(libroEncontrado.getCantidad() - 1);
             System.out.println("Libro reservado. Quedan " + libroEncontrado.getCantidad() + " copias disponibles.");
-        } else {
+        } 
+        else {
             // Si no hay libros disponibles, simplemente notifica al cliente que ha sido puesto en la lista de espera
             System.out.println("El libro " + libro + " no está disponible en este momento. Has sido puesto en la lista de espera.");
         }
-
-        // Agrega la reserva a la cola de reservas en todos los casos
-        reservas.add(new Reserva(cliente, libro));
-        System.out.println("Reserva realizada. Serás notificado cuando el libro esté disponible.");
+        
+        // Agrega la reserva a la cola de reservas en todos los casos si no esta
+        
+        Reserva reservaCliente = new Reserva(cliente, libro);
+        if(reservas.contains(reservaCliente) == true){
+            System.out.println("esta en la cola"); 
+            
+        }
+        else{
+            System.out.println("no esta en la cola"); 
+           //System.out.println("ya reservaste el libro");
+           reservas.add(reservaCliente);
+            //System.out.println("Reserva realizada. Serás notificado cuando el libro esté disponible.");
+        }
 
         return true;
     }
@@ -183,10 +204,13 @@ public class LibrosBiblioteca {
         return false;
     }
 
-    public void mostrarLibrosReservados() {
-        for (Reserva i : reservas) {
+    public Queue mostrarLibrosReservados() {
+        /*for (Reserva i : reservas) {
             System.out.println(i.getLibro());
-        }
+            return this.reservas;
+        }*/
+        System.out.println(reservas.toString());
+        return reservas;
     }
 
     public String notificarCliente(String cliente) {

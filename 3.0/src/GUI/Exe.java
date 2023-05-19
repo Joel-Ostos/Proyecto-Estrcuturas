@@ -196,6 +196,7 @@ public class Exe extends javax.swing.JFrame {
         almacen.create("Libro9", "Dietel", 15, "Pearson", "Politica");
         almacen.create("Libro10", "Gauss", 13, "Norma", "Novela");
         almacen.create("Libro11", "Gauss", 6, "Pearson", "Estadistica");
+        almacen.create("Libro12", "Bonn", 0, "Pearson", "Ingenieria");
     }
     
 }

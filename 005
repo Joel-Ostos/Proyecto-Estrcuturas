@@ -1,0 +1,31 @@
+[33m92c568d[m[33m ([m[1;36mHEAD -> [m[1;32m005[m[33m, [m[1;31morigin/005[m[33m)[m HEAD@{0}: commit: Version 3.0 con unico frame
+[33m71716a2[m HEAD@{1}: commit: v 2.0 antes de duplicacion
+[33me373314[m HEAD@{2}: commit: Interfaz administrador terminada
+[33m0033c15[m HEAD@{3}: commit: avance de interfaz de admin, falta busqueda de libros
+[33m3f7dd50[m HEAD@{4}: commit: arreglo minimo de interfaz 2
+[33m299b501[m HEAD@{5}: commit: interfaz de inicio de sesion completada
+[33m14a8c01[m HEAD@{6}: commit: correccion
+[33m04816bb[m HEAD@{7}: checkout: moving from 006 to 005
+[33m5beb8d0[m[33m ([m[1;31morigin/006[m[33m, [m[1;32m006[m[33m)[m HEAD@{8}: checkout: moving from 005 to 006
+[33m04816bb[m HEAD@{9}: commit: dañado2
+[33m129ef72[m HEAD@{10}: checkout: moving from 005 to 005
+[33m129ef72[m HEAD@{11}: pull: Fast-forward
+[33mf4813de[m HEAD@{12}: checkout: moving from Desarrollo to 005
+[33m1e57e96[m[33m ([m[1;31morigin/Desarrollo[m[33m, [m[1;32mDesarrollo[m[33m)[m HEAD@{13}: checkout: moving from 005 to Desarrollo
+[33mf4813de[m HEAD@{14}: checkout: moving from Desarrollo to 005
+[33m1e57e96[m[33m ([m[1;31morigin/Desarrollo[m[33m, [m[1;32mDesarrollo[m[33m)[m HEAD@{15}: checkout: moving from 005 to Desarrollo
+[33mf4813de[m HEAD@{16}: commit: añadi ventanas, quedo expectante de correcciones
+[33m5a51d3e[m HEAD@{17}: checkout: moving from Desarrollo to 005
+[33m1e57e96[m[33m ([m[1;31morigin/Desarrollo[m[33m, [m[1;32mDesarrollo[m[33m)[m HEAD@{18}: checkout: moving from 005 to Desarrollo
+[33m5a51d3e[m HEAD@{19}: commit: version 2.0 con interfaz
+[33m1e57e96[m[33m ([m[1;31morigin/Desarrollo[m[33m, [m[1;32mDesarrollo[m[33m)[m HEAD@{20}: checkout: moving from Desarrollo to 005
+[33m1e57e96[m[33m ([m[1;31morigin/Desarrollo[m[33m, [m[1;32mDesarrollo[m[33m)[m HEAD@{21}: checkout: moving from 005 to Desarrollo
+[33m1e57e96[m[33m ([m[1;31morigin/Desarrollo[m[33m, [m[1;32mDesarrollo[m[33m)[m HEAD@{22}: checkout: moving from Desarrollo to 005
+[33m1e57e96[m[33m ([m[1;31morigin/Desarrollo[m[33m, [m[1;32mDesarrollo[m[33m)[m HEAD@{23}: pull: Fast-forward
+[33m172eb3e[m HEAD@{24}: checkout: moving from ClaseAdmin to Desarrollo
+[33m87c4b5e[m[33m ([m[1;31morigin/ClaseAdmin[m[33m, [m[1;32mClaseAdmin[m[33m)[m HEAD@{25}: commit: toca cambiar y act
+[33mfb4a032[m HEAD@{26}: commit: creacion de nuevas clases
+[33m172eb3e[m HEAD@{27}: checkout: moving from Desarrollo to ClaseAdmin
+[33m172eb3e[m HEAD@{28}: checkout: moving from main to Desarrollo
+[33m8eb62cd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{29}: checkout: moving from main to main
+[33m8eb62cd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{30}: clone: from github.com:Joel-Ostos/ProyectoEstructuras.git

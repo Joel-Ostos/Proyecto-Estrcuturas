@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.awt.Color;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 
 public class panUser extends javax.swing.JPanel {
 
@@ -37,7 +38,11 @@ public class panUser extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblInventario = new javax.swing.JTable();
         btnSolicitar = new javax.swing.JPanel();
+        lblSolicitud = new javax.swing.JLabel();
+        lblInfR = new javax.swing.JLabel();
         btnCancelarReservacion = new javax.swing.JPanel();
+        lblCancel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         panSearch = new javax.swing.JPanel();
         txtBusqueda = new javax.swing.JTextField();
         cmbFiltro = new javax.swing.JComboBox<>();
@@ -48,8 +53,7 @@ public class panUser extends javax.swing.JPanel {
         lblInfB = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnPerfil = new javax.swing.JPanel();
-        btnBusqueda = new javax.swing.JPanel();
+        panOptions = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,46 +63,85 @@ public class panUser extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblInventario);
 
         btnSolicitar.setBackground(new java.awt.Color(255, 153, 153));
+        btnSolicitar.setPreferredSize(new java.awt.Dimension(200, 40));
         btnSolicitar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSolicitarMouseClicked(evt);
             }
         });
 
+        lblSolicitud.setText("Solicitar");
+
         javax.swing.GroupLayout btnSolicitarLayout = new javax.swing.GroupLayout(btnSolicitar);
         btnSolicitar.setLayout(btnSolicitarLayout);
         btnSolicitarLayout.setHorizontalGroup(
             btnSolicitarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 155, Short.MAX_VALUE)
+            .addGroup(btnSolicitarLayout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(lblSolicitud)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         btnSolicitarLayout.setVerticalGroup(
             btnSolicitarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 79, Short.MAX_VALUE)
+            .addGroup(btnSolicitarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblSolicitud)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
+        lblInfR.setText("jLabel5");
+
         btnCancelarReservacion.setBackground(new java.awt.Color(255, 153, 153));
+        btnCancelarReservacion.setPreferredSize(new java.awt.Dimension(200, 40));
+        btnCancelarReservacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelarReservacionMouseClicked(evt);
+            }
+        });
+
+        lblCancel.setText("Cancelar Reservacion");
 
         javax.swing.GroupLayout btnCancelarReservacionLayout = new javax.swing.GroupLayout(btnCancelarReservacion);
         btnCancelarReservacion.setLayout(btnCancelarReservacionLayout);
         btnCancelarReservacionLayout.setHorizontalGroup(
             btnCancelarReservacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 143, Short.MAX_VALUE)
+            .addGroup(btnCancelarReservacionLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(lblCancel)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         btnCancelarReservacionLayout.setVerticalGroup(
             btnCancelarReservacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 67, Short.MAX_VALUE)
+            .addGroup(btnCancelarReservacionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblCancel)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panTableLayout = new javax.swing.GroupLayout(panTable);
         panTable.setLayout(panTableLayout);
         panTableLayout.setHorizontalGroup(
             panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTableLayout.createSequentialGroup()
-                .addGap(87, 87, 87)
                 .addGroup(panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSolicitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelarReservacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                    .addGroup(panTableLayout.createSequentialGroup()
+                        .addContainerGap(52, Short.MAX_VALUE)
+                        .addGroup(panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCancelarReservacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSolicitar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblInfR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(51, 51, 51))
+                    .addGroup(panTableLayout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
@@ -110,10 +153,14 @@ public class panUser extends javax.swing.JPanel {
                         .addGap(15, 15, 15)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panTableLayout.createSequentialGroup()
-                        .addGap(105, 105, 105)
+                        .addGap(106, 106, 106)
                         .addComponent(btnSolicitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
-                        .addComponent(btnCancelarReservacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelarReservacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(lblInfR)
+                        .addGap(72, 72, 72)
+                        .addComponent(jButton1)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -128,6 +175,7 @@ public class panUser extends javax.swing.JPanel {
         cmbFiltro.setMinimumSize(new java.awt.Dimension(120, 40));
         cmbFiltro.setPreferredSize(new java.awt.Dimension(120, 30));
 
+        btnLimpiar.setBackground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setPreferredSize(new java.awt.Dimension(150, 40));
         btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -154,6 +202,7 @@ public class panUser extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        btnBuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnBuscar.setPreferredSize(new java.awt.Dimension(150, 40));
         btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -237,33 +286,20 @@ public class panUser extends javax.swing.JPanel {
 
         add(panSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 890, 200));
 
-        btnPerfil.setPreferredSize(new java.awt.Dimension(390, 50));
+        panOptions.setBackground(new java.awt.Color(47, 91, 252));
 
-        javax.swing.GroupLayout btnPerfilLayout = new javax.swing.GroupLayout(btnPerfil);
-        btnPerfil.setLayout(btnPerfilLayout);
-        btnPerfilLayout.setHorizontalGroup(
-            btnPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 190, Short.MAX_VALUE)
+        javax.swing.GroupLayout panOptionsLayout = new javax.swing.GroupLayout(panOptions);
+        panOptions.setLayout(panOptionsLayout);
+        panOptionsLayout.setHorizontalGroup(
+            panOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 390, Short.MAX_VALUE)
         );
-        btnPerfilLayout.setVerticalGroup(
-            btnPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
-
-        add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, -1));
-
-        javax.swing.GroupLayout btnBusquedaLayout = new javax.swing.GroupLayout(btnBusqueda);
-        btnBusqueda.setLayout(btnBusquedaLayout);
-        btnBusquedaLayout.setHorizontalGroup(
-            btnBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
-        );
-        btnBusquedaLayout.setVerticalGroup(
-            btnBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+        panOptionsLayout.setVerticalGroup(
+            panOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
 
-        add(btnBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 200, 50));
+        add(panOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 640));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
@@ -350,24 +386,48 @@ public class panUser extends javax.swing.JPanel {
     private void btnSolicitarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSolicitarMouseClicked
         // TODO add your handling code here:
         
-        if(true){
-            if(tblInventario.getSelectedRowCount() != 1){
+        if(tblInventario.getSelectedRowCount() != 1){
             return;
-            }
-            
-            
-            int fila = tblInventario.getSelectedRow();
-        
-            String variable = (String) tblModel.getValueAt(fila,0);
-            
-            //restar
-            
-            
-            //Exe.cliente.getListaLibros().add(libroPrestado);
-
-            //tblModel.removeRow(fila);
         }
+        int fila = tblInventario.getSelectedRow();        
+        String nombreSolicitud = (String) tblModel.getValueAt(fila,0);  
+        int cantidad = (int) tblModel.getValueAt(fila,2); 
+        
+        if(cantidad > 0){ 
+            Libro l = Exe.almacen.mostrarPorNombre(nombreSolicitud); 
+            Exe.almacen.retirarUnidad(nombreSolicitud);
+            lblInfR.setText("Ha solicitado el libro exitosamente.");
+            Exe.cliente.getListaLibros().add(l);
+            
+            Libro l2 = Exe.almacen.mostrarPorNombre(nombreSolicitud);            
+            tblInventario.setValueAt(l2.getCantidad(),fila,2);
+             
+        
+        }
+        if(cantidad == 0 ){
+            
+            Exe.almacen.reservarLibro(Exe.cliente.getNombre(), nombreSolicitud);            
+            lblInfR.setText("Ha sido añadido a la cola de espera exitosamente.");
+        }
+        else{
+            lblInfR.setText("No existe el libro o es un error de codigo, reparar.");
+        }
+        
+
+        //tblModel.removeRow(fila);
     }//GEN-LAST:event_btnSolicitarMouseClicked
+
+    private void btnCancelarReservacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarReservacionMouseClicked
+        // TODO add your handling code here:
+        List<Libro> listaCliente = Exe.cliente.mostrarLibros();
+        System.out.println(listaCliente);
+    }//GEN-LAST:event_btnCancelarReservacionMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //System.out.println();
+        Exe.almacen.mostrarLibrosReservados();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     private void limpiarTabla(){
         for(int i = 0; i < tblInventario.getRowCount(); i++ ){
@@ -379,18 +439,21 @@ public class panUser extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnBuscar;
-    private javax.swing.JPanel btnBusqueda;
     private javax.swing.JPanel btnCancelarReservacion;
     private javax.swing.JPanel btnLimpiar;
-    private javax.swing.JPanel btnPerfil;
     private javax.swing.JPanel btnSolicitar;
     private javax.swing.JComboBox<String> cmbFiltro;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblCancel;
     private javax.swing.JLabel lblInfB;
+    private javax.swing.JLabel lblInfR;
+    private javax.swing.JLabel lblSolicitud;
+    private javax.swing.JPanel panOptions;
     private javax.swing.JPanel panSearch;
     private javax.swing.JPanel panTable;
     private javax.swing.JTable tblInventario;
