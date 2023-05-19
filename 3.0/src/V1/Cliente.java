@@ -1,6 +1,7 @@
 package clases.V1;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Cliente {
 
@@ -28,12 +29,13 @@ public class Cliente {
     public void setClave(String clave) {
         this.clave = clave;
     }
-
-    public void mostrarLibros() {
-        for (Libro i : this.listaLibros) {
-            System.out.println(i);
+    public List<Libro> mostrarLibros() {
+        for(Libro l : listaLibros){
+            System.err.println(l);
         }
+        return this.listaLibros;
     }
+
     public LinkedList<Libro> getListaLibros() {
         return listaLibros;
     }
