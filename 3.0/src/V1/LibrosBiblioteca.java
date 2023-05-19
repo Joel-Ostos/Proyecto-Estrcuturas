@@ -37,99 +37,97 @@ public class LibrosBiblioteca {
     public Libro mostrarPorNombre(String nombre) {
         for (Libro libro : libros) {
             if (libro.getNombre().equals(nombre)) {
-                
+
                 System.out.println(libro);
                 return libro;
             }
-            
+
         }
         return null;
     }
 
     public ArrayList mostrarPorAutor(String autor) {
-        if(listaEnvio != null){
+        if (listaEnvio != null) {
             listaEnvio.clear();
         }
-        
+
         for (Libro libro : libros) {
             if (libro.getAutor().equals(autor)) {
-                
-                System.out.println(libro);             
+
+                System.out.println(libro);
                 listaEnvio.add(libro);
-                
+
             }
         }
-        if(listaEnvio == null){
+        if (listaEnvio == null) {
             return null;
+        } else {
+            return listaEnvio;
         }
-        else return listaEnvio;
     }
-        
-    
-    
 
     public ArrayList mostrarPorEditorial(String editorial) {
-        if(listaEnvio != null){
+        if (listaEnvio != null) {
             listaEnvio.clear();
         }
-        
+
         for (Libro libro : libros) {
             if (libro.getEditorial().equals(editorial)) {
-                
-                System.out.println(libro);             
+
+                System.out.println(libro);
                 listaEnvio.add(libro);
-                
+
             }
         }
-        if(listaEnvio == null){
+        if (listaEnvio == null) {
             return null;
+        } else {
+            return listaEnvio;
         }
-        
-        else return listaEnvio;
-        
-        
-        
+
     }
-    
+
     public ArrayList mostrarPorCategoria(String categoria) {
-        if(listaEnvio != null){
+        if (listaEnvio != null) {
             listaEnvio.clear();
         }
 
         for (Libro libro : libros) {
             if (libro.getCategoria().equals(categoria)) {
-                
-                System.out.println(libro);              
+
+                System.out.println(libro);
                 listaEnvio.add(libro);
-                
+
             }
         }
-        if(listaEnvio == null){
+        if (listaEnvio == null) {
             return null;
+        } else {
+            return listaEnvio;
         }
-        else return listaEnvio;
     }
 
     public int cantidadLibros(String NombreLibro) { //Obsoleto
-        
+
         //obsoleto
         Libro libro = mostrarPorNombre(NombreLibro);
         return libro.getCantidad();
     }
 
     public ArrayList mostrarTodos() {
-        if(listaEnvio != null){
+        if (listaEnvio != null) {
             listaEnvio.clear();
-        }        
+        }
         for (Libro libro : libros) {
-            System.out.println(libro);             
-            listaEnvio.add(libro);   
+            System.out.println(libro);
+            listaEnvio.add(libro);
         }
-        
-        if(listaEnvio == null){
+
+        if (listaEnvio == null) {
             return null;
+        } else {
+            return listaEnvio;
         }
-        else return listaEnvio;
     }
 
     public boolean actualizarLibro(String nombre, String nuevoNombre, String nuevoAutor, String nuevaEditorial, String nuevaCategoria) {
@@ -153,28 +151,23 @@ public class LibrosBiblioteca {
     public boolean reservarLibro(String cliente, String libro) {
         Libro libroEncontrado = mostrarPorNombre(libro);
 
-        if (libroEncontrado == null || libroEncontrado.getCantidad() == 0) {
-            System.out.println("El libro " + libro + " no est� disponible para reservar.");
+        if (libroEncontrado == null) {
+            System.out.println("El libro " + libro + " no existe.");
             return false;
         }
 
-        // Reducimos la cantidad de libros disponibles
-        libroEncontrado.setCantidad(libroEncontrado.getCantidad() - 1);
-
         if (libroEncontrado.getCantidad() > 0) {
-            System.out.println("Libro reservado, Pero quedan " + libroEncontrado.getCantidad() + " copias disponibles.");
-            return true;
+            // Si hay libros disponibles, reduce la cantidad de libros y notifica al cliente
+            libroEncontrado.setCantidad(libroEncontrado.getCantidad() - 1);
+            System.out.println("Libro reservado. Quedan " + libroEncontrado.getCantidad() + " copias disponibles.");
+        } else {
+            // Si no hay libros disponibles, simplemente notifica al cliente que ha sido puesto en la lista de espera
+            System.out.println("El libro " + libro + " no está disponible en este momento. Has sido puesto en la lista de espera.");
         }
 
-        // Agregamos la reserva a la cola de reservas
+        // Agrega la reserva a la cola de reservas en todos los casos
         reservas.add(new Reserva(cliente, libro));
-        System.out.println("Libro reservado con �xito. Ser�s notificado cuando el libro est� disponible.");
-
-        // Verificamos si el libro ya est� disponible
-        String clienteNotificado = notificarCliente(cliente);
-        if (clienteNotificado != null) {
-            System.out.println("El cliente " + clienteNotificado + " ha sido notificado de que el libro " + libro + " est� disponible.");
-        }
+        System.out.println("Reserva realizada. Serás notificado cuando el libro esté disponible.");
 
         return true;
     }
