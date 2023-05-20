@@ -157,36 +157,48 @@ public class LibrosBiblioteca {
         return null;
     }
 
-    public boolean reservarLibro(String cliente, String libro) {
+    public boolean pertenenciaColaReserva(String cliente, String libro){
         Libro libroEncontrado = mostrarPorNombre(libro);
 
         if (libroEncontrado == null) {
             System.out.println("El libro " + libro + " no existe.");
-            return false;
+            return false; // no existe
         }
 
         // Verifica si ya existe una reserva para ese cliente y ese libro
         for (Reserva reserva : reservas) {
             if (reserva.getCliente().equals(cliente) && reserva.getLibro().equals(libro)) {
                 System.out.println("Ya tienes una reserva para este libro.");
-                return false;
+                return true; // ya esta en la cola
+            }
+            else{
+                return false; //no deberia estar en esta opcion
             }
         }
+    }
+    
+    
+    
+    public int reservarLibro(String cliente, String libro) {
+        Libro libroEncontrado = mostrarPorNombre(libro);
 
-        if (libroEncontrado.getCantidad() > 0) {
-            // Si hay libros disponibles, reduce la cantidad de libros y notifica al cliente
-            libroEncontrado.setCantidad(libroEncontrado.getCantidad() - 1);
-            System.out.println("Libro reservado. Quedan " + libroEncontrado.getCantidad() + " copias disponibles.");
-        } else {
-            // Si no hay libros disponibles, simplemente notifica al cliente que ha sido puesto en la lista de espera
-            System.out.println("El libro " + libro + " no está disponible en este momento. Has sido puesto en la lista de espera.");
+        if (libroEncontrado == null) {
+            System.out.println("El libro " + libro + " no existe.");
+            return 0; // no existe
         }
 
+        // Verifica si ya existe una reserva para ese cliente y ese libro
+        for (Reserva reserva : reservas) {
+            if (reserva.getCliente().equals(cliente) && reserva.getLibro().equals(libro)) {
+                System.out.println("Ya tienes una reserva para este libro.");
+                return 1; // ya esta en la cola
+            }
+        }
+        // Al ejecutar este metodo se sabe que no hay libros disponibles
         // Agrega la reserva a la cola de reservas en todos los casos
         reservas.add(new Reserva(cliente, libro));
-        System.out.println("Reserva realizada. Serás notificado cuando el libro esté disponible.");
-
-        return true;
+        //System.out.println("Reserva realizada. Serás notificado cuando el libro esté disponible.");
+        return 2; // añade el libro a la reserva
     }
 
     public boolean cancelarReserva(String cliente, String libro) {

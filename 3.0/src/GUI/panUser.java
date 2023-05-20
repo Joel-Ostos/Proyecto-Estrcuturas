@@ -42,7 +42,6 @@ public class panUser extends javax.swing.JPanel {
         lblInfR = new javax.swing.JLabel();
         btnCancelarReservacion = new javax.swing.JPanel();
         lblCancel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         panSearch = new javax.swing.JPanel();
         txtBusqueda = new javax.swing.JTextField();
         cmbFiltro = new javax.swing.JComboBox<>();
@@ -54,12 +53,18 @@ public class panUser extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         panOptions = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panTable.setPreferredSize(new java.awt.Dimension(900, 450));
 
+        tblInventario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblInventarioMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblInventario);
 
         btnSolicitar.setBackground(new java.awt.Color(255, 153, 153));
@@ -118,30 +123,17 @@ public class panUser extends javax.swing.JPanel {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panTableLayout = new javax.swing.GroupLayout(panTable);
         panTable.setLayout(panTableLayout);
         panTableLayout.setHorizontalGroup(
             panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTableLayout.createSequentialGroup()
-                .addGroup(panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panTableLayout.createSequentialGroup()
-                        .addContainerGap(52, Short.MAX_VALUE)
-                        .addGroup(panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnCancelarReservacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSolicitar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblInfR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(51, 51, 51))
-                    .addGroup(panTableLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(52, Short.MAX_VALUE)
+                .addGroup(panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCancelarReservacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSolicitar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblInfR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
@@ -158,9 +150,7 @@ public class panUser extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(btnCancelarReservacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
-                        .addComponent(lblInfR)
-                        .addGap(72, 72, 72)
-                        .addComponent(jButton1)))
+                        .addComponent(lblInfR)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -247,9 +237,9 @@ public class panUser extends javax.swing.JPanel {
                     .addGroup(panSearchLayout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panSearchLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(205, Short.MAX_VALUE)
                 .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panSearchLayout.createSequentialGroup()
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,11 +282,17 @@ public class panUser extends javax.swing.JPanel {
         panOptions.setLayout(panOptionsLayout);
         panOptionsLayout.setHorizontalGroup(
             panOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGroup(panOptionsLayout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         panOptionsLayout.setVerticalGroup(
             panOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGroup(panOptionsLayout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(466, Short.MAX_VALUE))
         );
 
         add(panOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 640));
@@ -393,7 +389,9 @@ public class panUser extends javax.swing.JPanel {
         String nombreSolicitud = (String) tblModel.getValueAt(fila,0);  
         int cantidad = (int) tblModel.getValueAt(fila,2); 
         
-        if(cantidad > 0){ 
+        if(cantidad > 0 && true){             
+            //yo se que es redundante mostrar dos veces el arbol, podria simplemente editar la tabla y luego el arbol pero es por seguir la filosofia de primero arbol, luego mostrar datos al editar
+            lblSolicitud.setText("Solicitar");
             Libro l = Exe.almacen.mostrarPorNombre(nombreSolicitud); 
             Exe.almacen.retirarUnidad(nombreSolicitud);
             lblInfR.setText("Ha solicitado el libro exitosamente.");
@@ -404,13 +402,24 @@ public class panUser extends javax.swing.JPanel {
              
         
         }
-        if(cantidad == 0 ){
+        if(cantidad == 0 && true){ //totalmente funcional, aunque aun esta el error donde pide el libro y lo reserva, poner segunda condicion
             
-            Exe.almacen.reservarLibro(Exe.cliente.getNombre(), nombreSolicitud);            
-            lblInfR.setText("Ha sido añadido a la cola de espera exitosamente.");
+            lblSolicitud.setText("Reservar");
+            int condReservar = Exe.almacen.reservarLibro(Exe.cliente.getNombre(), nombreSolicitud); 
+            switch(condReservar) {
+                case 0:
+                    lblInfR.setText("El libro buscado no existe.");
+                    break;
+                case 1:
+                    lblInfR.setText("Ya tiene reservado el libro. Espere a que este disponible.");
+                    break;
+                case 2:
+                    lblInfR.setText("Ha sido añadido a la cola de espera exitosamente.");     
+                    break;
+            }
         }
         else{
-            lblInfR.setText("No existe el libro o es un error de codigo, reparar.");
+            lblInfR.setText("un caso imposible, mostrar esto en caso de error");
         }
         
 
@@ -418,16 +427,35 @@ public class panUser extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSolicitarMouseClicked
 
     private void btnCancelarReservacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarReservacionMouseClicked
-        // TODO add your handling code here:
-        List<Libro> listaCliente = Exe.cliente.mostrarLibros();
-        System.out.println(listaCliente);
+        if(tblInventario.getSelectedRowCount() != 1){
+            return;
+        }
+        int fila = tblInventario.getSelectedRow();        
+        String nombreCancelacion = (String) tblModel.getValueAt(fila,0);  
+        Exe.almacen.cancelarReserva(Exe.cliente.getNombre(), nombreCancelacion);
+        
     }//GEN-LAST:event_btnCancelarReservacionMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //System.out.println();
-        Exe.almacen.mostrarLibrosReservados();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void tblInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblInventarioMouseClicked
+        if(evt.getClickCount() == 1 || evt.getClickCount() == 2 ){
+            int fila = tblInventario.getSelectedRow();             
+            int cantidad = (int) tblModel.getValueAt(fila,2); 
+            if(cantidad > 0){
+                btnSolicitar.setBackground(Color.BLUE);
+                lblSolicitud.setText("Solicitar");
+                btnCancelarReservacion.setVisible(false);
+            }
+            if(cantidad == 0){
+                btnSolicitar.setBackground(Color.RED);                
+                lblSolicitud.setText("Reservar");
+                btnCancelarReservacion.setVisible(true);
+                
+            }
+            else{
+                
+            }
+        }   
+    }//GEN-LAST:event_tblInventarioMouseClicked
     
     private void limpiarTabla(){
         for(int i = 0; i < tblInventario.getRowCount(); i++ ){
@@ -443,12 +471,12 @@ public class panUser extends javax.swing.JPanel {
     private javax.swing.JPanel btnLimpiar;
     private javax.swing.JPanel btnSolicitar;
     private javax.swing.JComboBox<String> cmbFiltro;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblCancel;
     private javax.swing.JLabel lblInfB;
     private javax.swing.JLabel lblInfR;
