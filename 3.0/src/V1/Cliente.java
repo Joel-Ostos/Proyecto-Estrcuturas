@@ -30,12 +30,31 @@ public class Cliente {
         this.clave = clave;
     }
     public List<Libro> mostrarLibros() {
-        for(Libro l : listaLibros){
-            System.err.println(l);
-        }
+        //for(Libro l : listaLibros){
+         //   System.err.println(l);
+        //}
         return this.listaLibros;
     }
+    
+    public boolean añadirLibro(Libro añadido) {
+        for (Libro l : listaLibros) {
+            if (l.equals(añadido)) {
+                return false;  // El libro ya existe en la lista
+            }
+        }
+        listaLibros.add(añadido);  // Añadir el libro a la lista
+        return true;  // Libro añadido correctamente
+    }
 
+    public Libro buscarLibro(Libro buscar){
+        for (Libro l : listaLibros) {
+            if (l.equals(buscar)) {
+                return buscar;  // El libro ya existe en la lista
+            }
+        }
+        return null;
+    }
+        
     public LinkedList<Libro> getListaLibros() {
         return listaLibros;
     }

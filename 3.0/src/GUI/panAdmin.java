@@ -6,10 +6,6 @@ package GUI;
 //falta implementar la suma de un libro
 import clases.V1.*;
 import javax.swing.table.DefaultTableModel;
-import java.util.ArrayList;
-import java.awt.Color;
-import java.util.HashMap;
-import java.util.LinkedList;
 
 public class panAdmin extends javax.swing.JPanel {
 

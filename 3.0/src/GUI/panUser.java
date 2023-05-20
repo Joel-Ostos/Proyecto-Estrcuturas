@@ -6,11 +6,8 @@ package GUI;
 
 import clases.V1.*;
 import javax.swing.table.DefaultTableModel;
-import java.util.ArrayList;
 import java.awt.Color;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+
 
 public class panUser extends javax.swing.JPanel {
 
@@ -19,10 +16,19 @@ public class panUser extends javax.swing.JPanel {
      */
     private DefaultTableModel tblModel;
     private String[] header = {"Libro","Autor","Cantidad","Editorial","Categoria"};
+    panPrestamo p = new panPrestamo();
     
     public panUser() {
         initComponents();
         initTable();
+        btnAjustes.setVisible(false);
+        btnLibrosPrestados.setVisible(false);
+        btnLibrosReservados  .setVisible(false);            
+        btnTuPerfil.setVisible(false);
+        //p.setSize(890,640);
+        //p.setLocation(390,0);
+        add(p,1);//BorderLayout.CENTER
+        p.setVisible(false);
     }
 
     /**
@@ -34,6 +40,7 @@ public class panUser extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bg = new javax.swing.JPanel();
         panTable = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblInventario = new javax.swing.JTable();
@@ -53,12 +60,26 @@ public class panUser extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         panOptions = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        btnBusqueda = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        btnPerfil = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        btnTuPerfil = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        btnAjustes = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        btnLibrosPrestados = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        btnLibrosReservados = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panTable.setPreferredSize(new java.awt.Dimension(900, 450));
+        bg.setMinimumSize(new java.awt.Dimension(1280, 640));
+        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panTable.setPreferredSize(new java.awt.Dimension(890, 440));
 
         tblInventario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -128,33 +149,33 @@ public class panUser extends javax.swing.JPanel {
         panTableLayout.setHorizontalGroup(
             panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTableLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnCancelarReservacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSolicitar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblInfR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(51, 51, 51)
+                .addGap(79, 79, 79)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                .addGap(231, 231, 231))
         );
         panTableLayout.setVerticalGroup(
             panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panTableLayout.createSequentialGroup()
                 .addGroup(panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panTableLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panTableLayout.createSequentialGroup()
                         .addGap(106, 106, 106)
                         .addComponent(btnSolicitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnCancelarReservacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
-                        .addComponent(lblInfR)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addComponent(lblInfR, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panTableLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        add(panTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 890, 440));
+        bg.add(panTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 890, 440));
 
         panSearch.setBackground(new java.awt.Color(245, 255, 255));
 
@@ -229,73 +250,217 @@ public class panUser extends javax.swing.JPanel {
         panSearch.setLayout(panSearchLayout);
         panSearchLayout.setHorizontalGroup(
             panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panSearchLayout.createSequentialGroup()
-                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panSearchLayout.createSequentialGroup()
-                        .addGap(289, 289, 289)
-                        .addComponent(lblInfB, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panSearchLayout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panSearchLayout.createSequentialGroup()
-                .addContainerGap(205, Short.MAX_VALUE)
-                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panSearchLayout.createSequentialGroup()
+                .addContainerGap(219, Short.MAX_VALUE)
+                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panSearchLayout.createSequentialGroup()
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(71, 71, 71)
+                        .addGap(76, 76, 76)
                         .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(93, 93, 93)
+                        .addGap(271, 271, 271))
+                    .addGroup(panSearchLayout.createSequentialGroup()
+                        .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panSearchLayout.createSequentialGroup()
+                                .addGap(115, 115, 115)
+                                .addComponent(lblInfB, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panSearchLayout.createSequentialGroup()
+                        .addGap(85, 85, 85))
+                    .addGroup(panSearchLayout.createSequentialGroup()
+                        .addGap(126, 126, 126)
                         .addComponent(jLabel1)
-                        .addGap(167, 167, 167)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2)
-                        .addGap(59, 59, 59))))
+                        .addGap(58, 58, 58))))
         );
         panSearchLayout.setVerticalGroup(
             panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panSearchLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panSearchLayout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(lblInfB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panSearchLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14))
+        );
+
+        bg.add(panSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 890, 200));
+
+        panOptions.setBackground(new java.awt.Color(47, 91, 252));
+        panOptions.setMinimumSize(new java.awt.Dimension(390, 640));
+        panOptions.setPreferredSize(new java.awt.Dimension(390, 640));
+        panOptions.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnBusqueda.setPreferredSize(new java.awt.Dimension(195, 50));
+        btnBusqueda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBusquedaMouseClicked(evt);
+            }
+        });
+
+        jLabel6.setText("Buscar");
+
+        javax.swing.GroupLayout btnBusquedaLayout = new javax.swing.GroupLayout(btnBusqueda);
+        btnBusqueda.setLayout(btnBusquedaLayout);
+        btnBusquedaLayout.setHorizontalGroup(
+            btnBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnBusquedaLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(jLabel6)
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        btnBusquedaLayout.setVerticalGroup(
+            btnBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnBusquedaLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(lblInfB)
-                .addGap(18, 18, 18)
-                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel6)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        panOptions.add(btnBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 0, -1, -1));
+
+        btnPerfil.setPreferredSize(new java.awt.Dimension(195, 50));
+        btnPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPerfilMouseClicked(evt);
+            }
+        });
+
+        jLabel5.setText("Perfil");
+
+        javax.swing.GroupLayout btnPerfilLayout = new javax.swing.GroupLayout(btnPerfil);
+        btnPerfil.setLayout(btnPerfilLayout);
+        btnPerfilLayout.setHorizontalGroup(
+            btnPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnPerfilLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jLabel5)
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+        btnPerfilLayout.setVerticalGroup(
+            btnPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnPerfilLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel5)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        panOptions.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        btnTuPerfil.setPreferredSize(new java.awt.Dimension(190, 50));
+
+        jLabel7.setText("Tu Perfil");
+
+        javax.swing.GroupLayout btnTuPerfilLayout = new javax.swing.GroupLayout(btnTuPerfil);
+        btnTuPerfil.setLayout(btnTuPerfilLayout);
+        btnTuPerfilLayout.setHorizontalGroup(
+            btnTuPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnTuPerfilLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(jLabel7)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+        btnTuPerfilLayout.setVerticalGroup(
+            btnTuPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnTuPerfilLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        add(panSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 890, 200));
+        panOptions.add(btnTuPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, -1));
 
-        panOptions.setBackground(new java.awt.Color(47, 91, 252));
+        btnAjustes.setPreferredSize(new java.awt.Dimension(190, 50));
 
-        javax.swing.GroupLayout panOptionsLayout = new javax.swing.GroupLayout(panOptions);
-        panOptions.setLayout(panOptionsLayout);
-        panOptionsLayout.setHorizontalGroup(
-            panOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panOptionsLayout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(183, Short.MAX_VALUE))
+        jLabel8.setText("Ajustes");
+
+        javax.swing.GroupLayout btnAjustesLayout = new javax.swing.GroupLayout(btnAjustes);
+        btnAjustes.setLayout(btnAjustesLayout);
+        btnAjustesLayout.setHorizontalGroup(
+            btnAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnAjustesLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(jLabel8)
+                .addContainerGap(77, Short.MAX_VALUE))
         );
-        panOptionsLayout.setVerticalGroup(
-            panOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panOptionsLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(466, Short.MAX_VALUE))
+        btnAjustesLayout.setVerticalGroup(
+            btnAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnAjustesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        add(panOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 640));
+        panOptions.add(btnAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
+
+        btnLibrosPrestados.setPreferredSize(new java.awt.Dimension(190, 50));
+        btnLibrosPrestados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLibrosPrestadosMouseClicked(evt);
+            }
+        });
+
+        jLabel9.setText("Prestamos");
+
+        javax.swing.GroupLayout btnLibrosPrestadosLayout = new javax.swing.GroupLayout(btnLibrosPrestados);
+        btnLibrosPrestados.setLayout(btnLibrosPrestadosLayout);
+        btnLibrosPrestadosLayout.setHorizontalGroup(
+            btnLibrosPrestadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnLibrosPrestadosLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jLabel9)
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+        btnLibrosPrestadosLayout.setVerticalGroup(
+            btnLibrosPrestadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnLibrosPrestadosLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel9)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        panOptions.add(btnLibrosPrestados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
+
+        btnLibrosReservados.setPreferredSize(new java.awt.Dimension(190, 50));
+
+        jLabel10.setText("Reservas");
+
+        javax.swing.GroupLayout btnLibrosReservadosLayout = new javax.swing.GroupLayout(btnLibrosReservados);
+        btnLibrosReservados.setLayout(btnLibrosReservadosLayout);
+        btnLibrosReservadosLayout.setHorizontalGroup(
+            btnLibrosReservadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnLibrosReservadosLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jLabel10)
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+        btnLibrosReservadosLayout.setVerticalGroup(
+            btnLibrosReservadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnLibrosReservadosLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel10)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        panOptions.add(btnLibrosReservados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
+
+        bg.add(panOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 640));
+
+        add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
@@ -388,21 +553,27 @@ public class panUser extends javax.swing.JPanel {
         int fila = tblInventario.getSelectedRow();        
         String nombreSolicitud = (String) tblModel.getValueAt(fila,0);  
         int cantidad = (int) tblModel.getValueAt(fila,2); 
+        boolean existencia = true;
+        Libro l = Exe.almacen.mostrarPorNombre(nombreSolicitud); 
         
         if(cantidad > 0 && true){             
             //yo se que es redundante mostrar dos veces el arbol, podria simplemente editar la tabla y luego el arbol pero es por seguir la filosofia de primero arbol, luego mostrar datos al editar
-            lblSolicitud.setText("Solicitar");
-            Libro l = Exe.almacen.mostrarPorNombre(nombreSolicitud); 
-            Exe.almacen.retirarUnidad(nombreSolicitud);
-            lblInfR.setText("Ha solicitado el libro exitosamente.");
-            Exe.cliente.getListaLibros().add(l);
+            lblSolicitud.setText("Solicitar");  
+            existencia = Exe.cliente.añadirLibro(l);
             
-            Libro l2 = Exe.almacen.mostrarPorNombre(nombreSolicitud);            
-            tblInventario.setValueAt(l2.getCantidad(),fila,2);
-             
-        
+            if(existencia == false){
+                //ya esta el libro solicitado
+                lblInfR.setText("Ya solicito el libro.");
+                
+            }
+            else{
+                Exe.almacen.retirarUnidad(nombreSolicitud);
+                lblInfR.setText("Ha solicitado el libro exitosamente.");
+                Libro l2 = Exe.almacen.mostrarPorNombre(nombreSolicitud);            
+                tblInventario.setValueAt(l2.getCantidad(),fila,2);
+            } 
         }
-        if(cantidad == 0 && true){ //totalmente funcional, aunque aun esta el error donde pide el libro y lo reserva, poner segunda condicion
+        if(cantidad == 0 && Exe.cliente.buscarLibro(l) != l ){ //totalmente funcional, aunque aun esta el error donde pide el libro y lo reserva, poner segunda condicion
             
             lblSolicitud.setText("Reservar");
             int condReservar = Exe.almacen.reservarLibro(Exe.cliente.getNombre(), nombreSolicitud); 
@@ -418,9 +589,7 @@ public class panUser extends javax.swing.JPanel {
                     break;
             }
         }
-        else{
-            lblInfR.setText("un caso imposible, mostrar esto en caso de error");
-        }
+        
         
 
         //tblModel.removeRow(fila);
@@ -456,6 +625,34 @@ public class panUser extends javax.swing.JPanel {
             }
         }   
     }//GEN-LAST:event_tblInventarioMouseClicked
+
+    private void btnPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerfilMouseClicked
+        panTable.setVisible(false);
+        panSearch.setVisible(false);
+        
+        btnAjustes.setVisible(true);
+        btnLibrosPrestados.setVisible(true);
+        btnLibrosReservados  .setVisible(true);            
+        btnTuPerfil.setVisible(true);
+        
+    }//GEN-LAST:event_btnPerfilMouseClicked
+
+    private void btnBusquedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseClicked
+        panTable.setVisible(true);
+        panSearch.setVisible(true); 
+        
+        btnAjustes.setVisible(false);
+        btnLibrosPrestados.setVisible(false);
+        btnLibrosReservados  .setVisible(false);            
+        btnTuPerfil.setVisible(false);
+        this.remove(pp);
+    }//GEN-LAST:event_btnBusquedaMouseClicked
+
+    private void btnLibrosPrestadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosPrestadosMouseClicked
+        // TODO add your handling code here
+        pp.setVisible(true);
+
+    }//GEN-LAST:event_btnLibrosPrestadosMouseClicked
     
     private void limpiarTabla(){
         for(int i = 0; i < tblInventario.getRowCount(); i++ ){
@@ -466,17 +663,29 @@ public class panUser extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel bg;
+    private javax.swing.JPanel btnAjustes;
     private javax.swing.JPanel btnBuscar;
+    private javax.swing.JPanel btnBusqueda;
     private javax.swing.JPanel btnCancelarReservacion;
+    private javax.swing.JPanel btnLibrosPrestados;
+    private javax.swing.JPanel btnLibrosReservados;
     private javax.swing.JPanel btnLimpiar;
+    private javax.swing.JPanel btnPerfil;
     private javax.swing.JPanel btnSolicitar;
+    private javax.swing.JPanel btnTuPerfil;
     private javax.swing.JComboBox<String> cmbFiltro;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblCancel;
     private javax.swing.JLabel lblInfB;
     private javax.swing.JLabel lblInfR;
