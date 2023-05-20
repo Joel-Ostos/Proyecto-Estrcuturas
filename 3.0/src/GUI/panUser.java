@@ -16,7 +16,7 @@ public class panUser extends javax.swing.JPanel {
      */
     private DefaultTableModel tblModel;
     private String[] header = {"Libro","Autor","Cantidad","Editorial","Categoria"};
-    panPrestamo p = new panPrestamo();
+    
     
     public panUser() {
         initComponents();
@@ -27,8 +27,7 @@ public class panUser extends javax.swing.JPanel {
         btnTuPerfil.setVisible(false);
         //p.setSize(890,640);
         //p.setLocation(390,0);
-        add(p,1);//BorderLayout.CENTER
-        p.setVisible(false);
+        
     }
 
     /**
@@ -558,6 +557,7 @@ public class panUser extends javax.swing.JPanel {
         
         if(cantidad > 0 && true){             
             //yo se que es redundante mostrar dos veces el arbol, podria simplemente editar la tabla y luego el arbol pero es por seguir la filosofia de primero arbol, luego mostrar datos al editar
+           
             lblSolicitud.setText("Solicitar");  
             existencia = Exe.cliente.añadirLibro(l);
             
@@ -645,12 +645,14 @@ public class panUser extends javax.swing.JPanel {
         btnLibrosPrestados.setVisible(false);
         btnLibrosReservados  .setVisible(false);            
         btnTuPerfil.setVisible(false);
-        this.remove(pp);
+        
     }//GEN-LAST:event_btnBusquedaMouseClicked
 
     private void btnLibrosPrestadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosPrestadosMouseClicked
         // TODO add your handling code here
-        pp.setVisible(true);
+        
+        
+        
 
     }//GEN-LAST:event_btnLibrosPrestadosMouseClicked
     
