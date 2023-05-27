@@ -156,6 +156,18 @@ public class LibrosBiblioteca {
         }
         return null;
     }
+    
+    public Libro devolverUnidad(String nombre) {
+        Libro libro = mostrarPorNombre(nombre);
+        if (libro.getCantidad() >= 0) {
+            libro.setCantidad(libro.getCantidad() + 1);
+            System.out.print("se ejecuto la devolucion");
+            return libro;
+        }
+        System.out.print("NO se ejecuto la devolucion");
+        return null;
+    }
+    
 
     public boolean pertenenciaColaReserva(String cliente, String libro){
         Libro libroEncontrado = mostrarPorNombre(libro);
@@ -175,8 +187,9 @@ public class LibrosBiblioteca {
                 return false; //no deberia estar en esta opcion
             }
         }
+        return false;
     }
-    
+
     
     
     public int reservarLibro(String cliente, String libro) {
@@ -206,6 +219,9 @@ public class LibrosBiblioteca {
             if (reserva.getCliente().equals(cliente) && reserva.getLibro().equals(libro)) {
                 reservas.remove(reserva);
                 System.out.println("Reserva cancelada...");
+                
+                
+                
                 return true;
             }
         }

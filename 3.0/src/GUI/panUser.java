@@ -11,11 +11,11 @@ import java.awt.Color;
 
 public class panUser extends javax.swing.JPanel {
 
-    /**
-     * Creates new form panUser
-     */
+    
     private DefaultTableModel tblModel;
     private String[] header = {"Libro","Autor","Cantidad","Editorial","Categoria"};
+    panPrestamo panP = new panPrestamo();
+    panReservas panR = new panReservas();
     
     
     public panUser() {
@@ -25,8 +25,16 @@ public class panUser extends javax.swing.JPanel {
         btnLibrosPrestados.setVisible(false);
         btnLibrosReservados  .setVisible(false);            
         btnTuPerfil.setVisible(false);
-        //p.setSize(890,640);
-        //p.setLocation(390,0);
+                
+        panP.setSize(panP.getPreferredSize());
+        panR.setSize(panR.getPreferredSize());
+       
+                
+        bg.add(panP, new org.netbeans.lib.awtextra.AbsoluteConstraints(400,0));
+        bg.add(panR, new org.netbeans.lib.awtextra.AbsoluteConstraints(400,0));
+        
+        panP.setVisible(false);
+        panR.setVisible(false);
         
     }
 
@@ -435,6 +443,11 @@ public class panUser extends javax.swing.JPanel {
         panOptions.add(btnLibrosPrestados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
         btnLibrosReservados.setPreferredSize(new java.awt.Dimension(190, 50));
+        btnLibrosReservados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLibrosReservadosMouseClicked(evt);
+            }
+        });
 
         jLabel10.setText("Reservas");
 
@@ -573,7 +586,7 @@ public class panUser extends javax.swing.JPanel {
                 tblInventario.setValueAt(l2.getCantidad(),fila,2);
             } 
         }
-        if(cantidad == 0 && Exe.cliente.buscarLibro(l) != l ){ //totalmente funcional, aunque aun esta el error donde pide el libro y lo reserva, poner segunda condicion
+        if(cantidad == 0 && Exe.cliente.buscarLibro(l) != l ){ //totalmente funcional, ya si el libro lo pidio, no lo puede reservar
             
             lblSolicitud.setText("Reservar");
             int condReservar = Exe.almacen.reservarLibro(Exe.cliente.getNombre(), nombreSolicitud); 
@@ -635,6 +648,9 @@ public class panUser extends javax.swing.JPanel {
         btnLibrosReservados  .setVisible(true);            
         btnTuPerfil.setVisible(true);
         
+        panP.setVisible(false);
+        panR.setVisible(false);
+        
     }//GEN-LAST:event_btnPerfilMouseClicked
 
     private void btnBusquedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseClicked
@@ -646,15 +662,24 @@ public class panUser extends javax.swing.JPanel {
         btnLibrosReservados  .setVisible(false);            
         btnTuPerfil.setVisible(false);
         
+        panP.setVisible(false);
+        panR.setVisible(false);
     }//GEN-LAST:event_btnBusquedaMouseClicked
 
     private void btnLibrosPrestadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosPrestadosMouseClicked
-        // TODO add your handling code here
+        panP.setVisible(true);
+        panR.setVisible(false);
         
         
         
 
     }//GEN-LAST:event_btnLibrosPrestadosMouseClicked
+
+    private void btnLibrosReservadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosReservadosMouseClicked
+        // TODO add your handling code here:
+        panP.setVisible(false);
+        panR.setVisible(true);
+    }//GEN-LAST:event_btnLibrosReservadosMouseClicked
     
     private void limpiarTabla(){
         for(int i = 0; i < tblInventario.getRowCount(); i++ ){

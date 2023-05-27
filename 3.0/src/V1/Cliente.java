@@ -45,6 +45,17 @@ public class Cliente {
         listaLibros.add(añadido);  // Añadir el libro a la lista
         return true;  // Libro añadido correctamente
     }
+    
+    public boolean devolverLibro(Libro devolucion) {
+        for (Libro l : listaLibros) {
+            if (l.equals(devolucion)) {
+                listaLibros.remove(devolucion);  // Quitar el libro de la lista
+                return true;  // Libro eliminado correctamente
+                                               
+            }
+        }        
+        return false;  // El libro no existe en la lista
+    }
 
     public Libro buscarLibro(Libro buscar){
         for (Libro l : listaLibros) {
