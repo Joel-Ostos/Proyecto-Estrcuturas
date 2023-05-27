@@ -22,6 +22,7 @@ public class panPrestamo extends javax.swing.JPanel {
     public panPrestamo() {
         initComponents();
         initTable();
+        
 
         
 
@@ -153,30 +154,26 @@ public class panPrestamo extends javax.swing.JPanel {
         limpiarTabla();
         //elimina de la lista del cliente de prestamos
 
-            Libro l = Exe.almacen.mostrarPorNombre(nombreDevolucion);
+        Libro l = Exe.almacen.mostrarPorNombre(nombreDevolucion);
             
-            if(l == null){
-                lblInfP.setText("No se encuentra el libro");
-            }
-            else{
-                Exe.cliente.devolverLibro(l);
-            }
+        if(l == null){
+            lblInfP.setText("No se encuentra el libro");
+        }
+        else{
+            Exe.cliente.devolverLibro(l);
+        }
+        actualizar();
 
-        //tblModel.removeRow(fila);
+       
     }//GEN-LAST:event_btnDevolverMouseClicked
 
     private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
         // TODO add your handling code here:
         
         limpiarTabla();
+        actualizar();
         
-        LinkedList<Libro> listaPrestamos =  Exe.cliente.getListaLibros();
         
-        for(Libro libro : listaPrestamos){
-            Object[] l = libro.toArray();
-            l[2] = 1;
-            tblModel.addRow(l);
-        }
     }//GEN-LAST:event_btnActualizarMouseClicked
 
 
@@ -210,4 +207,21 @@ public class panPrestamo extends javax.swing.JPanel {
         }
     
     }
+
+    public void actualizar() {
+        LinkedList<Libro> listaPrestamos =  Exe.cliente.getListaLibros();
+        
+        for(Libro libro : listaPrestamos){
+            Object[] l = libro.toArray();
+            l[2] = 1;
+            tblModel.addRow(l);
+        }
+        if(listaPrestamos != null){
+            
+            lblInfP.setText("Tiene libros en prestamo, seleccione para devolver");
+        }
+        else lblInfP.setText("No tiene libros en prestamo");
+        
+    }
 }
+

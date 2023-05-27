@@ -676,7 +676,7 @@ public class panAdmin extends javax.swing.JPanel {
             
                 Libro l = new Libro(nombre, autor, cantidad, editorial,  categoria);
             
-                Exe.almacen.actualizarLibro(nombreViejo, nombre, autor, editorial, categoria);
+                Exe.almacen.actualizarLibro(nombreViejo, nombre, autor,cantidad, editorial, categoria);
             
                 tblInventario.setValueAt(l.getNombre(),fila,0);
                 tblInventario.setValueAt(l.getAutor(),fila,1);

@@ -130,14 +130,15 @@ public class LibrosBiblioteca {
         }
     }
 
-    public boolean actualizarLibro(String nombre, String nuevoNombre, String nuevoAutor, String nuevaEditorial, String nuevaCategoria) {
+    public boolean actualizarLibro(String nombre, String nuevoNombre, String nuevoAutor,int nuevaCantidad, String nuevaEditorial, String nuevaCategoria) {
         Libro libro = mostrarPorNombre(nombre);
         if (libro == null) {
             return false;
         }
-
+        
         libro.setNombre(nuevoNombre);
         libro.setAutor(nuevoAutor);
+        libro.setCantidad(nuevaCantidad);
         libro.setEditorial(nuevaEditorial);
         return true;
     }
