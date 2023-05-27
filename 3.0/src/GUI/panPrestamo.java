@@ -173,7 +173,9 @@ public class panPrestamo extends javax.swing.JPanel {
         LinkedList<Libro> listaPrestamos =  Exe.cliente.getListaLibros();
         
         for(Libro libro : listaPrestamos){
-            tblModel.addRow(libro.toArray());
+            Object[] l = libro.toArray();
+            l[2] = 1;
+            tblModel.addRow(l);
         }
     }//GEN-LAST:event_btnActualizarMouseClicked
 

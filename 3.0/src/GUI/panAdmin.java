@@ -6,6 +6,7 @@ package GUI;
 //falta implementar la suma de un libro
 import clases.V1.*;
 import java.awt.Color;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 public class panAdmin extends javax.swing.JPanel {
@@ -36,7 +37,6 @@ public class panAdmin extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         panEdit = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         btnCreate = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         btnEdit = new javax.swing.JPanel();
@@ -56,6 +56,7 @@ public class panAdmin extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         lblResultBusqueda = new javax.swing.JLabel();
+        btnCerrarSesion = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -73,17 +74,17 @@ public class panAdmin extends javax.swing.JPanel {
         panTable.setLayout(panTableLayout);
         panTableLayout.setHorizontalGroup(
             panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panTableLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTableLayout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap())
         );
         panTableLayout.setVerticalGroup(
             panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTableLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panTableLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         add(panTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 890, 440));
@@ -218,9 +219,7 @@ public class panAdmin extends javax.swing.JPanel {
 
         add(panSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 890, 200));
 
-        panEdit.setBackground(new java.awt.Color(255, 150, 50));
-
-        jLabel5.setText("Modo Administrador");
+        panEdit.setBackground(new java.awt.Color(245, 255, 255));
 
         btnCreate.setPreferredSize(new java.awt.Dimension(390, 50));
         btnCreate.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -378,13 +377,28 @@ public class panAdmin extends javax.swing.JPanel {
 
         lblResultBusqueda.setText("infodasdasdsadsadasdasdas");
 
+        btnCerrarSesion.setPreferredSize(new java.awt.Dimension(200, 50));
+        btnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btnCerrarSesionLayout = new javax.swing.GroupLayout(btnCerrarSesion);
+        btnCerrarSesion.setLayout(btnCerrarSesionLayout);
+        btnCerrarSesionLayout.setHorizontalGroup(
+            btnCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+        );
+        btnCerrarSesionLayout.setVerticalGroup(
+            btnCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout panEditLayout = new javax.swing.GroupLayout(panEdit);
         panEdit.setLayout(panEditLayout);
         panEditLayout.setHorizontalGroup(
             panEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panEditLayout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(jLabel5))
             .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnDel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -416,13 +430,13 @@ public class panAdmin extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(lblResultBusqueda)
                 .addGap(98, 98, 98))
+            .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         panEditLayout.setVerticalGroup(
             panEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panEditLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel5)
-                .addGap(35, 35, 35)
+                .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -452,7 +466,7 @@ public class panAdmin extends javax.swing.JPanel {
                 .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblResultBusqueda)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(panEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 640));
@@ -780,6 +794,16 @@ public class panAdmin extends javax.swing.JPanel {
         // TODO add your handling code here:
         btnLimpiar.setBackground(new Color(242,242,242));
     }//GEN-LAST:event_btnLimpiarMouseExited
+
+    private void btnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseClicked
+        
+        Exe frame = (Exe) SwingUtilities.getWindowAncestor(panAdmin.this);
+        frame.selInit(1);
+        
+        
+        
+        
+    }//GEN-LAST:event_btnCerrarSesionMouseClicked
    
     
     public void limpiarTabla(){
@@ -793,6 +817,7 @@ public class panAdmin extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnAdd;
     private javax.swing.JPanel btnBuscar;
+    private javax.swing.JPanel btnCerrarSesion;
     private javax.swing.JPanel btnCreate;
     private javax.swing.JPanel btnDel;
     private javax.swing.JPanel btnEdit;
@@ -807,7 +832,6 @@ public class panAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

@@ -7,6 +7,7 @@ package GUI;
 import clases.V1.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Color;
+import javax.swing.SwingUtilities;
 
 
 public class panUser extends javax.swing.JPanel {
@@ -35,6 +36,9 @@ public class panUser extends javax.swing.JPanel {
         
         panP.setVisible(false);
         panR.setVisible(false);
+        
+        btnEditarPerfil.setVisible(false);
+        btnCerrarSesion.setVisible(false);
         
     }
 
@@ -79,6 +83,10 @@ public class panUser extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         btnLibrosReservados = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        btnEditarPerfil = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        btnCerrarSesion = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -382,6 +390,9 @@ public class panUser extends javax.swing.JPanel {
 
         btnTuPerfil.setPreferredSize(new java.awt.Dimension(190, 50));
         btnTuPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTuPerfilMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnTuPerfilMouseEntered(evt);
             }
@@ -504,6 +515,71 @@ public class panUser extends javax.swing.JPanel {
 
         panOptions.add(btnLibrosReservados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
 
+        btnEditarPerfil.setPreferredSize(new java.awt.Dimension(190, 50));
+        btnEditarPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEditarPerfilMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEditarPerfilMouseExited(evt);
+            }
+        });
+
+        jLabel11.setText("Editar Perfil");
+
+        javax.swing.GroupLayout btnEditarPerfilLayout = new javax.swing.GroupLayout(btnEditarPerfil);
+        btnEditarPerfil.setLayout(btnEditarPerfilLayout);
+        btnEditarPerfilLayout.setHorizontalGroup(
+            btnEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnEditarPerfilLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jLabel11)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+        btnEditarPerfilLayout.setVerticalGroup(
+            btnEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnEditarPerfilLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addGap(14, 14, 14))
+        );
+
+        panOptions.add(btnEditarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 200, -1));
+
+        btnCerrarSesion.setPreferredSize(new java.awt.Dimension(190, 50));
+        btnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionMouseExited(evt);
+            }
+        });
+
+        jLabel12.setText("Cerrar Sesion");
+
+        javax.swing.GroupLayout btnCerrarSesionLayout = new javax.swing.GroupLayout(btnCerrarSesion);
+        btnCerrarSesion.setLayout(btnCerrarSesionLayout);
+        btnCerrarSesionLayout.setHorizontalGroup(
+            btnCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnCerrarSesionLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jLabel12)
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+        btnCerrarSesionLayout.setVerticalGroup(
+            btnCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCerrarSesionLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addGap(14, 14, 14))
+        );
+
+        panOptions.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 200, -1));
+
         bg.add(panOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 640));
 
         add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -623,6 +699,8 @@ public class panUser extends javax.swing.JPanel {
         if(cantidad == 0 && Exe.cliente.buscarLibro(l) != l ){ //totalmente funcional, ya si el libro lo pidio, no lo puede reservar
             
             lblSolicitud.setText("Reservar");
+            
+            
             int condReservar = Exe.almacen.reservarLibro(Exe.cliente.getNombre(), nombreSolicitud); 
             switch(condReservar) {
                 case 0:
@@ -685,6 +763,9 @@ public class panUser extends javax.swing.JPanel {
         panP.setVisible(false);
         panR.setVisible(false);
         
+        btnEditarPerfil.setVisible(false);
+        btnCerrarSesion.setVisible(false);
+        
     }//GEN-LAST:event_btnPerfilMouseClicked
 
     private void btnBusquedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseClicked
@@ -698,13 +779,17 @@ public class panUser extends javax.swing.JPanel {
         
         panP.setVisible(false);
         panR.setVisible(false);
+        
+        btnEditarPerfil.setVisible(false);
+        btnCerrarSesion.setVisible(false);
     }//GEN-LAST:event_btnBusquedaMouseClicked
 
     private void btnLibrosPrestadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosPrestadosMouseClicked
         panP.setVisible(true);
         panR.setVisible(false);
         
-        
+        btnEditarPerfil.setVisible(false);
+        btnCerrarSesion.setVisible(false);
         
 
     }//GEN-LAST:event_btnLibrosPrestadosMouseClicked
@@ -713,6 +798,9 @@ public class panUser extends javax.swing.JPanel {
         // TODO add your handling code here:
         panP.setVisible(false);
         panR.setVisible(true);
+        
+        btnEditarPerfil.setVisible(false);
+        btnCerrarSesion.setVisible(false);
     }//GEN-LAST:event_btnLibrosReservadosMouseClicked
 
     private void btnLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseEntered
@@ -764,6 +852,41 @@ public class panUser extends javax.swing.JPanel {
         // TODO add your handling code here:
         btnTuPerfil.setBackground(new Color(242,242,242));
     }//GEN-LAST:event_btnTuPerfilMouseExited
+
+    private void btnTuPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTuPerfilMouseClicked
+        // TODO add your handling code here:
+        btnEditarPerfil.setVisible(true);
+        btnCerrarSesion.setVisible(true);
+        
+        
+    }//GEN-LAST:event_btnTuPerfilMouseClicked
+
+    private void btnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseClicked
+        // TODO add your handling code here:
+        
+        Exe frame = (Exe) SwingUtilities.getWindowAncestor(panUser.this);
+        frame.selInit(1);
+    }//GEN-LAST:event_btnCerrarSesionMouseClicked
+
+    private void btnEditarPerfilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarPerfilMouseEntered
+        // TODO add your handling code here:
+        btnEditarPerfil.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnEditarPerfilMouseEntered
+
+    private void btnCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseEntered
+        // TODO add your handling code here:
+        btnCerrarSesion.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnCerrarSesionMouseEntered
+
+    private void btnEditarPerfilMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarPerfilMouseExited
+        // TODO add your handling code here:
+        btnEditarPerfil.setBackground(new Color(242,242,242));
+    }//GEN-LAST:event_btnEditarPerfilMouseExited
+
+    private void btnCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseExited
+        // TODO add your handling code here:
+        btnCerrarSesion.setBackground(new Color(242,242,242));
+    }//GEN-LAST:event_btnCerrarSesionMouseExited
     
     private void limpiarTabla(){
         for(int i = 0; i < tblInventario.getRowCount(); i++ ){
@@ -779,6 +902,8 @@ public class panUser extends javax.swing.JPanel {
     private javax.swing.JPanel btnBuscar;
     private javax.swing.JPanel btnBusqueda;
     private javax.swing.JPanel btnCancelarReservacion;
+    private javax.swing.JPanel btnCerrarSesion;
+    private javax.swing.JPanel btnEditarPerfil;
     private javax.swing.JPanel btnLibrosPrestados;
     private javax.swing.JPanel btnLibrosReservados;
     private javax.swing.JPanel btnLimpiar;
@@ -788,6 +913,8 @@ public class panUser extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbFiltro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

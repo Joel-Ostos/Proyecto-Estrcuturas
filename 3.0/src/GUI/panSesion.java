@@ -135,6 +135,8 @@ public class panSesion extends javax.swing.JPanel {
             if(Exe.administrador.get(nombre).equals(clave)){
                 Exe frame = (Exe) SwingUtilities.getAncestorOfClass(Exe.class, this);
                 frame.selInit(3);
+                txtUser.setText("");
+                pwd.setText("");
             }
             else{
                 lblInfo.setText("Contraseña Incorrecta. Intente de nuevo."); 
@@ -156,6 +158,8 @@ public class panSesion extends javax.swing.JPanel {
                 Exe.Usuario = nombre;
                 Exe frame = (Exe) SwingUtilities.getAncestorOfClass(Exe.class, this);
                 frame.selInit(2);
+                txtUser.setText("");
+                pwd.setText("");
             }
         } 
         else{//caso donde no esta el nombre

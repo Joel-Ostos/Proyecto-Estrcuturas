@@ -18,16 +18,36 @@ public class Exe extends javax.swing.JFrame {
     static HashMap<String, Cliente> clientes = new HashMap<>();
     static LibrosBiblioteca almacen = new LibrosBiblioteca();
     static ArrayList<Libro> listaSalida;
-    static Cliente cliente;
-    
+    static Cliente cliente;    
     static String Usuario;
+    
+    panSesion pb1 = new panSesion();    
+    panUser pb2 = new panUser();
+    panAdmin pb3 = new panAdmin();
+        
+   
+    
+    
     
     
     public Exe() {
         
+        
         initComponents();
         precarga();
         selInit(1);
+        
+        pb1.setSize(1280,650);
+        pb1.setLocation(0,0);       
+        panContent.add(pb1);//BorderLayout.CENTER
+        
+        pb2.setSize(1280,650);
+        pb2.setLocation(0,0);
+         panContent.add(pb2);//BorderLayout.CENTER
+         
+        pb3.setSize(1280,650);
+        pb3.setLocation(0,0);        
+        panContent.add(pb3);//BorderLayout.CENTER
         
     }
 
@@ -145,31 +165,24 @@ public class Exe extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void iniciarPanelSesion() {
-        panSesion pb1 = new panSesion();
-        pb1.setSize(1280,650);
-        pb1.setLocation(0,0);
-        panContent.removeAll();
-        panContent.add(pb1);//BorderLayout.CENTER
-        panContent.revalidate();
-        panContent.repaint();
+        
+        
+        pb1.setVisible(true);
+        pb2.setVisible(false);
+        pb3.setVisible(false);
     }
     public void iniciarPanelUser() {
-        panUser pb2 = new panUser();
-        pb2.setSize(1280,650);
-        pb2.setLocation(0,0);
-        panContent.removeAll();
-        panContent.add(pb2);//BorderLayout.CENTER
-        panContent.revalidate();
-        panContent.repaint();
+        pb1.setVisible(false);
+        pb2.setVisible(true);
+        pb3.setVisible(false);
+        
     }
     public void iniciarPanelAdmin() {
-        panAdmin pb3 = new panAdmin();
-        pb3.setSize(1280,650);
-        pb3.setLocation(0,0);
-        panContent.removeAll();
-        panContent.add(pb3);//BorderLayout.CENTER
-        panContent.revalidate();
-        panContent.repaint();
+        
+        pb1.setVisible(false);
+        pb2.setVisible(false);
+        pb3.setVisible(true);
+       
        
     }
     public void selInit(int i) {
