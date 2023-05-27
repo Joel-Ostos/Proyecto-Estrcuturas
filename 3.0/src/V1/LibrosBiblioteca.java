@@ -161,7 +161,7 @@ public class LibrosBiblioteca {
         Libro libro = mostrarPorNombre(nombre);
         if (libro.getCantidad() >= 0) {
             libro.setCantidad(libro.getCantidad() + 1);
-            System.out.print("se ejecuto la devolucion");
+            //System.out.print("se ejecuto la devolucion");
             return libro;
         }
         System.out.print("NO se ejecuto la devolucion");
@@ -173,7 +173,7 @@ public class LibrosBiblioteca {
         Libro libroEncontrado = mostrarPorNombre(libro);
 
         if (libroEncontrado == null) {
-            System.out.println("El libro " + libro + " no existe.");
+            //System.out.println("El libro " + libro + " no existe.");
             return false; // no existe
         }
 

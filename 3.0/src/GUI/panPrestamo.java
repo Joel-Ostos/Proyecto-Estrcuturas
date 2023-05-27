@@ -149,8 +149,9 @@ public class panPrestamo extends javax.swing.JPanel {
         String nombreDevolucion = (String) tblModel.getValueAt(fila,0);              
         Exe.almacen.devolverUnidad(nombreDevolucion);
         
-        //elimina de la lista del cliente de prestamos
+        
         limpiarTabla();
+        //elimina de la lista del cliente de prestamos
 
             Libro l = Exe.almacen.mostrarPorNombre(nombreDevolucion);
             

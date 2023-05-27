@@ -199,6 +199,12 @@ public class panUser extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnLimpiarMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseExited(evt);
+            }
         });
 
         jLabel4.setText("Limpiar");
@@ -225,6 +231,12 @@ public class panUser extends javax.swing.JPanel {
         btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnBuscarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseExited(evt);
             }
         });
 
@@ -369,6 +381,14 @@ public class panUser extends javax.swing.JPanel {
         panOptions.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         btnTuPerfil.setPreferredSize(new java.awt.Dimension(190, 50));
+        btnTuPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnTuPerfilMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnTuPerfilMouseExited(evt);
+            }
+        });
 
         jLabel7.setText("Tu Perfil");
 
@@ -377,21 +397,29 @@ public class panUser extends javax.swing.JPanel {
         btnTuPerfilLayout.setHorizontalGroup(
             btnTuPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnTuPerfilLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
+                .addGap(61, 61, 61)
                 .addComponent(jLabel7)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         btnTuPerfilLayout.setVerticalGroup(
             btnTuPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnTuPerfilLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addComponent(jLabel7)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         panOptions.add(btnTuPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, -1));
 
         btnAjustes.setPreferredSize(new java.awt.Dimension(190, 50));
+        btnAjustes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAjustesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAjustesMouseExited(evt);
+            }
+        });
 
         jLabel8.setText("Ajustes");
 
@@ -400,16 +428,16 @@ public class panUser extends javax.swing.JPanel {
         btnAjustesLayout.setHorizontalGroup(
             btnAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnAjustesLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(62, 62, 62)
                 .addComponent(jLabel8)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         btnAjustesLayout.setVerticalGroup(
             btnAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnAjustesLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(14, 14, 14)
                 .addComponent(jLabel8)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         panOptions.add(btnAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
@@ -418,6 +446,12 @@ public class panUser extends javax.swing.JPanel {
         btnLibrosPrestados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnLibrosPrestadosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLibrosPrestadosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLibrosPrestadosMouseExited(evt);
             }
         });
 
@@ -680,6 +714,56 @@ public class panUser extends javax.swing.JPanel {
         panP.setVisible(false);
         panR.setVisible(true);
     }//GEN-LAST:event_btnLibrosReservadosMouseClicked
+
+    private void btnLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseEntered
+        // TODO add your handling code here:
+        btnLimpiar.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnLimpiarMouseEntered
+
+    private void btnLimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseExited
+        // TODO add your handling code here:
+        btnLimpiar.setBackground(new Color(242,242,242));
+    }//GEN-LAST:event_btnLimpiarMouseExited
+
+    private void btnBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseEntered
+        // TODO add your handling code here:
+        btnBuscar.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnBuscarMouseEntered
+
+    private void btnBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseExited
+        // TODO add your handling code here:
+        btnBuscar.setBackground(new Color(242,242,242));
+    }//GEN-LAST:event_btnBuscarMouseExited
+
+    private void btnLibrosPrestadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosPrestadosMouseEntered
+        // TODO add your handling code here:
+        btnLibrosPrestados.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnLibrosPrestadosMouseEntered
+
+    private void btnLibrosPrestadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosPrestadosMouseExited
+        // TODO add your handling code here:
+        btnLibrosPrestados.setBackground(new Color(242,242,242));
+    }//GEN-LAST:event_btnLibrosPrestadosMouseExited
+
+    private void btnAjustesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAjustesMouseEntered
+        // TODO add your handling code here:
+        btnAjustes.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnAjustesMouseEntered
+
+    private void btnAjustesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAjustesMouseExited
+        // TODO add your handling code here:
+        btnAjustes.setBackground(new Color(242,242,242));
+    }//GEN-LAST:event_btnAjustesMouseExited
+
+    private void btnTuPerfilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTuPerfilMouseEntered
+        // TODO add your handling code here:
+        btnTuPerfil.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnTuPerfilMouseEntered
+
+    private void btnTuPerfilMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTuPerfilMouseExited
+        // TODO add your handling code here:
+        btnTuPerfil.setBackground(new Color(242,242,242));
+    }//GEN-LAST:event_btnTuPerfilMouseExited
     
     private void limpiarTabla(){
         for(int i = 0; i < tblInventario.getRowCount(); i++ ){

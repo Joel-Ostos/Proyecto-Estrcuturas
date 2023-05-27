@@ -5,6 +5,7 @@
 package GUI;
 //falta implementar la suma de un libro
 import clases.V1.*;
+import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 
 public class panAdmin extends javax.swing.JPanel {
@@ -101,6 +102,12 @@ public class panAdmin extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnLimpiarMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseExited(evt);
+            }
         });
 
         jLabel4.setText("Limpiar");
@@ -126,6 +133,12 @@ public class panAdmin extends javax.swing.JPanel {
         btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnBuscarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseExited(evt);
             }
         });
 
@@ -158,30 +171,30 @@ public class panAdmin extends javax.swing.JPanel {
         panSearch.setLayout(panSearchLayout);
         panSearchLayout.setHorizontalGroup(
             panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panSearchLayout.createSequentialGroup()
-                    .addContainerGap(205, Short.MAX_VALUE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(71, 71, 71)
-                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(93, 93, 93)
-                    .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(86, 86, 86))
-                .addGroup(panSearchLayout.createSequentialGroup()
-                    .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panSearchLayout.createSequentialGroup()
-                            .addGap(289, 289, 289)
-                            .addComponent(lblInfB, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panSearchLayout.createSequentialGroup()
-                            .addGap(155, 155, 155)
-                            .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(panSearchLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(167, 167, 167)
-                .addComponent(jLabel2)
-                .addGap(59, 59, 59))
+                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panSearchLayout.createSequentialGroup()
+                        .addGap(289, 289, 289)
+                        .addComponent(lblInfB, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panSearchLayout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panSearchLayout.createSequentialGroup()
+                .addContainerGap(205, Short.MAX_VALUE)
+                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panSearchLayout.createSequentialGroup()
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(314, 314, 314))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panSearchLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(167, 167, 167)
+                        .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(52, 52, 52))))
         );
         panSearchLayout.setVerticalGroup(
             panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,6 +227,12 @@ public class panAdmin extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCreateMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCreateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCreateMouseExited(evt);
+            }
         });
 
         jLabel11.setText("Añadir Nuevo Libro");
@@ -239,6 +258,12 @@ public class panAdmin extends javax.swing.JPanel {
         btnEdit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEditMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEditMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEditMouseExited(evt);
             }
         });
 
@@ -267,6 +292,12 @@ public class panAdmin extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnDelMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDelMouseExited(evt);
+            }
         });
 
         jLabel12.setText("Eliminar Libro");
@@ -292,6 +323,12 @@ public class panAdmin extends javax.swing.JPanel {
         btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAddMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAddMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAddMouseExited(evt);
             }
         });
 
@@ -668,9 +705,81 @@ public class panAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_tblInventarioMouseClicked
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
-
+        if(tblInventario.getSelectedRowCount() != 1){
+            return;
+        }
+        //añade la unidad al almacen
+        int fila = tblInventario.getSelectedRow();        
+        String nombreDevolucion = (String) tblModel.getValueAt(fila,0);              
+        Exe.almacen.devolverUnidad(nombreDevolucion);
+        
+        int cantidad = (int) tblModel.getValueAt(fila,2); 
+        tblInventario.setValueAt(cantidad + 1,fila,2);
+        
+        
+        
   
     }//GEN-LAST:event_btnAddMouseClicked
+
+    private void btnCreateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateMouseEntered
+        // TODO add your handling code here:
+        btnCreate.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnCreateMouseEntered
+
+    private void btnCreateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateMouseExited
+        // TODO add your handling code here:
+        btnCreate.setBackground(new Color(242,242,242));
+    }//GEN-LAST:event_btnCreateMouseExited
+
+    private void btnEditMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseEntered
+        // TODO add your handling code here:
+        btnEdit.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnEditMouseEntered
+
+    private void btnEditMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseExited
+        // TODO add your handling code here:
+        btnEdit.setBackground(new Color(242,242,242));
+    }//GEN-LAST:event_btnEditMouseExited
+
+    private void btnDelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDelMouseEntered
+        // TODO add your handling code here:
+        btnDel.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnDelMouseEntered
+
+    private void btnDelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDelMouseExited
+        // TODO add your handling code here:
+        btnDel.setBackground(new Color(242,242,242));
+    }//GEN-LAST:event_btnDelMouseExited
+
+    private void btnAddMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseEntered
+        // TODO add your handling code here:
+        btnAdd.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnAddMouseEntered
+
+    private void btnAddMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseExited
+        // TODO add your handling code here:
+        btnAdd.setBackground(new Color(242,242,242));
+    }//GEN-LAST:event_btnAddMouseExited
+
+    private void btnBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseEntered
+        // TODO add your handling code here:
+        btnBuscar.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnBuscarMouseEntered
+
+    private void btnBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseExited
+        // TODO add your handling code here:
+        btnBuscar.setBackground(new Color(242,242,242));
+    }//GEN-LAST:event_btnBuscarMouseExited
+
+    private void btnLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseEntered
+        // TODO add your handling code here:
+        btnLimpiar.setBackground(new Color(255,255,255));
+    }//GEN-LAST:event_btnLimpiarMouseEntered
+
+    private void btnLimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseExited
+        // TODO add your handling code here:
+        btnLimpiar.setBackground(new Color(242,242,242));
+    }//GEN-LAST:event_btnLimpiarMouseExited
    
     
     public void limpiarTabla(){
@@ -703,7 +812,6 @@ public class panAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblInfB;
     private javax.swing.JLabel lblResultBusqueda;
