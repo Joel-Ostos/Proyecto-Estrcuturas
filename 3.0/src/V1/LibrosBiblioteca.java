@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class LibrosBiblioteca {
 
     private TreeSet<Libro> libros;
-    private Queue<Reserva> reservas;
+    public Queue<Reserva> reservas;
     private ArrayList<Libro> listaEnvio;
 
     public LibrosBiblioteca() {
@@ -168,6 +168,28 @@ public class LibrosBiblioteca {
         System.out.print("NO se ejecuto la devolucion");
         return null;
     }
+    
+    public boolean libroEnColaReserva(String libro){
+        Libro libroEncontrado = mostrarPorNombre(libro);
+
+        if (libroEncontrado == null) {
+            //System.out.println("El libro " + libro + " no existe.");
+            return false; // no existe
+        }
+
+        // Verifica si ya existe una reserva de ese libro
+        for (Reserva reserva : reservas) {
+            if (reserva.getLibro().equals(libro)) {
+                System.out.println("El libro esta en cola de espera.");
+                return true; // ya esta en la cola
+            }
+            else{
+                return false; //no deberia estar en esta opcion
+            }
+        }
+        return false;
+    }
+    
     
 
     public boolean pertenenciaColaReserva(String cliente, String libro){

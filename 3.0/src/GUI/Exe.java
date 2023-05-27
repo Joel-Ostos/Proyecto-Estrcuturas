@@ -15,11 +15,12 @@ public class Exe extends javax.swing.JFrame {
 
     static HashMap<String, String> administrador = new HashMap<>();
     static HashMap<String, String> credencialesCliente = new HashMap<>();
-    static HashMap<String, Cliente> clientes = new HashMap<>();
+    static HashMap<String, Cliente> HashClientes = new HashMap<>();
     static LibrosBiblioteca almacen = new LibrosBiblioteca();
     static ArrayList<Libro> listaSalida;
     static Cliente cliente;    
     static String Usuario;
+    
     
     panSesion pb1 = new panSesion();    
     panUser pb2 = new panUser();
@@ -210,6 +211,7 @@ public class Exe extends javax.swing.JFrame {
         almacen.create("Libro10", "Gauss", 13, "Norma", "Novela");
         almacen.create("Libro11", "Gauss", 6, "Pearson", "Estadistica");
         almacen.create("Libro12", "Bonn", 0, "Pearson", "Ingenieria");
+        almacen.create("Libro13", "Gee", 1, "Pearson", "Biologia");
     }
     
 }

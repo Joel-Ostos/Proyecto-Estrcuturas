@@ -155,8 +155,8 @@ public class panSesion extends javax.swing.JPanel {
         //usuario
 
             
-        if (Exe.clientes.containsKey(nombre)) { //caso donde esta el nombre
-            Exe.cliente = Exe.clientes.get(nombre); //busca el cliente
+        if (Exe.HashClientes.containsKey(nombre)) { //caso donde esta el nombre
+            Exe.cliente = Exe.HashClientes.get(nombre); //busca el cliente
             passwordCorrecta = Exe.cliente.getClave().equals(clave);  //compara la clave dada con la guardada
             if (!passwordCorrecta) {
                 lblInfo.setText("Contraseña Incorrecta. Intente de nuevo."); 
@@ -165,6 +165,7 @@ public class panSesion extends javax.swing.JPanel {
             else{
                 //ejecute el jpanel de usuario
                 Exe.Usuario = nombre;
+                
                 Exe frame = (Exe) SwingUtilities.getAncestorOfClass(Exe.class, this);
                 frame.selInit(2);
                 txtUser.setText("");
@@ -180,7 +181,7 @@ public class panSesion extends javax.swing.JPanel {
                 txtUser.setText("");
                 pwd.setText("");
                 Exe.cliente = new Cliente(nombre, clave, new LinkedList<>());
-                Exe.clientes.put(nombre, Exe.cliente);
+                Exe.HashClientes.put(nombre, Exe.cliente);
             }
         }
         

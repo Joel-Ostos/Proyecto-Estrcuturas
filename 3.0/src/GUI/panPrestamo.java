@@ -4,7 +4,10 @@
  */
 package GUI;
 
+import clases.V1.Cliente;
 import clases.V1.Libro;
+import clases.V1.Reserva;
+import java.util.Iterator;
 import java.util.LinkedList;
 import javax.swing.table.DefaultTableModel;
 
@@ -155,14 +158,71 @@ public class panPrestamo extends javax.swing.JPanel {
         //elimina de la lista del cliente de prestamos
 
         Libro l = Exe.almacen.mostrarPorNombre(nombreDevolucion);
+        
             
         if(l == null){
             lblInfP.setText("No se encuentra el libro");
         }
         else{
             Exe.cliente.devolverLibro(l);
-        }
+            lblInfP.setText("Libro devuelto");
+        }                     
+        
         actualizar();
+        
+        //hasta aca la devolucion del libro
+        ////////////////////////////////////////////////////
+        
+        //aca presta el libro si esta en la cola de espera automaticamente si esta en la cola
+        if( Exe.almacen.libroEnColaReserva(nombreDevolucion) == true){
+            
+            //el elemento a buscar es nombre del libro, la cola almacena un objeto de reserva que tiene libro y nombre
+            
+            Iterator<Reserva> iterator = Exe.almacen.reservas.iterator();
+                      
+            //busca el primer cliente que tenga el libro en espera
+            while (iterator.hasNext()) {
+            Reserva elemento = iterator.next();
+            if (elemento.getLibro().equals(nombreDevolucion)) {
+                System.out.println("Elemento encontrado: " + elemento);
+                //aca ya encontro el cliente
+                
+                
+                Cliente clienteReservado = Exe.HashClientes.get(elemento.getCliente());
+                
+                
+                boolean existencia;
+                
+                
+                
+                existencia = clienteReservado.añadirLibro(l);
+            
+                if(existencia == false){
+                    //ya esta el libro solicitado
+                    //lblInfR.setText("Ya solicito el libro.");
+                
+                }
+                else{
+                    Exe.almacen.retirarUnidad(nombreDevolucion);
+                    //solicita el libro devuelto
+                    System.out.println("Libro prestado al cliente");
+                    System.out.println(elemento.getCliente());
+                    
+                }
+                    //lblInfR.setText("Ha solicitado el libro exitosamente.");
+                
+                Exe.almacen.cancelarReserva(elemento.getCliente(), nombreDevolucion);
+                clienteReservado = null;
+                
+            
+               ////////////////////////////////////////////////////////////////////////////// 
+                break; // Detener el recorrido cuando se encuentra el elemento requerido
+            }
+        }
+            
+                
+            
+        }       
 
        
     }//GEN-LAST:event_btnDevolverMouseClicked
