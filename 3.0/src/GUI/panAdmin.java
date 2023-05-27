@@ -57,6 +57,7 @@ public class panAdmin extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         lblResultBusqueda = new javax.swing.JLabel();
         btnCerrarSesion = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -384,15 +385,23 @@ public class panAdmin extends javax.swing.JPanel {
             }
         });
 
+        jLabel5.setText("Cerrar Sesion");
+
         javax.swing.GroupLayout btnCerrarSesionLayout = new javax.swing.GroupLayout(btnCerrarSesion);
         btnCerrarSesion.setLayout(btnCerrarSesionLayout);
         btnCerrarSesionLayout.setHorizontalGroup(
             btnCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCerrarSesionLayout.createSequentialGroup()
+                .addContainerGap(61, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(58, 58, 58))
         );
         btnCerrarSesionLayout.setVerticalGroup(
             btnCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(btnCerrarSesionLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel5)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panEditLayout = new javax.swing.GroupLayout(panEdit);
@@ -832,6 +841,7 @@ public class panAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

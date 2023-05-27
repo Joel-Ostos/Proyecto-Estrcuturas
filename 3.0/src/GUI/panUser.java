@@ -16,26 +16,25 @@ public class panUser extends javax.swing.JPanel {
     private DefaultTableModel tblModel;
     private String[] header = {"Libro","Autor","Cantidad","Editorial","Categoria"};
     panPrestamo panP = new panPrestamo();
-    panReservas panR = new panReservas();
+    
     
     
     public panUser() {
         initComponents();
         initTable();
         btnAjustes.setVisible(false);
-        btnLibrosPrestados.setVisible(false);
-        btnLibrosReservados  .setVisible(false);            
+        btnLibrosPrestados.setVisible(false);                    
         btnTuPerfil.setVisible(false);
                 
         panP.setSize(panP.getPreferredSize());
-        panR.setSize(panR.getPreferredSize());
+        
        
                 
         bg.add(panP, new org.netbeans.lib.awtextra.AbsoluteConstraints(400,0));
-        bg.add(panR, new org.netbeans.lib.awtextra.AbsoluteConstraints(400,0));
+        
         
         panP.setVisible(false);
-        panR.setVisible(false);
+        
         
         btnEditarPerfil.setVisible(false);
         btnCerrarSesion.setVisible(false);
@@ -81,8 +80,6 @@ public class panUser extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         btnLibrosPrestados = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        btnLibrosReservados = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
         btnEditarPerfil = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         btnCerrarSesion = new javax.swing.JPanel();
@@ -485,34 +482,6 @@ public class panUser extends javax.swing.JPanel {
 
         panOptions.add(btnLibrosPrestados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
-        btnLibrosReservados.setPreferredSize(new java.awt.Dimension(190, 50));
-        btnLibrosReservados.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnLibrosReservadosMouseClicked(evt);
-            }
-        });
-
-        jLabel10.setText("Reservas");
-
-        javax.swing.GroupLayout btnLibrosReservadosLayout = new javax.swing.GroupLayout(btnLibrosReservados);
-        btnLibrosReservados.setLayout(btnLibrosReservadosLayout);
-        btnLibrosReservadosLayout.setHorizontalGroup(
-            btnLibrosReservadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnLibrosReservadosLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel10)
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
-        btnLibrosReservadosLayout.setVerticalGroup(
-            btnLibrosReservadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnLibrosReservadosLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel10)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
-        panOptions.add(btnLibrosReservados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
-
         btnEditarPerfil.setPreferredSize(new java.awt.Dimension(190, 50));
         btnEditarPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -754,12 +723,11 @@ public class panUser extends javax.swing.JPanel {
         panSearch.setVisible(false);
         
         btnAjustes.setVisible(true);
-        btnLibrosPrestados.setVisible(true);
-        btnLibrosReservados  .setVisible(true);            
+        btnLibrosPrestados.setVisible(true);                   
         btnTuPerfil.setVisible(true);
         
         panP.setVisible(false);
-        panR.setVisible(false);
+       
         
         btnEditarPerfil.setVisible(false);
         btnCerrarSesion.setVisible(false);
@@ -771,12 +739,11 @@ public class panUser extends javax.swing.JPanel {
         panSearch.setVisible(true); 
         
         btnAjustes.setVisible(false);
-        btnLibrosPrestados.setVisible(false);
-        btnLibrosReservados  .setVisible(false);            
+        btnLibrosPrestados.setVisible(false);                   
         btnTuPerfil.setVisible(false);
         
         panP.setVisible(false);
-        panR.setVisible(false);
+        
         
         btnEditarPerfil.setVisible(false);
         btnCerrarSesion.setVisible(false);
@@ -784,22 +751,13 @@ public class panUser extends javax.swing.JPanel {
 
     private void btnLibrosPrestadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosPrestadosMouseClicked
         panP.setVisible(true);
-        panR.setVisible(false);
+        
         
         btnEditarPerfil.setVisible(false);
         btnCerrarSesion.setVisible(false);
         
 
     }//GEN-LAST:event_btnLibrosPrestadosMouseClicked
-
-    private void btnLibrosReservadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosReservadosMouseClicked
-        // TODO add your handling code here:
-        panP.setVisible(false);
-        panR.setVisible(true);
-        
-        btnEditarPerfil.setVisible(false);
-        btnCerrarSesion.setVisible(false);
-    }//GEN-LAST:event_btnLibrosReservadosMouseClicked
 
     private void btnLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseEntered
         // TODO add your handling code here:
@@ -903,14 +861,12 @@ public class panUser extends javax.swing.JPanel {
     private javax.swing.JPanel btnCerrarSesion;
     private javax.swing.JPanel btnEditarPerfil;
     private javax.swing.JPanel btnLibrosPrestados;
-    private javax.swing.JPanel btnLibrosReservados;
     private javax.swing.JPanel btnLimpiar;
     private javax.swing.JPanel btnPerfil;
     private javax.swing.JPanel btnSolicitar;
     private javax.swing.JPanel btnTuPerfil;
     private javax.swing.JComboBox<String> cmbFiltro;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;

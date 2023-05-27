@@ -33,6 +33,7 @@ public class panSesion extends javax.swing.JPanel {
         txtUser = new javax.swing.JTextField();
         lblInfo = new javax.swing.JLabel();
         btnSign = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         pwd = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
@@ -57,15 +58,23 @@ public class panSesion extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setText("Ingresar");
+
         javax.swing.GroupLayout btnSignLayout = new javax.swing.GroupLayout(btnSign);
         btnSign.setLayout(btnSignLayout);
         btnSignLayout.setHorizontalGroup(
             btnSignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(btnSignLayout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         btnSignLayout.setVerticalGroup(
             btnSignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(btnSignLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jLabel2.setText("Iniciar Sesion");
@@ -183,6 +192,7 @@ public class panSesion extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnSign;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
