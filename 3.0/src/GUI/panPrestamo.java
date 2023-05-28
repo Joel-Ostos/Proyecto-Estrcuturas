@@ -7,6 +7,7 @@ package GUI;
 import clases.V1.Cliente;
 import clases.V1.Libro;
 import clases.V1.Reserva;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.util.Iterator;
@@ -57,6 +58,12 @@ public class panPrestamo extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnDevolverMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDevolverMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDevolverMouseExited(evt);
+            }
         });
 
         jLabel1.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
@@ -100,6 +107,12 @@ public class panPrestamo extends javax.swing.JPanel {
         btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnActualizarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarMouseExited(evt);
             }
         });
 
@@ -223,6 +236,28 @@ public class panPrestamo extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_btnActualizarMouseClicked
+
+    private void btnActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseEntered
+        // TODO add your handling code here:
+        btnActualizar.setBackground(new Color(200,230,200));
+                                           
+    }//GEN-LAST:event_btnActualizarMouseEntered
+
+    private void btnActualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseExited
+        // TODO add your handling code here:
+        btnActualizar.setBackground(new Color(230,240,230));
+    }//GEN-LAST:event_btnActualizarMouseExited
+
+    private void btnDevolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDevolverMouseEntered
+        // TODO add your handling code here:
+        btnDevolver.setBackground(new Color(200,230,200));
+    }//GEN-LAST:event_btnDevolverMouseEntered
+
+    private void btnDevolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDevolverMouseExited
+        // TODO add your handling code here:
+        btnDevolver.setBackground(new Color(230,240,230));
+    
+    }//GEN-LAST:event_btnDevolverMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
