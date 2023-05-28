@@ -141,23 +141,21 @@ public class panAdmin extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 50, 150));
-        jLabel4.setText("Limpiar");
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/trash (1).png"))); // NOI18N
+        jLabel4.setText("   Limpiar");
 
         javax.swing.GroupLayout btnLimpiarLayout = new javax.swing.GroupLayout(btnLimpiar);
         btnLimpiar.setLayout(btnLimpiarLayout);
         btnLimpiarLayout.setHorizontalGroup(
             btnLimpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnLimpiarLayout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addGap(50, 50, 50))
+                .addGap(29, 29, 29))
         );
         btnLimpiarLayout.setVerticalGroup(
             btnLimpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnLimpiarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         btnBuscar.setBackground(new java.awt.Color(210, 235, 255));
@@ -176,16 +174,17 @@ public class panAdmin extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 50, 150));
-        jLabel3.setText("Buscar");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/search.png"))); // NOI18N
+        jLabel3.setText("   Buscar");
 
         javax.swing.GroupLayout btnBuscarLayout = new javax.swing.GroupLayout(btnBuscar);
         btnBuscar.setLayout(btnBuscarLayout);
         btnBuscarLayout.setHorizontalGroup(
             btnBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnBuscarLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarLayout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
         btnBuscarLayout.setVerticalGroup(
             btnBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +219,6 @@ public class panAdmin extends javax.swing.JPanel {
                             .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(75, 75, 75))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panSearchLayout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel2)
                             .addGap(63, 63, 63)))))
             .addGroup(panSearchLayout.createSequentialGroup()
@@ -269,23 +267,24 @@ public class panAdmin extends javax.swing.JPanel {
 
         jLabel11.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 50, 150));
-        jLabel11.setText("Añadir Libro");
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/plus.png"))); // NOI18N
+        jLabel11.setText("     Añadir Libro");
 
         javax.swing.GroupLayout btnCreateLayout = new javax.swing.GroupLayout(btnCreate);
         btnCreate.setLayout(btnCreateLayout);
         btnCreateLayout.setHorizontalGroup(
             btnCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnCreateLayout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addGap(69, 69, 69)
                 .addComponent(jLabel11)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
         btnCreateLayout.setVerticalGroup(
             btnCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnCreateLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel11)
-                .addContainerGap(16, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCreateLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panEdit.add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 62, 391, -1));
@@ -306,23 +305,24 @@ public class panAdmin extends javax.swing.JPanel {
 
         jLabel13.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 50, 150));
-        jLabel13.setText("Editar Libro");
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/pencil.png"))); // NOI18N
+        jLabel13.setText("     Editar Libro");
 
         javax.swing.GroupLayout btnEditLayout = new javax.swing.GroupLayout(btnEdit);
         btnEdit.setLayout(btnEditLayout);
         btnEditLayout.setHorizontalGroup(
             btnEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnEditLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
+                .addGap(69, 69, 69)
                 .addComponent(jLabel13)
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
         btnEditLayout.setVerticalGroup(
             btnEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnEditLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel13)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panEdit.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
@@ -344,23 +344,24 @@ public class panAdmin extends javax.swing.JPanel {
 
         jLabel12.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 50, 150));
-        jLabel12.setText("Eliminar Libro");
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/trash (1).png"))); // NOI18N
+        jLabel12.setText("      Eliminar Libro");
 
         javax.swing.GroupLayout btnDelLayout = new javax.swing.GroupLayout(btnDel);
         btnDel.setLayout(btnDelLayout);
         btnDelLayout.setHorizontalGroup(
             btnDelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnDelLayout.createSequentialGroup()
-                .addGap(109, 109, 109)
+                .addGap(68, 68, 68)
                 .addComponent(jLabel12)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
         btnDelLayout.setVerticalGroup(
             btnDelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnDelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel12)
-                .addContainerGap(16, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnDelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panEdit.add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
@@ -381,23 +382,24 @@ public class panAdmin extends javax.swing.JPanel {
 
         jLabel14.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 50, 150));
-        jLabel14.setText("Añadir Unidad");
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/add.png"))); // NOI18N
+        jLabel14.setText("      Añadir Unidad");
 
         javax.swing.GroupLayout btnAddLayout = new javax.swing.GroupLayout(btnAdd);
         btnAdd.setLayout(btnAddLayout);
         btnAddLayout.setHorizontalGroup(
             btnAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnAddLayout.createSequentialGroup()
-                .addGap(107, 107, 107)
+                .addGap(67, 67, 67)
                 .addComponent(jLabel14)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         btnAddLayout.setVerticalGroup(
             btnAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAddLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(jLabel14)
-                .addGap(15, 15, 15))
+            .addGroup(btnAddLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panEdit.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
@@ -466,6 +468,7 @@ public class panAdmin extends javax.swing.JPanel {
         });
 
         jLabel5.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/power.png"))); // NOI18N
         jLabel5.setText("Cerrar Sesion");
 
         javax.swing.GroupLayout btnCerrarSesionLayout = new javax.swing.GroupLayout(btnCerrarSesion);
@@ -473,16 +476,16 @@ public class panAdmin extends javax.swing.JPanel {
         btnCerrarSesionLayout.setHorizontalGroup(
             btnCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCerrarSesionLayout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addGap(45, 45, 45))
+                .addGap(23, 23, 23))
         );
         btnCerrarSesionLayout.setVerticalGroup(
             btnCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnCerrarSesionLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel5)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panEdit.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 0, -1, -1));

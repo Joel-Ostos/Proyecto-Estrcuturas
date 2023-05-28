@@ -52,7 +52,7 @@ public class panPrestamo extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnDevolver.setBackground(new java.awt.Color(230, 240, 230));
-        btnDevolver.setPreferredSize(new java.awt.Dimension(150, 40));
+        btnDevolver.setPreferredSize(new java.awt.Dimension(200, 40));
         btnDevolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnDevolverMouseClicked(evt);
@@ -61,16 +61,17 @@ public class panPrestamo extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(22, 60, 30));
-        jLabel1.setText("Devolver");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/exchange.png"))); // NOI18N
+        jLabel1.setText("   Devolver");
 
         javax.swing.GroupLayout btnDevolverLayout = new javax.swing.GroupLayout(btnDevolver);
         btnDevolver.setLayout(btnDevolverLayout);
         btnDevolverLayout.setHorizontalGroup(
             btnDevolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnDevolverLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(47, 47, 47))
+                .addGap(44, 44, 44))
         );
         btnDevolverLayout.setVerticalGroup(
             btnDevolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,7 +81,7 @@ public class panPrestamo extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        add(btnDevolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, -1, -1));
+        add(btnDevolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, -1));
 
         lblInfP.setBackground(new java.awt.Color(255, 255, 255));
         lblInfP.setFont(new java.awt.Font("Dubai", 0, 16)); // NOI18N
@@ -95,7 +96,7 @@ public class panPrestamo extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 218, 728, 334));
 
         btnActualizar.setBackground(new java.awt.Color(230, 240, 230));
-        btnActualizar.setPreferredSize(new java.awt.Dimension(150, 40));
+        btnActualizar.setPreferredSize(new java.awt.Dimension(200, 40));
         btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnActualizarMouseClicked(evt);
@@ -104,26 +105,27 @@ public class panPrestamo extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(22, 60, 30));
-        jLabel2.setText("Ver Prestamos");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/refresh.png"))); // NOI18N
+        jLabel2.setText("   Ver Prestamos");
 
         javax.swing.GroupLayout btnActualizarLayout = new javax.swing.GroupLayout(btnActualizar);
         btnActualizar.setLayout(btnActualizarLayout);
         btnActualizarLayout.setHorizontalGroup(
             btnActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnActualizarLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnActualizarLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(34, 34, 34))
         );
         btnActualizarLayout.setVerticalGroup(
             btnActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnActualizarLayout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+            .addGroup(btnActualizarLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 144, -1, -1));
+        add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDevolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDevolverMouseClicked

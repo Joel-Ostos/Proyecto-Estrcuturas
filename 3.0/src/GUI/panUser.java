@@ -65,11 +65,11 @@ public class panUser extends javax.swing.JPanel {
         panTable = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblInventario = new javax.swing.JTable();
-        btnSolicitar = new javax.swing.JPanel();
-        lblSolicitud = new javax.swing.JLabel();
         lblInfR = new javax.swing.JLabel();
         btnCancelarReservacion = new javax.swing.JPanel();
         lblCancel = new javax.swing.JLabel();
+        btnSolicitar = new javax.swing.JPanel();
+        lblSolicitud = new javax.swing.JLabel();
         panSearch = new javax.swing.JPanel();
         txtBusqueda = new javax.swing.JTextField();
         cmbFiltro = new javax.swing.JComboBox<>();
@@ -126,43 +126,12 @@ public class panUser extends javax.swing.JPanel {
 
         panTable.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 92, 820, 330));
 
-        btnSolicitar.setBackground(new java.awt.Color(230, 240, 230));
-        btnSolicitar.setPreferredSize(new java.awt.Dimension(220, 40));
-        btnSolicitar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSolicitarMouseClicked(evt);
-            }
-        });
-
-        lblSolicitud.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
-        lblSolicitud.setForeground(new java.awt.Color(22, 67, 36));
-        lblSolicitud.setText("Solicitar");
-
-        javax.swing.GroupLayout btnSolicitarLayout = new javax.swing.GroupLayout(btnSolicitar);
-        btnSolicitar.setLayout(btnSolicitarLayout);
-        btnSolicitarLayout.setHorizontalGroup(
-            btnSolicitarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnSolicitarLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(lblSolicitud)
-                .addContainerGap(66, Short.MAX_VALUE))
-        );
-        btnSolicitarLayout.setVerticalGroup(
-            btnSolicitarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnSolicitarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblSolicitud)
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-
-        panTable.add(btnSolicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 181, -1));
-
         lblInfR.setFont(new java.awt.Font("Dubai", 0, 16)); // NOI18N
         lblInfR.setText(".");
         panTable.add(lblInfR, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 310, 32));
 
         btnCancelarReservacion.setBackground(new java.awt.Color(250, 150, 50));
-        btnCancelarReservacion.setPreferredSize(new java.awt.Dimension(220, 40));
+        btnCancelarReservacion.setPreferredSize(new java.awt.Dimension(250, 40));
         btnCancelarReservacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCancelarReservacionMouseClicked(evt);
@@ -177,26 +146,59 @@ public class panUser extends javax.swing.JPanel {
 
         lblCancel.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
         lblCancel.setForeground(new java.awt.Color(22, 67, 36));
-        lblCancel.setText("Cancelar Reservacion");
+        lblCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/cross.png"))); // NOI18N
+        lblCancel.setText("   Cancelar Reservacion");
 
         javax.swing.GroupLayout btnCancelarReservacionLayout = new javax.swing.GroupLayout(btnCancelarReservacion);
         btnCancelarReservacion.setLayout(btnCancelarReservacionLayout);
         btnCancelarReservacionLayout.setHorizontalGroup(
             btnCancelarReservacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarReservacionLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblCancel)
-                .addGap(26, 26, 26))
+            .addGroup(btnCancelarReservacionLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lblCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         btnCancelarReservacionLayout.setVerticalGroup(
             btnCancelarReservacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnCancelarReservacionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblCancel)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
-        panTable.add(btnCancelarReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 181, -1));
+        panTable.add(btnCancelarReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 210, -1));
+
+        btnSolicitar.setBackground(new java.awt.Color(230, 240, 230));
+        btnSolicitar.setPreferredSize(new java.awt.Dimension(220, 40));
+        btnSolicitar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSolicitarMouseClicked(evt);
+            }
+        });
+
+        lblSolicitud.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
+        lblSolicitud.setForeground(new java.awt.Color(22, 67, 36));
+        lblSolicitud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/check.png"))); // NOI18N
+        lblSolicitud.setText("   Solicitar");
+
+        javax.swing.GroupLayout btnSolicitarLayout = new javax.swing.GroupLayout(btnSolicitar);
+        btnSolicitar.setLayout(btnSolicitarLayout);
+        btnSolicitarLayout.setHorizontalGroup(
+            btnSolicitarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnSolicitarLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(lblSolicitud)
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+        btnSolicitarLayout.setVerticalGroup(
+            btnSolicitarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnSolicitarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblSolicitud)
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+
+        panTable.add(btnSolicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 210, -1));
 
         bg.add(panTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 890, 440));
 
@@ -244,23 +246,24 @@ public class panUser extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(22, 67, 36));
-        jLabel4.setText("Limpiar");
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/trash (1).png"))); // NOI18N
+        jLabel4.setText("   Limpiar");
 
         javax.swing.GroupLayout btnLimpiarLayout = new javax.swing.GroupLayout(btnLimpiar);
         btnLimpiar.setLayout(btnLimpiarLayout);
         btnLimpiarLayout.setHorizontalGroup(
             btnLimpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnLimpiarLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addGap(51, 51, 51))
+                .addGap(30, 30, 30))
         );
         btnLimpiarLayout.setVerticalGroup(
             btnLimpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnLimpiarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         panSearch.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
@@ -281,23 +284,24 @@ public class panUser extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(22, 67, 36));
-        jLabel3.setText("Buscar");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/search (1).png"))); // NOI18N
+        jLabel3.setText("   Buscar");
 
         javax.swing.GroupLayout btnBuscarLayout = new javax.swing.GroupLayout(btnBuscar);
         btnBuscar.setLayout(btnBuscarLayout);
         btnBuscarLayout.setHorizontalGroup(
             btnBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnBuscarLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel3)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         btnBuscarLayout.setVerticalGroup(
             btnBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnBuscarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         panSearch.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
@@ -408,23 +412,24 @@ public class panUser extends javax.swing.JPanel {
 
         jLabel7.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(32, 72, 33));
-        jLabel7.setText("Tu Perfil");
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/user.png"))); // NOI18N
+        jLabel7.setText("   Tu Perfil");
 
         javax.swing.GroupLayout btnTuPerfilLayout = new javax.swing.GroupLayout(btnTuPerfil);
         btnTuPerfil.setLayout(btnTuPerfilLayout);
         btnTuPerfilLayout.setHorizontalGroup(
             btnTuPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnTuPerfilLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel7)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         btnTuPerfilLayout.setVerticalGroup(
             btnTuPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnTuPerfilLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel7)
-                .addContainerGap(17, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnTuPerfilLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panOptions.add(btnTuPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, -1));
@@ -445,23 +450,21 @@ public class panUser extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(32, 72, 33));
-        jLabel8.setText("Ajustes");
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/settings.png"))); // NOI18N
+        jLabel8.setText("   Ajustes");
 
         javax.swing.GroupLayout btnAjustesLayout = new javax.swing.GroupLayout(btnAjustes);
         btnAjustes.setLayout(btnAjustesLayout);
         btnAjustesLayout.setHorizontalGroup(
             btnAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnAjustesLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel8)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         btnAjustesLayout.setVerticalGroup(
             btnAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnAjustesLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel8)
-                .addContainerGap(18, Short.MAX_VALUE))
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         panOptions.add(btnAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
@@ -482,23 +485,24 @@ public class panUser extends javax.swing.JPanel {
 
         jLabel9.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(32, 72, 33));
-        jLabel9.setText("Prestamos");
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/book-open-cover.png"))); // NOI18N
+        jLabel9.setText("   Prestamos");
 
         javax.swing.GroupLayout btnPrestamosLayout = new javax.swing.GroupLayout(btnPrestamos);
         btnPrestamos.setLayout(btnPrestamosLayout);
         btnPrestamosLayout.setHorizontalGroup(
             btnPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnPrestamosLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel9)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         btnPrestamosLayout.setVerticalGroup(
             btnPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnPrestamosLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel9)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panOptions.add(btnPrestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
@@ -516,23 +520,24 @@ public class panUser extends javax.swing.JPanel {
 
         jLabel11.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(32, 72, 33));
-        jLabel11.setText("Editar Perfil");
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/pencil.png"))); // NOI18N
+        jLabel11.setText("   Editar Perfil");
 
         javax.swing.GroupLayout btnEditarPerfilLayout = new javax.swing.GroupLayout(btnEditarPerfil);
         btnEditarPerfil.setLayout(btnEditarPerfilLayout);
         btnEditarPerfilLayout.setHorizontalGroup(
             btnEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnEditarPerfilLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel11)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         btnEditarPerfilLayout.setVerticalGroup(
             btnEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnEditarPerfilLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+            .addGroup(btnEditarPerfilLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel11)
-                .addGap(14, 14, 14))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         panOptions.add(btnEditarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 200, -1));
@@ -553,23 +558,24 @@ public class panUser extends javax.swing.JPanel {
 
         jLabel12.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(32, 72, 33));
-        jLabel12.setText("Cerrar Sesion");
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PNG/power.png"))); // NOI18N
+        jLabel12.setText("   Cerrar Sesion");
 
         javax.swing.GroupLayout btnCerrarSesionLayout = new javax.swing.GroupLayout(btnCerrarSesion);
         btnCerrarSesion.setLayout(btnCerrarSesionLayout);
         btnCerrarSesionLayout.setHorizontalGroup(
             btnCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnCerrarSesionLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel12)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         btnCerrarSesionLayout.setVerticalGroup(
             btnCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCerrarSesionLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(14, 14, 14))
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panOptions.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 200, -1));
