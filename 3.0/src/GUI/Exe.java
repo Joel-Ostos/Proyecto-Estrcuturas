@@ -60,6 +60,7 @@ public class Exe extends javax.swing.JFrame {
         bg = new javax.swing.JPanel();
         panTitle = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
+        lblEstado = new javax.swing.JLabel();
         panContent = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,23 +73,31 @@ public class Exe extends javax.swing.JFrame {
         panTitle.setBackground(new java.awt.Color(255, 150, 50));
         panTitle.setPreferredSize(new java.awt.Dimension(1280, 80));
 
+        lblTitle.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
         lblTitle.setText("SGB (Sistema de Gestion de Biblioteca)");
+
+        lblEstado.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        lblEstado.setText("Administrador");
 
         javax.swing.GroupLayout panTitleLayout = new javax.swing.GroupLayout(panTitle);
         panTitle.setLayout(panTitleLayout);
         panTitleLayout.setHorizontalGroup(
             panTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panTitleLayout.createSequentialGroup()
-                .addGap(496, 496, 496)
+                .addGap(59, 59, 59)
+                .addComponent(lblEstado)
+                .addGap(243, 243, 243)
                 .addComponent(lblTitle)
-                .addContainerGap(549, Short.MAX_VALUE))
+                .addContainerGap(430, Short.MAX_VALUE))
         );
         panTitleLayout.setVerticalGroup(
             panTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panTitleLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(lblTitle)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGroup(panTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitle)
+                    .addComponent(lblEstado))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         bg.add(panTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 70));
@@ -160,6 +169,7 @@ public class Exe extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
+    private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel panContent;
     private javax.swing.JPanel panTitle;
@@ -189,12 +199,15 @@ public class Exe extends javax.swing.JFrame {
     public void selInit(int i) {
         if(i == 1){
             iniciarPanelSesion();
+            lblEstado.setText("Inicio de Sesion");
         }
         if(i == 2){
             iniciarPanelUser();
+            lblEstado.setText("Usuario");
         }
         if(i == 3){
             iniciarPanelAdmin();
+            lblEstado.setText("Administrador");
         }
     }
     

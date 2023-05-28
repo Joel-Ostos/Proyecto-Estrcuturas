@@ -5,6 +5,7 @@
 package GUI;
 
 import clases.V1.Cliente;
+import java.awt.Color;
 import java.util.LinkedList;
 import javax.swing.SwingUtilities;
 
@@ -41,6 +42,9 @@ public class panSesion extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
+        txtUser.setFont(new java.awt.Font("Dubai", 0, 14)); // NOI18N
+        txtUser.setForeground(new java.awt.Color(102, 102, 102));
+        txtUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtUser.setPreferredSize(new java.awt.Dimension(300, 40));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,7 +52,8 @@ public class panSesion extends javax.swing.JPanel {
             }
         });
 
-        lblInfo.setText("info");
+        lblInfo.setFont(new java.awt.Font("Dubai", 0, 14)); // NOI18N
+        lblInfo.setText("Si esta sin registrar, escriba en los campos e ingrese");
 
         btnSign.setBackground(new java.awt.Color(250, 150, 50));
         btnSign.setPreferredSize(new java.awt.Dimension(150, 50));
@@ -56,8 +61,15 @@ public class panSesion extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSignMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSignMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSignMouseExited(evt);
+            }
         });
 
+        jLabel1.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
         jLabel1.setText("Ingresar");
 
         javax.swing.GroupLayout btnSignLayout = new javax.swing.GroupLayout(btnSign);
@@ -67,61 +79,71 @@ public class panSesion extends javax.swing.JPanel {
             .addGroup(btnSignLayout.createSequentialGroup()
                 .addGap(120, 120, 120)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         btnSignLayout.setVerticalGroup(
             btnSignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnSignLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 30)); // NOI18N
         jLabel2.setText("Iniciar Sesion");
 
+        pwd.setFont(new java.awt.Font("Dubai", 0, 14)); // NOI18N
+        pwd.setForeground(new java.awt.Color(102, 102, 102));
+        pwd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         pwd.setPreferredSize(new java.awt.Dimension(300, 40));
 
-        jLabel3.setText("Ingrese el usuario");
+        jLabel3.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jLabel3.setText("Usuario");
 
-        jLabel4.setText("Ingrese la contraseña");
+        jLabel4.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jLabel4.setText("Contraseña");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(507, 507, 507)
+                .addComponent(btnSign, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(473, 510, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(587, 587, 587))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 507, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pwd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSign, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
-                .addGap(473, 473, 473))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(pwd, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(444, 444, 444))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(560, 560, 560))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(134, 134, 134)
+                .addGap(108, 108, 108)
                 .addComponent(jLabel2)
-                .addGap(46, 46, 46)
+                .addGap(56, 56, 56)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
                 .addComponent(lblInfo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(60, 60, 60)
                 .addComponent(btnSign, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -177,7 +199,7 @@ public class panSesion extends javax.swing.JPanel {
                 lblInfo.setText("Complete todos los campos.");
             }
             else if(!Exe.administrador.containsKey(nombre)){//creo que es redundante la condicion
-                lblInfo.setText("No esta registrado. Registrando automaticamente.");
+                lblInfo.setText("No esta registrado. Registrado automaticamente, Inicie Sesion.");
                 txtUser.setText("");
                 pwd.setText("");
                 Exe.cliente = new Cliente(nombre, clave, new LinkedList<>());
@@ -186,6 +208,15 @@ public class panSesion extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_btnSignMouseClicked
+
+    private void btnSignMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignMouseEntered
+        btnSign.setBackground(new Color(250,200,85));
+        
+    }//GEN-LAST:event_btnSignMouseEntered
+
+    private void btnSignMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignMouseExited
+       btnSign.setBackground(new Color(250,150,50));
+    }//GEN-LAST:event_btnSignMouseExited
 
 
 

@@ -7,9 +7,15 @@ package GUI;
 import clases.V1.Cliente;
 import clases.V1.Libro;
 import clases.V1.Reserva;
+import java.awt.Component;
+import java.awt.Font;
 import java.util.Iterator;
 import java.util.LinkedList;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 /**
  *
@@ -25,18 +31,9 @@ public class panPrestamo extends javax.swing.JPanel {
     public panPrestamo() {
         initComponents();
         initTable();
-        
-
-        
-
-        
-        
-        
-        
-        
-        
-        
-        
+        setHeaderFont(tblPrestamo.getTableHeader(), new Font("Yu Gothic UI", Font.BOLD, 40));
+        lblInfP.setText("Pulse en ver prestamos para ver la lista de prestamos");
+  
     }
   
     @SuppressWarnings("unchecked")
@@ -51,96 +48,82 @@ public class panPrestamo extends javax.swing.JPanel {
         btnActualizar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 102, 153));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnDevolver.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnDevolver.setBackground(new java.awt.Color(230, 240, 230));
+        btnDevolver.setPreferredSize(new java.awt.Dimension(150, 40));
         btnDevolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnDevolverMouseClicked(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(22, 60, 30));
         jLabel1.setText("Devolver");
 
         javax.swing.GroupLayout btnDevolverLayout = new javax.swing.GroupLayout(btnDevolver);
         btnDevolver.setLayout(btnDevolverLayout);
         btnDevolverLayout.setHorizontalGroup(
             btnDevolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnDevolverLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnDevolverLayout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(47, 47, 47))
         );
         btnDevolverLayout.setVerticalGroup(
             btnDevolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnDevolverLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel1)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        lblInfP.setText("Estado, informacion");
+        add(btnDevolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, -1, -1));
 
+        lblInfP.setBackground(new java.awt.Color(255, 255, 255));
+        lblInfP.setFont(new java.awt.Font("Dubai", 0, 16)); // NOI18N
+        lblInfP.setText(".");
+        add(lblInfP, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 73, 469, -1));
+
+        tblPrestamo.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        tblPrestamo.setForeground(new java.awt.Color(22, 60, 30));
+        tblPrestamo.setRowHeight(30);
         jScrollPane1.setViewportView(tblPrestamo);
 
-        btnActualizar.setPreferredSize(new java.awt.Dimension(150, 50));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 218, 728, 334));
+
+        btnActualizar.setBackground(new java.awt.Color(230, 240, 230));
+        btnActualizar.setPreferredSize(new java.awt.Dimension(150, 40));
         btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnActualizarMouseClicked(evt);
             }
         });
 
-        jLabel2.setText("Actualizar Tabla");
+        jLabel2.setFont(new java.awt.Font("Eras Medium ITC", 0, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(22, 60, 30));
+        jLabel2.setText("Ver Prestamos");
 
         javax.swing.GroupLayout btnActualizarLayout = new javax.swing.GroupLayout(btnActualizar);
         btnActualizar.setLayout(btnActualizarLayout);
         btnActualizarLayout.setHorizontalGroup(
             btnActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnActualizarLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel2)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         btnActualizarLayout.setVerticalGroup(
             btnActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnActualizarLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(14, 14, 14))
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(384, 384, 384)
-                .addComponent(lblInfP)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(224, 224, 224)
-                .addComponent(btnDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(173, 173, 173))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(88, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 728, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(lblInfP)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnDevolver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102))
-        );
+        add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 144, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDevolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDevolverMouseClicked
@@ -150,7 +133,8 @@ public class panPrestamo extends javax.swing.JPanel {
         }
         //añade la unidad al almacen
         int fila = tblPrestamo.getSelectedRow();        
-        String nombreDevolucion = (String) tblModel.getValueAt(fila,0);              
+        String nombreDevolucion = (String) tblModel.getValueAt(fila,0);     
+        
         Exe.almacen.devolverUnidad(nombreDevolucion);
         
         
@@ -184,7 +168,7 @@ public class panPrestamo extends javax.swing.JPanel {
             while (iterator.hasNext()) {
             Reserva elemento = iterator.next();
             if (elemento.getLibro().equals(nombreDevolucion)) {
-                System.out.println("Elemento encontrado: " + elemento);
+                //System.out.println("Elemento encontrado: " + elemento);
                 //aca ya encontro el cliente
                 
                 
@@ -205,8 +189,8 @@ public class panPrestamo extends javax.swing.JPanel {
                 else{
                     Exe.almacen.retirarUnidad(nombreDevolucion);
                     //solicita el libro devuelto
-                    System.out.println("Libro prestado al cliente");
-                    System.out.println(elemento.getCliente());
+                    //System.out.println("Libro prestado al cliente");
+                    //System.out.println(elemento.getCliente());
                     
                 }
                     //lblInfR.setText("Ha solicitado el libro exitosamente.");
@@ -219,6 +203,7 @@ public class panPrestamo extends javax.swing.JPanel {
                 break; // Detener el recorrido cuando se encuentra el elemento requerido
             }
         }
+        
             
                 
             
@@ -232,6 +217,7 @@ public class panPrestamo extends javax.swing.JPanel {
         
         limpiarTabla();
         actualizar();
+        
         
         
     }//GEN-LAST:event_btnActualizarMouseClicked
@@ -265,6 +251,7 @@ public class panPrestamo extends javax.swing.JPanel {
             tblModel.removeRow(i);
             i --;
         }
+        lblInfP.setText("");
     
     }
 
@@ -276,12 +263,26 @@ public class panPrestamo extends javax.swing.JPanel {
             l[2] = 1;
             tblModel.addRow(l);
         }
-        if(listaPrestamos != null){
-            
-            lblInfP.setText("Tiene libros en prestamo, seleccione para devolver");
+        if(tblModel.getRowCount() == 0) {
+            lblInfP.setText("No tiene libros en prestamo");
         }
-        else lblInfP.setText("No tiene libros en prestamo");
         
+        else {
+            lblInfP.setText("Tiene libros en prestamo");
+        }
+        
+    }
+
+    private void setHeaderFont(JTableHeader tableHeader, Font font) {
+        tableHeader.setFont(font);
+        tableHeader.setDefaultRenderer(new DefaultTableCellRenderer() {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            JLabel headerLabel = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            headerLabel.setHorizontalAlignment(JLabel.CENTER);
+            return headerLabel;
+        }
+    });
     }
 }
 

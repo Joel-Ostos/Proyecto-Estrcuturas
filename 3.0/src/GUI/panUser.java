@@ -7,7 +7,13 @@ package GUI;
 import clases.V1.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.JTable;
 import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.JTableHeader;
 
 
 public class panUser extends javax.swing.JPanel {
@@ -23,7 +29,7 @@ public class panUser extends javax.swing.JPanel {
         initComponents();
         initTable();
         btnAjustes.setVisible(false);
-        btnLibrosPrestados.setVisible(false);                    
+        btnPrestamos.setVisible(false);                    
         btnTuPerfil.setVisible(false);
                 
         panP.setSize(panP.getPreferredSize());
@@ -38,6 +44,11 @@ public class panUser extends javax.swing.JPanel {
         
         btnEditarPerfil.setVisible(false);
         btnCerrarSesion.setVisible(false);
+        btnSolicitar.setVisible(false);
+        btnCancelarReservacion.setVisible(false);
+        
+        
+        setHeaderFont(tblInventario.getTableHeader(), new Font("Yu Gothic UI", Font.BOLD, 40));
         
     }
 
@@ -67,7 +78,6 @@ public class panUser extends javax.swing.JPanel {
         btnBuscar = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         lblInfB = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         panOptions = new javax.swing.JPanel();
         btnBusqueda = new javax.swing.JPanel();
@@ -78,7 +88,7 @@ public class panUser extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         btnAjustes = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        btnLibrosPrestados = new javax.swing.JPanel();
+        btnPrestamos = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         btnEditarPerfil = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -88,11 +98,25 @@ public class panUser extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setMinimumSize(new java.awt.Dimension(1280, 640));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panTable.setBackground(new java.awt.Color(248, 248, 248));
         panTable.setPreferredSize(new java.awt.Dimension(890, 440));
+        panTable.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblInventario.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        tblInventario.setForeground(new java.awt.Color(30, 89, 29));
+        tblInventario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tblInventario.setRowHeight(30);
         tblInventario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblInventarioMouseClicked(evt);
@@ -100,7 +124,9 @@ public class panUser extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblInventario);
 
-        btnSolicitar.setBackground(new java.awt.Color(255, 153, 153));
+        panTable.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 92, 820, 330));
+
+        btnSolicitar.setBackground(new java.awt.Color(230, 240, 230));
         btnSolicitar.setPreferredSize(new java.awt.Dimension(220, 40));
         btnSolicitar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -108,6 +134,8 @@ public class panUser extends javax.swing.JPanel {
             }
         });
 
+        lblSolicitud.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
+        lblSolicitud.setForeground(new java.awt.Color(22, 67, 36));
         lblSolicitud.setText("Solicitar");
 
         javax.swing.GroupLayout btnSolicitarLayout = new javax.swing.GroupLayout(btnSolicitar);
@@ -115,90 +143,92 @@ public class panUser extends javax.swing.JPanel {
         btnSolicitarLayout.setHorizontalGroup(
             btnSolicitarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnSolicitarLayout.createSequentialGroup()
-                .addGap(76, 76, 76)
+                .addGap(65, 65, 65)
                 .addComponent(lblSolicitud)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         btnSolicitarLayout.setVerticalGroup(
             btnSolicitarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnSolicitarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblSolicitud)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        lblInfR.setText(".");
+        panTable.add(btnSolicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 181, -1));
 
-        btnCancelarReservacion.setBackground(new java.awt.Color(255, 153, 153));
+        lblInfR.setFont(new java.awt.Font("Dubai", 0, 16)); // NOI18N
+        lblInfR.setText(".");
+        panTable.add(lblInfR, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 310, 32));
+
+        btnCancelarReservacion.setBackground(new java.awt.Color(250, 150, 50));
         btnCancelarReservacion.setPreferredSize(new java.awt.Dimension(220, 40));
         btnCancelarReservacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCancelarReservacionMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCancelarReservacionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCancelarReservacionMouseExited(evt);
+            }
         });
 
+        lblCancel.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
+        lblCancel.setForeground(new java.awt.Color(22, 67, 36));
         lblCancel.setText("Cancelar Reservacion");
 
         javax.swing.GroupLayout btnCancelarReservacionLayout = new javax.swing.GroupLayout(btnCancelarReservacion);
         btnCancelarReservacion.setLayout(btnCancelarReservacionLayout);
         btnCancelarReservacionLayout.setHorizontalGroup(
             btnCancelarReservacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnCancelarReservacionLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarReservacionLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblCancel)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
         btnCancelarReservacionLayout.setVerticalGroup(
             btnCancelarReservacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnCancelarReservacionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblCancel)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout panTableLayout = new javax.swing.GroupLayout(panTable);
-        panTable.setLayout(panTableLayout);
-        panTableLayout.setHorizontalGroup(
-            panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTableLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCancelarReservacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSolicitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblInfR, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(231, 231, 231))
-        );
-        panTableLayout.setVerticalGroup(
-            panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panTableLayout.createSequentialGroup()
-                .addGroup(panTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panTableLayout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(btnSolicitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCancelarReservacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92)
-                        .addComponent(lblInfR, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panTableLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
+        panTable.add(btnCancelarReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 181, -1));
 
         bg.add(panTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 890, 440));
 
-        panSearch.setBackground(new java.awt.Color(245, 255, 255));
+        panSearch.setBackground(new java.awt.Color(255, 255, 255));
+        panSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtBusqueda.setBackground(new java.awt.Color(240, 250, 240));
+        txtBusqueda.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        txtBusqueda.setForeground(new java.awt.Color(153, 153, 153));
+        txtBusqueda.setText("Escriba lo que desea buscar");
         txtBusqueda.setMinimumSize(new java.awt.Dimension(400, 30));
         txtBusqueda.setPreferredSize(new java.awt.Dimension(400, 40));
+        txtBusqueda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtBusquedaMouseClicked(evt);
+            }
+        });
+        txtBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusquedaActionPerformed(evt);
+            }
+        });
+        panSearch.add(txtBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 445, 37));
 
+        cmbFiltro.setBackground(new java.awt.Color(240, 250, 240));
+        cmbFiltro.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         cmbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre del libro", "Autor", "Editorial", "Categoria", "Mostrar todos" }));
         cmbFiltro.setMinimumSize(new java.awt.Dimension(120, 40));
         cmbFiltro.setPreferredSize(new java.awt.Dimension(120, 30));
+        panSearch.add(cmbFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 181, 37));
 
-        btnLimpiar.setBackground(new java.awt.Color(255, 255, 255));
+        btnLimpiar.setBackground(new java.awt.Color(230, 240, 230));
         btnLimpiar.setPreferredSize(new java.awt.Dimension(150, 40));
         btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -212,26 +242,30 @@ public class panUser extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(22, 67, 36));
         jLabel4.setText("Limpiar");
 
         javax.swing.GroupLayout btnLimpiarLayout = new javax.swing.GroupLayout(btnLimpiar);
         btnLimpiar.setLayout(btnLimpiarLayout);
         btnLimpiarLayout.setHorizontalGroup(
             btnLimpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnLimpiarLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnLimpiarLayout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(51, 51, 51))
         );
         btnLimpiarLayout.setVerticalGroup(
             btnLimpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnLimpiarLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+            .addGroup(btnLimpiarLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap())
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        btnBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        panSearch.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
+
+        btnBuscar.setBackground(new java.awt.Color(230, 240, 230));
         btnBuscar.setPreferredSize(new java.awt.Dimension(150, 40));
         btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -245,123 +279,98 @@ public class panUser extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(22, 67, 36));
         jLabel3.setText("Buscar");
 
         javax.swing.GroupLayout btnBuscarLayout = new javax.swing.GroupLayout(btnBuscar);
         btnBuscar.setLayout(btnBuscarLayout);
         btnBuscarLayout.setHorizontalGroup(
             btnBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarLayout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
+            .addGroup(btnBuscarLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
                 .addComponent(jLabel3)
-                .addGap(54, 54, 54))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         btnBuscarLayout.setVerticalGroup(
             btnBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+            .addGroup(btnBuscarLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap())
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        panSearch.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
+
+        lblInfB.setFont(new java.awt.Font("Dubai", 0, 16)); // NOI18N
         lblInfB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInfB.setText(".");
+        panSearch.add(lblInfB, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 300, -1));
 
-        jLabel1.setText("Escriba lo que desea buscar");
-
+        jLabel2.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
         jLabel2.setText("Seleccione tipo de busqueda");
-
-        javax.swing.GroupLayout panSearchLayout = new javax.swing.GroupLayout(panSearch);
-        panSearch.setLayout(panSearchLayout);
-        panSearchLayout.setHorizontalGroup(
-            panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panSearchLayout.createSequentialGroup()
-                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(panSearchLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel1)
-                            .addGap(211, 211, 211)
-                            .addComponent(jLabel2))
-                        .addGroup(panSearchLayout.createSequentialGroup()
-                            .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panSearchLayout.createSequentialGroup()
-                                    .addGap(146, 146, 146)
-                                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(27, 27, 27)
-                                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(panSearchLayout.createSequentialGroup()
-                                    .addGap(103, 103, 103)
-                                    .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(58, 58, 58)
-                            .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panSearchLayout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(lblInfB, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(103, Short.MAX_VALUE))
-        );
-        panSearchLayout.setVerticalGroup(
-            panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panSearchLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblInfB)
-                .addGap(22, 22, 22)
-                .addGroup(panSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLimpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14))
-        );
+        panSearch.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 11, -1, 29));
 
         bg.add(panSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 890, 200));
 
-        panOptions.setBackground(new java.awt.Color(47, 91, 252));
+        panOptions.setBackground(new java.awt.Color(230, 240, 230));
         panOptions.setMinimumSize(new java.awt.Dimension(390, 640));
         panOptions.setPreferredSize(new java.awt.Dimension(390, 640));
         panOptions.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnBusqueda.setBackground(new java.awt.Color(125, 160, 110));
         btnBusqueda.setPreferredSize(new java.awt.Dimension(195, 50));
         btnBusqueda.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnBusquedaMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBusquedaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBusquedaMouseExited(evt);
+            }
         });
 
-        jLabel6.setText("Buscar");
+        jLabel6.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Desplegar menu busqueda");
 
         javax.swing.GroupLayout btnBusquedaLayout = new javax.swing.GroupLayout(btnBusqueda);
         btnBusqueda.setLayout(btnBusquedaLayout);
         btnBusquedaLayout.setHorizontalGroup(
             btnBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnBusquedaLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBusquedaLayout.createSequentialGroup()
+                .addContainerGap(8, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap())
         );
         btnBusquedaLayout.setVerticalGroup(
             btnBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnBusquedaLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel6)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         panOptions.add(btnBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 0, -1, -1));
 
+        btnPerfil.setBackground(new java.awt.Color(125, 160, 110));
         btnPerfil.setPreferredSize(new java.awt.Dimension(195, 50));
         btnPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnPerfilMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPerfilMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPerfilMouseExited(evt);
+            }
         });
 
+        jLabel5.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Perfil");
 
         javax.swing.GroupLayout btnPerfilLayout = new javax.swing.GroupLayout(btnPerfil);
@@ -369,20 +378,21 @@ public class panUser extends javax.swing.JPanel {
         btnPerfilLayout.setHorizontalGroup(
             btnPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnPerfilLayout.createSequentialGroup()
-                .addGap(78, 78, 78)
+                .addGap(72, 72, 72)
                 .addComponent(jLabel5)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         btnPerfilLayout.setVerticalGroup(
             btnPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnPerfilLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnPerfilLayout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
         );
 
         panOptions.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        btnTuPerfil.setBackground(new java.awt.Color(230, 240, 230));
         btnTuPerfil.setPreferredSize(new java.awt.Dimension(190, 50));
         btnTuPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -396,6 +406,8 @@ public class panUser extends javax.swing.JPanel {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(32, 72, 33));
         jLabel7.setText("Tu Perfil");
 
         javax.swing.GroupLayout btnTuPerfilLayout = new javax.swing.GroupLayout(btnTuPerfil);
@@ -405,20 +417,24 @@ public class panUser extends javax.swing.JPanel {
             .addGroup(btnTuPerfilLayout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel7)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         btnTuPerfilLayout.setVerticalGroup(
             btnTuPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnTuPerfilLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel7)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         panOptions.add(btnTuPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, -1));
 
+        btnAjustes.setBackground(new java.awt.Color(230, 240, 230));
         btnAjustes.setPreferredSize(new java.awt.Dimension(190, 50));
         btnAjustes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAjustesMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnAjustesMouseEntered(evt);
             }
@@ -427,6 +443,8 @@ public class panUser extends javax.swing.JPanel {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(32, 72, 33));
         jLabel8.setText("Ajustes");
 
         javax.swing.GroupLayout btnAjustesLayout = new javax.swing.GroupLayout(btnAjustes);
@@ -436,52 +454,56 @@ public class panUser extends javax.swing.JPanel {
             .addGroup(btnAjustesLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(jLabel8)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         btnAjustesLayout.setVerticalGroup(
             btnAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnAjustesLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel8)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         panOptions.add(btnAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
 
-        btnLibrosPrestados.setPreferredSize(new java.awt.Dimension(190, 50));
-        btnLibrosPrestados.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnPrestamos.setBackground(new java.awt.Color(230, 240, 230));
+        btnPrestamos.setPreferredSize(new java.awt.Dimension(190, 50));
+        btnPrestamos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnLibrosPrestadosMouseClicked(evt);
+                btnPrestamosMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnLibrosPrestadosMouseEntered(evt);
+                btnPrestamosMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnLibrosPrestadosMouseExited(evt);
+                btnPrestamosMouseExited(evt);
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(32, 72, 33));
         jLabel9.setText("Prestamos");
 
-        javax.swing.GroupLayout btnLibrosPrestadosLayout = new javax.swing.GroupLayout(btnLibrosPrestados);
-        btnLibrosPrestados.setLayout(btnLibrosPrestadosLayout);
-        btnLibrosPrestadosLayout.setHorizontalGroup(
-            btnLibrosPrestadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnLibrosPrestadosLayout.createSequentialGroup()
+        javax.swing.GroupLayout btnPrestamosLayout = new javax.swing.GroupLayout(btnPrestamos);
+        btnPrestamos.setLayout(btnPrestamosLayout);
+        btnPrestamosLayout.setHorizontalGroup(
+            btnPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnPrestamosLayout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addComponent(jLabel9)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
-        btnLibrosPrestadosLayout.setVerticalGroup(
-            btnLibrosPrestadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnLibrosPrestadosLayout.createSequentialGroup()
+        btnPrestamosLayout.setVerticalGroup(
+            btnPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnPrestamosLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel9)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        panOptions.add(btnLibrosPrestados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
+        panOptions.add(btnPrestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
+        btnEditarPerfil.setBackground(new java.awt.Color(230, 240, 230));
         btnEditarPerfil.setPreferredSize(new java.awt.Dimension(190, 50));
         btnEditarPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -492,6 +514,8 @@ public class panUser extends javax.swing.JPanel {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(32, 72, 33));
         jLabel11.setText("Editar Perfil");
 
         javax.swing.GroupLayout btnEditarPerfilLayout = new javax.swing.GroupLayout(btnEditarPerfil);
@@ -501,18 +525,19 @@ public class panUser extends javax.swing.JPanel {
             .addGroup(btnEditarPerfilLayout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(jLabel11)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         btnEditarPerfilLayout.setVerticalGroup(
             btnEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnEditarPerfilLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addGap(14, 14, 14))
         );
 
         panOptions.add(btnEditarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 200, -1));
 
+        btnCerrarSesion.setBackground(new java.awt.Color(255, 210, 210));
         btnCerrarSesion.setPreferredSize(new java.awt.Dimension(190, 50));
         btnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -526,6 +551,8 @@ public class panUser extends javax.swing.JPanel {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Eras Medium ITC", 0, 15)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(32, 72, 33));
         jLabel12.setText("Cerrar Sesion");
 
         javax.swing.GroupLayout btnCerrarSesionLayout = new javax.swing.GroupLayout(btnCerrarSesion);
@@ -535,12 +562,12 @@ public class panUser extends javax.swing.JPanel {
             .addGroup(btnCerrarSesionLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(jLabel12)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         btnCerrarSesionLayout.setVerticalGroup(
             btnCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCerrarSesionLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addGap(14, 14, 14))
         );
@@ -555,6 +582,8 @@ public class panUser extends javax.swing.JPanel {
     private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
 
         limpiarTabla();
+        txtBusqueda.setText("");
+        lblInfR.setText(""); 
     }//GEN-LAST:event_btnLimpiarMouseClicked
 
     private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
@@ -573,7 +602,15 @@ public class panUser extends javax.swing.JPanel {
             else{
                 tblModel.addRow(l.toArray());
             }
-
+            
+            if(tblModel.getRowCount() == 0) {
+            lblInfB.setText("No se encontro ningun libro.");
+            }
+        
+            else {
+            lblInfB.setText("Se encontro el libro.");
+            }
+        /////////////////////////////////////////////////////////////////////////////////
         }
         if(cmbFiltro.getSelectedIndex() == 1){ // buscar por autor
             limpiarTabla();
@@ -589,7 +626,14 @@ public class panUser extends javax.swing.JPanel {
             }
             Exe.listaSalida.clear();
         }
-
+        if(tblModel.getRowCount() == 0) {
+            lblInfB.setText("No se encontro ningun libro con el autor mencionado");
+            }
+        
+            else {
+            lblInfB.setText("Se encontraron los siguientes libros con el autor mencionado");
+            }
+        //////////////////////////////////////////////////////////////////////////////////
         if(cmbFiltro.getSelectedIndex() == 2){
 
             limpiarTabla();
@@ -605,7 +649,14 @@ public class panUser extends javax.swing.JPanel {
             }
             Exe.listaSalida.clear();
         }
-
+        if(tblModel.getRowCount() == 0) {
+            lblInfB.setText("No se encontro ningun libro con la editorial mencionada.");
+            }
+        
+            else {
+            lblInfB.setText("Se encontraron los siguientes libros con la editorial mencionada.");
+            }
+        //////////////////////////////////////////////////////////////////////////////////
         if(cmbFiltro.getSelectedIndex() == 3){
             limpiarTabla();
 
@@ -620,7 +671,14 @@ public class panUser extends javax.swing.JPanel {
             }
             Exe.listaSalida.clear();
         }
-
+        if(tblModel.getRowCount() == 0) {
+            lblInfB.setText("No se encontro ningun libro con la categoria propuesta.");
+            }
+        
+            else {
+            lblInfB.setText("Se encontraron los siguientes libros con la categoria propuesta.");
+            }
+        /////////////////////////////////////////////////////////////////////////////////
         if(cmbFiltro.getSelectedIndex() == 4){
             limpiarTabla();
 
@@ -629,6 +687,13 @@ public class panUser extends javax.swing.JPanel {
             for(int i = 0; i < Exe.listaSalida.size(); i++){
                 Libro l = Exe.listaSalida.get(i);
                 tblModel.addRow(l.toArray());
+            }
+            if(tblModel.getRowCount() == 0) {
+            lblInfB.setText("No se encontro ningun libro en el inventario");
+            }
+        
+            else {
+            lblInfB.setText("Se muestran todos los libros de la biblioteca.");
             }
         }
     }//GEN-LAST:event_btnBuscarMouseClicked
@@ -674,7 +739,7 @@ public class panUser extends javax.swing.JPanel {
                     lblInfR.setText("El libro buscado no existe.");
                     break;
                 case 1:
-                    lblInfR.setText("Ya tiene reservado el libro. Espere a que este disponible.");
+                    lblInfR.setText("Ya tiene reservado el libro.");
                     break;
                 case 2:
                     lblInfR.setText("Ha sido añadido a la cola de espera.");     
@@ -694,6 +759,7 @@ public class panUser extends javax.swing.JPanel {
         int fila = tblInventario.getSelectedRow();        
         String nombreCancelacion = (String) tblModel.getValueAt(fila,0);  
         Exe.almacen.cancelarReserva(Exe.cliente.getNombre(), nombreCancelacion);
+        lblInfR.setText("Ha cancelado la reserva del libro"); 
         
     }//GEN-LAST:event_btnCancelarReservacionMouseClicked
 
@@ -701,32 +767,34 @@ public class panUser extends javax.swing.JPanel {
         if(evt.getClickCount() == 1 || evt.getClickCount() == 2 ){
             int fila = tblInventario.getSelectedRow();             
             int cantidad = (int) tblModel.getValueAt(fila,2); 
+            btnSolicitar.setVisible(true);
             if(cantidad > 0){
-                btnSolicitar.setBackground(Color.BLUE);
+                btnSolicitar.setBackground(new Color(210,230,210));
                 lblSolicitud.setText("Solicitar");
                 btnCancelarReservacion.setVisible(false);
+                lblInfR.setText("Puede solicitar el libro");
             }
             if(cantidad == 0){
-                btnSolicitar.setBackground(Color.RED);                
+                btnSolicitar.setBackground(new Color(250,150,50));                
                 lblSolicitud.setText("Reservar");
                 btnCancelarReservacion.setVisible(true);
-                
+                lblInfR.setText("No hay libros disponibles, puede reservar.");
             }
             else{
-                
+                //lblInfR.setText("");
             }
         }   
     }//GEN-LAST:event_tblInventarioMouseClicked
 
     private void btnPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerfilMouseClicked
-        panTable.setVisible(false);
-        panSearch.setVisible(false);
+        //panTable.setVisible(false);
+        //panSearch.setVisible(false);
         
         btnAjustes.setVisible(true);
-        btnLibrosPrestados.setVisible(true);                   
+        btnPrestamos.setVisible(true);                   
         btnTuPerfil.setVisible(true);
         
-        panP.setVisible(false);
+        //panP.setVisible(false);
        
         
         btnEditarPerfil.setVisible(false);
@@ -739,7 +807,7 @@ public class panUser extends javax.swing.JPanel {
         panSearch.setVisible(true); 
         
         btnAjustes.setVisible(false);
-        btnLibrosPrestados.setVisible(false);                   
+        btnPrestamos.setVisible(false);                   
         btnTuPerfil.setVisible(false);
         
         panP.setVisible(false);
@@ -749,7 +817,12 @@ public class panUser extends javax.swing.JPanel {
         btnCerrarSesion.setVisible(false);
     }//GEN-LAST:event_btnBusquedaMouseClicked
 
-    private void btnLibrosPrestadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosPrestadosMouseClicked
+    private void btnPrestamosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrestamosMouseClicked
+        
+        panTable.setVisible(false);
+        panSearch.setVisible(false);
+        
+        
         panP.setVisible(true);
         
         
@@ -757,62 +830,63 @@ public class panUser extends javax.swing.JPanel {
         btnCerrarSesion.setVisible(false);
         
 
-    }//GEN-LAST:event_btnLibrosPrestadosMouseClicked
+    }//GEN-LAST:event_btnPrestamosMouseClicked
 
     private void btnLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseEntered
         // TODO add your handling code here:
-        btnLimpiar.setBackground(new Color(255,255,255));
+        btnLimpiar.setBackground(new Color(200,230,200));
     }//GEN-LAST:event_btnLimpiarMouseEntered
 
     private void btnLimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseExited
         // TODO add your handling code here:
-        btnLimpiar.setBackground(new Color(242,242,242));
+        btnLimpiar.setBackground(new Color(230,240,230));
     }//GEN-LAST:event_btnLimpiarMouseExited
 
     private void btnBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseEntered
         // TODO add your handling code here:
-        btnBuscar.setBackground(new Color(255,255,255));
+        btnBuscar.setBackground(new Color(200,230,200));
     }//GEN-LAST:event_btnBuscarMouseEntered
 
     private void btnBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseExited
         // TODO add your handling code here:
-        btnBuscar.setBackground(new Color(242,242,242));
+        btnBuscar.setBackground(new Color(230,240,230));
     }//GEN-LAST:event_btnBuscarMouseExited
 
-    private void btnLibrosPrestadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosPrestadosMouseEntered
+    private void btnPrestamosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrestamosMouseEntered
         // TODO add your handling code here:
-        btnLibrosPrestados.setBackground(new Color(255,255,255));
-    }//GEN-LAST:event_btnLibrosPrestadosMouseEntered
+        btnPrestamos.setBackground(new Color(200,230,200));
+    }//GEN-LAST:event_btnPrestamosMouseEntered
 
-    private void btnLibrosPrestadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosPrestadosMouseExited
+    private void btnPrestamosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrestamosMouseExited
         // TODO add your handling code here:
-        btnLibrosPrestados.setBackground(new Color(242,242,242));
-    }//GEN-LAST:event_btnLibrosPrestadosMouseExited
+        btnPrestamos.setBackground(new Color(230,240,230));
+    }//GEN-LAST:event_btnPrestamosMouseExited
 
     private void btnAjustesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAjustesMouseEntered
         // TODO add your handling code here:
-        btnAjustes.setBackground(new Color(255,255,255));
+        btnAjustes.setBackground(new Color(200,230,200));
     }//GEN-LAST:event_btnAjustesMouseEntered
 
     private void btnAjustesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAjustesMouseExited
         // TODO add your handling code here:
-        btnAjustes.setBackground(new Color(242,242,242));
+        btnAjustes.setBackground(new Color(230,240,230));
     }//GEN-LAST:event_btnAjustesMouseExited
 
     private void btnTuPerfilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTuPerfilMouseEntered
         // TODO add your handling code here:
-        btnTuPerfil.setBackground(new Color(255,255,255));
+        btnTuPerfil.setBackground(new Color(200,230,200));
     }//GEN-LAST:event_btnTuPerfilMouseEntered
 
     private void btnTuPerfilMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTuPerfilMouseExited
         // TODO add your handling code here:
-        btnTuPerfil.setBackground(new Color(242,242,242));
+        btnTuPerfil.setBackground(new Color(230,240,230));
     }//GEN-LAST:event_btnTuPerfilMouseExited
 
     private void btnTuPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTuPerfilMouseClicked
         // TODO add your handling code here:
         btnEditarPerfil.setVisible(true);
         btnCerrarSesion.setVisible(true);
+        
         
         
     }//GEN-LAST:event_btnTuPerfilMouseClicked
@@ -826,31 +900,67 @@ public class panUser extends javax.swing.JPanel {
 
     private void btnEditarPerfilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarPerfilMouseEntered
         // TODO add your handling code here:
-        btnEditarPerfil.setBackground(new Color(255,255,255));
+        btnEditarPerfil.setBackground(new Color(225,240,225));
     }//GEN-LAST:event_btnEditarPerfilMouseEntered
 
     private void btnCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseEntered
         // TODO add your handling code here:
-        btnCerrarSesion.setBackground(new Color(255,255,255));
+        btnCerrarSesion.setBackground(new Color(255,225,225));
     }//GEN-LAST:event_btnCerrarSesionMouseEntered
 
     private void btnEditarPerfilMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarPerfilMouseExited
         // TODO add your handling code here:
-        btnEditarPerfil.setBackground(new Color(242,242,242));
+        btnEditarPerfil.setBackground(new Color(210,230,210));
     }//GEN-LAST:event_btnEditarPerfilMouseExited
 
     private void btnCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseExited
         // TODO add your handling code here:
-        btnCerrarSesion.setBackground(new Color(242,242,242));
+        btnCerrarSesion.setBackground(new Color(255,210,210));
     }//GEN-LAST:event_btnCerrarSesionMouseExited
+
+    private void btnPerfilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerfilMouseEntered
+        btnPerfil.setBackground(new Color(195,220,180));
+    }//GEN-LAST:event_btnPerfilMouseEntered
+
+    private void btnPerfilMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerfilMouseExited
+        btnPerfil.setBackground(new Color(125,160,110));
+    }//GEN-LAST:event_btnPerfilMouseExited
+        
+    private void btnBusquedaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseEntered
+        btnBusqueda.setBackground(new Color(195,220,180));
+    }//GEN-LAST:event_btnBusquedaMouseEntered
+
+    private void btnBusquedaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseExited
+        btnBusqueda.setBackground(new Color(125,160,110));
+    }//GEN-LAST:event_btnBusquedaMouseExited
+
+    private void btnCancelarReservacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarReservacionMouseEntered
+        // TODO add your handling code here:
+        btnCancelarReservacion.setBackground(new Color(250,200,85));
+    }//GEN-LAST:event_btnCancelarReservacionMouseEntered
+
+    private void btnCancelarReservacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarReservacionMouseExited
+        btnCancelarReservacion.setBackground(new Color(250,150,50));
+    }//GEN-LAST:event_btnCancelarReservacionMouseExited
+
+    private void btnAjustesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAjustesMouseClicked
+        // TODO add your handling code here:
+        btnEditarPerfil.setVisible(false);
+        btnCerrarSesion.setVisible(false);
+        
+        
+    }//GEN-LAST:event_btnAjustesMouseClicked
+
+    private void txtBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusquedaActionPerformed
+
+    private void txtBusquedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBusquedaMouseClicked
+        // TODO add your handling code here:
+        txtBusqueda.setText("");
+    }//GEN-LAST:event_txtBusquedaMouseClicked
     
-    private void limpiarTabla(){
-        for(int i = 0; i < tblInventario.getRowCount(); i++ ){
-            tblModel.removeRow(i);
-            i --;
-        }
     
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
@@ -860,13 +970,12 @@ public class panUser extends javax.swing.JPanel {
     private javax.swing.JPanel btnCancelarReservacion;
     private javax.swing.JPanel btnCerrarSesion;
     private javax.swing.JPanel btnEditarPerfil;
-    private javax.swing.JPanel btnLibrosPrestados;
     private javax.swing.JPanel btnLimpiar;
     private javax.swing.JPanel btnPerfil;
+    private javax.swing.JPanel btnPrestamos;
     private javax.swing.JPanel btnSolicitar;
     private javax.swing.JPanel btnTuPerfil;
     private javax.swing.JComboBox<String> cmbFiltro;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
@@ -900,4 +1009,25 @@ public class panUser extends javax.swing.JPanel {
         
         
     }
+    private void limpiarTabla(){
+        for(int i = 0; i < tblInventario.getRowCount(); i++ ){
+            tblModel.removeRow(i);
+            i --;
+        }
+    
+    }
+
+    private void setHeaderFont(JTableHeader tableHeader, Font font) {
+        tableHeader.setFont(font);
+        tableHeader.setDefaultRenderer(new DefaultTableCellRenderer() {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            JLabel headerLabel = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            headerLabel.setHorizontalAlignment(JLabel.CENTER);
+            return headerLabel;
+        }
+    });
+    }
+    
+    
 }

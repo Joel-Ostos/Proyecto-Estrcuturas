@@ -1,11 +1,9 @@
 package clases.V1;
 
-import clases.V1.Libro;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.TreeSet;
-import java.util.concurrent.CompletionStage;
 import java.util.ArrayList;
 
 public class LibrosBiblioteca {
@@ -54,7 +52,7 @@ public class LibrosBiblioteca {
         for (Libro libro : libros) {
             if (libro.getAutor().equals(autor)) {
 
-                System.out.println(libro);
+                //System.out.println(libro);
                 listaEnvio.add(libro);
 
             }
@@ -74,7 +72,7 @@ public class LibrosBiblioteca {
         for (Libro libro : libros) {
             if (libro.getEditorial().equals(editorial)) {
 
-                System.out.println(libro);
+                //System.out.println(libro);
                 listaEnvio.add(libro);
 
             }
@@ -95,7 +93,7 @@ public class LibrosBiblioteca {
         for (Libro libro : libros) {
             if (libro.getCategoria().equals(categoria)) {
 
-                System.out.println(libro);
+                //System.out.println(libro);
                 listaEnvio.add(libro);
 
             }
@@ -203,7 +201,7 @@ public class LibrosBiblioteca {
         // Verifica si ya existe una reserva para ese cliente y ese libro
         for (Reserva reserva : reservas) {
             if (reserva.getCliente().equals(cliente) && reserva.getLibro().equals(libro)) {
-                System.out.println("Ya tienes una reserva para este libro.");
+                //System.out.println("Ya tienes una reserva para este libro.");
                 return true; // ya esta en la cola
             }
             else{
@@ -226,7 +224,7 @@ public class LibrosBiblioteca {
         // Verifica si ya existe una reserva para ese cliente y ese libro
         for (Reserva reserva : reservas) {
             if (reserva.getCliente().equals(cliente) && reserva.getLibro().equals(libro)) {
-                System.out.println("Ya tienes una reserva para este libro.");
+                //System.out.println("Ya tienes una reserva para este libro.");
                 return 1; // ya esta en la cola
             }
         }
@@ -241,7 +239,7 @@ public class LibrosBiblioteca {
         for (Reserva reserva : reservas) {
             if (reserva.getCliente().equals(cliente) && reserva.getLibro().equals(libro)) {
                 reservas.remove(reserva);
-                System.out.println("Reserva cancelada...");
+                //System.out.println("Reserva cancelada...");
                 
                 
                 
@@ -256,7 +254,7 @@ public class LibrosBiblioteca {
             System.out.println(i.getLibro());
             return this.reservas;
         }*/
-        System.out.println(reservas.toString());
+        //System.out.println(reservas.toString());
         return reservas;
     }
 
@@ -288,7 +286,7 @@ public class LibrosBiblioteca {
 
         Libro libro = mostrarPorNombre(reservaCliente.getLibro());
         if (libro != null && libro.getCantidad() > 0) {
-            System.out.println("Notificaci�n: El libro " + libro.getNombre() + " reservado por " + cliente + " est� disponible.");
+            //System.out.println("Notificaci�n: El libro " + libro.getNombre() + " reservado por " + cliente + " est� disponible.");
             return reservaCliente.getCliente();
         } else {
             return null;
